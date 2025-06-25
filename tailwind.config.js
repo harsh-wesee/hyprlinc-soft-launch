@@ -17,7 +17,28 @@ module.exports = {
       },
       animation: {
         'move-dots': 'moveDots 3s linear infinite'
-      }
+      },
+      fontFamily: {
+        montserrat: ["Montserrat", "sans-serif"],
+      },
+      fontSize: {
+        'heading': ['72px', {
+          lineHeight: '82.8px',
+          letterSpacing: '-1.8px',
+        }],
+        'subheading': ['48px', {
+          lineHeight: '48px',
+          letterSpacing: '-0.96px',
+        }],
+        'content': ['18px', {
+          lineHeight: '28px',
+        }],
+      },
+      fontWeight: {
+        heading: '700',
+        subheading: '700',
+        content: '400',
+      },
     }
   },
   plugins: [],

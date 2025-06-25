@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "@fontsource/montserrat/700.css";
+@import "@fontsource/montserrat/400.css";
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.heading {
+  @apply font-montserrat font-heading text-heading;
+}
+.subheading {
+  @apply font-montserrat font-subheading text-subheading;
+}
+.content {
+  @apply font-montserrat font-content text-content;
+}
+
 @keyframes moveDots {
   0% {
     transform: translateX(-100%);
