@@ -22,15 +22,21 @@ import right4 from './r4.png'
 import { useState, useEffect } from 'react';
 function App() {
   const [activeRole, setActiveRole] = useState('creator');
+  const [navOpen, setNavOpen] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f7f5ff] to-[#f7f8fc]">
       {/* Header Bar */}
-      <header className="sticky top-0 z-10 flex w-full items-center justify-between bg-white py-3 pl-8 pr-10 shadow-[0_1px_8px_rgba(0,0,0,0.03)]">
-        <div className="flex items-center gap-9">
+      <header className="sticky top-0 z-10 flex w-full items-center justify-between bg-white py-3 pl-4 pr-4 md:pl-8 md:pr-10 shadow-[0_1px_8px_rgba(0,0,0,0.03)]">
+        <div className="flex items-center gap-4 md:gap-9">
           <div className="flex items-center text-[1.7rem] font-bold tracking-[1px] text-[#222]">
             <img src={logo} alt="HYPRLINC" className="h-4" />
           </div>
-          <nav className="flex gap-6 text-base text-[#222]">
+          {/* Hamburger for mobile */}
+          <button className="md:hidden ml-2" onClick={() => setNavOpen(!navOpen)} aria-label="Open navigation">
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke="#222" strokeWidth="2" strokeLinecap="round"/></svg>
+          </button>
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex gap-6 text-base text-[#222]">
             <span>HyprLinc : 50</span>
             <span>Problem & Solution</span>
             <span>Features</span>
@@ -38,9 +44,25 @@ function App() {
             <span>Investors Opportunity</span>
           </nav>
         </div>
-        <button className="mr-6 flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#2A9B54] py-2 px-7 text-base font-medium text-white shadow-[0_2px_8px_rgba(24,119,242,0.08)] transition-all duration-500 ease-in-out hover:from-[#007AFF] hover:to-[#004999]">
-          Early Access <span className="ml-2 rounded-xl bg-white py-0.5 px-2.5 text-[0.9em] text-[#007AFF]">50 Left</span>
+        <button className="mr-2 md:mr-6 flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#2A9B54] py-2 px-5 md:px-7 text-base font-medium text-white shadow-[0_2px_8px_rgba(24,119,242,0.08)] transition-all duration-500 ease-in-out hover:from-[#007AFF] hover:to-[#004999]">
+          Early Access <span className="ml-2 rounded-xl bg-white py-0.5 px-2.5 text-[0.9em] text-[#007AFF]">30 Left</span>
         </button>
+        {/* Mobile Nav Drawer */}
+        <div className={`fixed inset-0 z-30 transition-all duration-300 ${navOpen ? 'block' : 'hidden'}`}>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black bg-opacity-40" onClick={() => setNavOpen(false)}></div>
+          {/* Drawer */}
+          <div className={`absolute top-0 left-0 h-full w-3/4 max-w-xs bg-white shadow-lg p-6 flex flex-col gap-6 transform ${navOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300`}>
+            <button className="self-end mb-4" onClick={() => setNavOpen(false)} aria-label="Close navigation">
+              <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6" stroke="#222" strokeWidth="2" strokeLinecap="round"/></svg>
+            </button>
+            <span className="py-2 border-b border-gray-200">HyprLinc : 50</span>
+            <span className="py-2 border-b border-gray-200">Problem & Solution</span>
+            <span className="py-2 border-b border-gray-200">Features</span>
+            <span className="py-2 border-b border-gray-200">How It Works</span>
+            <span className="py-2">Investors Opportunity</span>
+          </div>
+        </div>
       </header>
 
       {/* Main Content */}
@@ -222,94 +244,94 @@ function App() {
         </div>
       </section>
       {/* Why Traditional Influencer Marketing Doesn't Work Anymore */}
-      <section className="w-full flex flex-col items-center py-24 bg-[#fafbfc]">
+      <section className="w-full flex flex-col items-center py-12 md:py-24 bg-[#fafbfc] px-2 sm:px-4">
         <div className="mb-3 inline-flex items-center rounded-xl bg-blue-100 py-1 px-4">
           <span className="text-xs font-semibold text-blue-600 tracking-wide">Industry Challenge</span>
         </div>
-        <h2 className="heading text-center font-montserrat font-bold text-3xl md:text-4xl text-[#2563eb] mb-2">Why Traditional Influencer Marketing<br className="hidden md:block"/> Doesn't Work Anymore</h2>
-        <p className="content text-center font-montserrat text-base md:text-lg text-[#444] max-w-2xl mb-12">Influencer marketing is powerful—but when done manually, it's inefficient, slow, and unreliable. HyprLinc fixes that.</p>
-        <div className="flex flex-col md:flex-row gap-8 w-full max-w-5xl justify-center items-start mt-4">
+        <h2 className="heading text-center font-montserrat font-bold text-2xl sm:text-3xl md:text-4xl text-[#2563eb] mb-2">Why Traditional Influencer Marketing<br className="hidden md:block"/> Doesn't Work Anymore</h2>
+        <p className="content text-center font-montserrat text-sm sm:text-base md:text-lg text-[#444] max-w-2xl mb-8 md:mb-12">Influencer marketing is powerful—but when done manually, it's inefficient, slow, and unreliable. HyprLinc fixes that.</p>
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 w-full max-w-5xl justify-center items-start mt-2 md:mt-4">
           {/* Left Column */}
-          <div className="flex-1 bg-white rounded-2xl border border-[#fbeaea] p-8 shadow-sm">
-            <div className="flex items-center mb-6">
-              <span className="inline-block w-6 h-6 mr-2 align-middle">
+          <div className="flex-1 bg-white rounded-2xl border border-[#fbeaea] p-4 sm:p-6 md:p-8 shadow-sm mb-6 md:mb-0">
+            <div className="flex items-center mb-4 md:mb-6">
+              <span className="inline-block w-5 h-5 md:w-6 md:h-6 mr-2 align-middle">
                 <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="12" fill="#fde8e8"/><path d="M8 12h8M12 8v8" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg>
               </span>
-              <span className="font-inter font-bold text-[20px] leading-[28px] align-middle" style={{color: '#F47274'}}>Manual Influencer Marketing</span>
+              <span className="font-inter font-bold text-[18px] md:text-[20px] leading-[24px] md:leading-[28px] align-middle" style={{color: '#F47274'}}>Manual Influencer Marketing</span>
             </div>
-            <ul className="space-y-5">
-              <li className="flex items-start gap-4">
-                <span className="inline-block w-8 h-8 mt-1"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="#fde8e8"/><path d="M16 10v8M16 22h.01" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg></span>
+            <ul className="space-y-4 md:space-y-5">
+              <li className="flex items-start gap-3 md:gap-4">
+                <span className="inline-block w-7 h-7 md:w-8 md:h-8 mt-1"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="#fde8e8"/><path d="M16 10v8M16 22h.01" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg></span>
                 <div>
-                  <div className="font-inter font-medium font-weight-500 text-[16px] leading-[24px] text-black">Campaigns That Crawl</div>
-                  <div className="font-inter font-normal text-[14px] leading-[22.75px] text-black">Finding influencers is time-consuming and hit-or-miss.</div>
+                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">Campaigns That Crawl</div>
+                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">Finding influencers is time-consuming and hit-or-miss.</div>
                 </div>
               </li>
-              <li className="flex items-start gap-4">
-                <span className="inline-block w-8 h-8 mt-1"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="#fde8e8"/><path d="M10 16h12" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg></span>
+              <li className="flex items-start gap-3 md:gap-4">
+                <span className="inline-block w-7 h-7 md:w-8 md:h-8 mt-1"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="#fde8e8"/><path d="M10 16h12" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg></span>
                 <div>
-                  <div className="font-inter font-medium font-weight-500 text-[16px] leading-[24px] text-black">Bleeding on Custom Edits</div>
-                  <div className="font-inter font-normal text-[14px] leading-[22.75px] text-black">No way to verify audience authenticity or engagement.</div>
+                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">Bleeding on Custom Edits</div>
+                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">No way to verify audience authenticity or engagement.</div>
                 </div>
               </li>
-              <li className="flex items-start gap-4">
-                <span className="inline-block w-8 h-8 mt-1"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="#fde8e8"/><path d="M16 10v8M16 22h.01" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg></span>
+              <li className="flex items-start gap-3 md:gap-4">
+                <span className="inline-block w-7 h-7 md:w-8 md:h-8 mt-1"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="#fde8e8"/><path d="M16 10v8M16 22h.01" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg></span>
                 <div>
-                  <div className="font-inter font-medium font-weight-500 text-[16px] leading-[24px] text-black">ROI You Can't Predict</div>
-                  <div className="font-inter font-normal text-[14px] leading-[22.75px] text-black">Messy coordination through DMs, emails, and spreadsheets.</div>
+                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">ROI You Can't Predict</div>
+                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">Messy coordination through DMs, emails, and spreadsheets.</div>
                 </div>
               </li>
-              <li className="flex items-start gap-4">
-                <span className="inline-block w-8 h-8 mt-1"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="#fde8e8"/><path d="M10 16h12" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg></span>
+              <li className="flex items-start gap-3 md:gap-4">
+                <span className="inline-block w-7 h-7 md:w-8 md:h-8 mt-1"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="#fde8e8"/><path d="M10 16h12" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg></span>
                 <div>
-                  <div className="font-inter font-medium font-weight-500  text-[16px] leading-[24px] text-black">Licensing Chaos</div>
-                  <div className="font-inter font-normal text-[14px] leading-[22.75px] text-black">Payment risks and delays create trust issues.</div>
+                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">Licensing Chaos</div>
+                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">Payment risks and delays create trust issues.</div>
                 </div>
               </li>
-              <li className="flex items-start gap-4">
-                <span className="inline-block w-8 h-8 mt-1"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="#fde8e8"/><path d="M16 10v8M16 22h.01" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg></span>
+              <li className="flex items-start gap-3 md:gap-4">
+                <span className="inline-block w-7 h-7 md:w-8 md:h-8 mt-1"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="#fde8e8"/><path d="M16 10v8M16 22h.01" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg></span>
                 <div>
-                  <div className="font-inter font-medium font-weight-500 text-[16px] leading-[24px] text-black">Licensing Chaos</div>
-                  <div className="font-inter font-normal text-[14px] leading-[22.75px] text-black">No clear performance metrics or ROI tracking.</div>
+                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">Licensing Chaos</div>
+                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">No clear performance metrics or ROI tracking.</div>
                 </div>
               </li>
             </ul>
           </div>
           {/* Right Column */}
-          <div className="flex-1 bg-white rounded-2xl border border-[#e6f9f1] p-8 shadow-sm">
-            <div className="flex items-center mb-6">
-              <span className="inline-block w-6 h-6 mr-2 align-middle">
+          <div className="flex-1 bg-white rounded-2xl border border-[#e6f9f1] p-4 sm:p-6 md:p-8 shadow-sm">
+            <div className="flex items-center mb-4 md:mb-6">
+              <span className="inline-block w-5 h-5 md:w-6 md:h-6 mr-2 align-middle">
                 <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="12" fill="#e6f9f1"/><path d="M8 12h8M12 8v8" stroke="#22c55e" strokeWidth="2" strokeLinecap="round"/></svg>
               </span>
-              <span className="font-inter font-bold text-[20px] leading-[28px] align-middle bg-gradient-to-r from-[#10B981] via-[#2DD4BF] to-[#67E8F9] bg-clip-text text-transparent">How HyprLinc Solves It</span>
+              <span className="font-inter font-bold text-[18px] md:text-[20px] leading-[24px] md:leading-[28px] align-middle bg-gradient-to-r from-[#10B981] via-[#2DD4BF] to-[#67E8F9] bg-clip-text text-transparent">How HyprLinc Solves It</span>
             </div>
-            <ul className="space-y-5">
-              <li className="flex items-start gap-4">
-                <img src={right1} alt="Modular UGC Powered by AI" className="w-8 h-8 mt-1 object-contain" />
+            <ul className="space-y-4 md:space-y-5">
+              <li className="flex items-start gap-3 md:gap-4">
+                <img src={right1} alt="Modular UGC Powered by AI" className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain" />
                 <div>
-                  <div className="font-inter font-medium font-weight-500 text-[16px] leading-[24px] text-black">Modular UGC Powered by AI</div>
-                  <div className="font-inter font-normal text-[14px] leading-[22.75px] text-black">AI-powered matchmaking instantly connects you with creators who match your brand's niche, goals, and audience type</div>
+                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">Modular UGC Powered by AI</div>
+                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">AI-powered matchmaking instantly connects you with creators who match your brand's niche, goals, and audience type</div>
                 </div>
               </li>
-              <li className="flex items-start gap-4">
-                <img src={right2} alt="Predict ROI Before You Launch" className="w-8 h-8 mt-1 object-contain" />
+              <li className="flex items-start gap-3 md:gap-4">
+                <img src={right2} alt="Predict ROI Before You Launch" className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain" />
                 <div>
-                  <div className="font-inter font-medium font-weight-500 text-[16px] leading-[24px] text-black">Predict ROI Before You Launch</div>
-                  <div className="font-inter font-normal text-[14px] leading-[22.75px] text-black">Real-time data + fraud detection ensures you collaborate only with trusted, high-engagement creators</div>
+                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">Predict ROI Before You Launch</div>
+                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">Real-time data + fraud detection ensures you collaborate only with trusted, high-engagement creators</div>
                 </div>
               </li>
-              <li className="flex items-start gap-4">
-                <img src={right3} alt="Automated Legal, Built In" className="w-8 h-8 mt-1 object-contain" />
+              <li className="flex items-start gap-3 md:gap-4">
+                <img src={right3} alt="Automated Legal, Built In" className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain" />
                 <div>
-                  <div className="font-inter font-medium font-weight-500 text-[16px] leading-[24px] text-black">Automated Legal, Built In</div>
-                  <div className="font-inter font-normal text-[14px] leading-[22.75px] text-black">Built-in project management, messaging, and milestone tracking in one centralized dashboard.</div>
+                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">Automated Legal, Built In</div>
+                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">Built-in project management, messaging, and milestone tracking in one centralized dashboard.</div>
                 </div>
               </li>
-              <li className="flex items-start gap-4">
-                <img src={right4} alt="One Export. Every Channel." className="w-8 h-8 mt-1 object-contain" />
+              <li className="flex items-start gap-3 md:gap-4">
+                <img src={right4} alt="One Export. Every Channel." className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain" />
                 <div>
-                  <div className="font-inter font-medium font-weight-500 text-[16px] leading-[24px] text-black">One Export. Every Channel.</div>
-                  <div className="font-inter font-normal text-[14px] leading-[22.75px] text-black">Escrow-secured payments that release only upon delivery of agreed campaign milestones. Transparent analytics showing reach, engagement, conversions, and ROI—updated in real-time.</div>
+                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">One Export. Every Channel.</div>
+                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">Escrow-secured payments that release only upon delivery of agreed campaign milestones. Transparent analytics showing reach, engagement, conversions, and ROI—updated in real-time.</div>
                 </div>
               </li>
             </ul>
