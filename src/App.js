@@ -17,6 +17,13 @@ import right1 from './r1.png'
 import right2 from './r2.png'
 import right3 from './r3.png'
 import right4 from './r4.png'
+import left1 from './l1.png';
+
+import left3 from './l3.png';
+import left4 from './l4.png';
+import left5 from './l5.png';
+
+
 
 
 import { useState, useEffect } from 'react';
@@ -28,11 +35,12 @@ function App() {
       {/* Header Bar */}
       <header className="sticky top-0 z-10 flex w-full items-center justify-between bg-white py-3 pl-4 pr-4 md:pl-8 md:pr-10 shadow-[0_1px_8px_rgba(0,0,0,0.03)]">
         <div className="flex items-center gap-4 md:gap-9">
+          
           <div className="flex items-center text-[1.7rem] font-bold tracking-[1px] text-[#222]">
             <img src={logo} alt="HYPRLINC" className="h-4" />
           </div>
           {/* Hamburger for mobile */}
-          <button className="md:hidden ml-2" onClick={() => setNavOpen(!navOpen)} aria-label="Open navigation">
+          <button className="md:hidden mr-2" onClick={() => setNavOpen(!navOpen)} aria-label="Open navigation">
             <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke="#222" strokeWidth="2" strokeLinecap="round"/></svg>
           </button>
           {/* Desktop Nav */}
@@ -69,7 +77,7 @@ function App() {
       <main className="relative mx-auto flex max-w-[1200px] flex-col items-start px-4 pt-20 pb-0">
         <div className="flex w-full justify-between">
           <div className="max-w-[700px]">
-            <h1 className="mb-[18px] text-left text-[2.8rem] font-bold leading-[1.1]">
+           <h1 className="mb-6 text-left text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.3] tracking-tight">
               <span className="text-[#1877f2]">Connecting Brands, <br />Influencers and <br />Marketing Agencies</span><br />
               <span className="text-[#222]">Made In India.<br />for India.</span>
             </h1>
@@ -103,7 +111,7 @@ function App() {
           <span className="text-sm font-medium text-blue-600">Limited Time Opportunity</span>
         </div>
 
-        <h2 className="mt-6 text-center text-4xl font-bold">
+        <h2 className="mt-6 text-center text-2xl md:text-3xl font-semibold">
           Join the <span className="text-blue-600">HyprLinc : 50</span><br />
           Founder's Circle
         </h2>
@@ -156,7 +164,7 @@ function App() {
           </div>
           {/* Right: Benefits */}
           <div className="flex basis-0 flex-col items-start rounded-2xl border-[1.5px] border-solid border-[#e3eafd] bg-[#f9fbff] p-9 shadow-[0_2px_16px_rgba(24,119,242,0.06)] md:min-w-[350px] md:max-w-[420px] md:flex-1">
-            <h3 className="mb-[18px] flex items-center gap-2 text-lg font-bold text-[#2563eb]">Creator Founder's Circle Benefits</h3>
+            <h3 className="mb-4 flex items-center gap-2 text-base md:text-lg font-semibold text-[#2563eb]">Creator Founder's Circle Benefits</h3>
             <ul className="m-0 mb-[18px] w-full list-none p-0">
               <li className="mb-[18px] flex items-start gap-3.5">
               <img src={first} alt="Performance 2" className="h-10 w-10 object-contain" />           
@@ -261,35 +269,35 @@ function App() {
             </div>
             <ul className="space-y-4 md:space-y-5">
               <li className="flex items-start gap-3 md:gap-4">
-                <span className="inline-block w-7 h-7 md:w-8 md:h-8 mt-1"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="#fde8e8"/><path d="M16 10v8M16 22h.01" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg></span>
+              <img src={left1} alt="Modular UGC Powered by AI" className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain" />
                 <div>
                   <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">Campaigns That Crawl</div>
                   <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">Finding influencers is time-consuming and hit-or-miss.</div>
                 </div>
               </li>
               <li className="flex items-start gap-3 md:gap-4">
-                <span className="inline-block w-7 h-7 md:w-8 md:h-8 mt-1"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="#fde8e8"/><path d="M10 16h12" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg></span>
+              <img src={left1} alt="Modular UGC Powered by AI" className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain" />
                 <div>
                   <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">Bleeding on Custom Edits</div>
                   <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">No way to verify audience authenticity or engagement.</div>
                 </div>
               </li>
               <li className="flex items-start gap-3 md:gap-4">
-                <span className="inline-block w-7 h-7 md:w-8 md:h-8 mt-1"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="#fde8e8"/><path d="M16 10v8M16 22h.01" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg></span>
+              <img src={left3} alt="Modular UGC Powered by AI" className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain" />
                 <div>
                   <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">ROI You Can't Predict</div>
                   <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">Messy coordination through DMs, emails, and spreadsheets.</div>
                 </div>
               </li>
               <li className="flex items-start gap-3 md:gap-4">
-                <span className="inline-block w-7 h-7 md:w-8 md:h-8 mt-1"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="#fde8e8"/><path d="M10 16h12" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg></span>
+              <img src={left4} alt="Modular UGC Powered by AI" className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain" />
                 <div>
                   <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">Licensing Chaos</div>
                   <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">Payment risks and delays create trust issues.</div>
                 </div>
               </li>
               <li className="flex items-start gap-3 md:gap-4">
-                <span className="inline-block w-7 h-7 md:w-8 md:h-8 mt-1"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><rect width="32" height="32" rx="16" fill="#fde8e8"/><path d="M16 10v8M16 22h.01" stroke="#f87171" strokeWidth="2" strokeLinecap="round"/></svg></span>
+              <img src={left5} alt="Modular UGC Powered by AI" className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain" />
                 <div>
                   <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">Licensing Chaos</div>
                   <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">No clear performance metrics or ROI tracking.</div>
@@ -460,7 +468,10 @@ function App() {
           </div>
         </div>
         <div className="mt-8 flex flex-col items-center gap-2">
-          <button className="flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gray-800 py-3 px-8 text-lg font-semibold text-white shadow-[0_2px_8px_rgba(38,38,38,0.1)] transition-colors duration-200 hover:bg-gray-900"><span className="text-[1.2em]">🔒</span> Unlock Investor Access</button>
+        <button className="flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-r from-[#0F2972] to-[#1D4ED8] py-3 px-8 text-lg font-semibold text-white shadow-[0_2px_8px_rgba(15,41,114,0.15)] transition-all duration-200 hover:shadow-[0_2px_8px_rgba(15,41,114,0.25)] hover:from-[#0F2972] hover:to-[#1D4ED8]/90">
+  <span className="text-[1.2em]">🔒</span> 
+  Unlock Investor Access
+</button>
           <div className="text-base font-medium text-gray-500">Limited Availability – Investment Round Closing Soon</div>
         </div>
       </section>
