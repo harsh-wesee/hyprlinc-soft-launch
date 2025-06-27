@@ -60,7 +60,7 @@ function App() {
               onClick={() => scrollToSection('hyprlinc50')} 
               className="cursor-pointer hover:text-blue-600 transition-colors"
             >
-              HyprLinc : 50
+              Hyprlinc : 50
             </span>
             <span 
               onClick={() => scrollToSection('problem-solution')} 
@@ -105,7 +105,7 @@ function App() {
               onClick={() => scrollToSection('hyprlinc50')} 
               className="py-2 border-b border-gray-200 cursor-pointer"
             >
-              HyprLinc : 50
+              Hyprlinc : 50
             </span>
             <span 
               onClick={() => scrollToSection('problem-solution')} 
@@ -144,7 +144,7 @@ function App() {
               <span className="text-[#222]">Made In India.<br />for India.</span>
             </h1>
             <p className="mt-0 mb-9 max-w-[600px] text-left text-[1.1rem] text-[#444]">
-              HyprLinc is a dynamic platform designed to bridge the gap between influencers and brands, creating seamless collaborations that drive engagement and growth. With an intelligent matchmaking algorithm, HyprLinc connects brands with the right influencers based on audience demographics, engagement metrics, and campaign goals.
+              Hyprlinc is a dynamic platform designed to bridge the gap between influencers and brands, creating seamless collaborations that drive engagement and growth. With an intelligent matchmaking algorithm, Hyprlinc connects brands with the right influencers based on audience demographics, engagement metrics, and campaign goals.
             </p>
             <div className="mb-8 flex gap-[18px]">
               <button className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-[#2563eb] py-3 px-8 text-[1.1rem] font-medium text-white shadow-[0_2px_8px_rgba(37,99,235,0.08)]">Watch Demo <span className="ml-2 rounded-[10px] bg-white py-0.5 px-2 text-[0.95em] text-[#2563eb]">2 min</span></button>
@@ -167,14 +167,14 @@ function App() {
           </div>
         </div>
       </main>
-      {/* Join HyprLinc:50 Section */}
+      {/* Join Hyprlinc:50 Section */}
       <section id="hyprlinc50" className="mx-auto mt-20 mb-16 flex w-full max-w-[1100px] flex-col items-center px-4">
         <div className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4">
           <span className="text-sm font-medium text-blue-600">Limited Time Opportunity</span>
         </div>
 
         <h2 className="mt-6 text-center text-2xl md:text-3xl font-semibold">
-          Join the <span className="text-blue-600">HyprLinc : 50</span><br />
+          Join the <span className="text-blue-600">Hyprlinc : 50</span><br />
           Founder's Circle
         </h2>
 
@@ -231,7 +231,7 @@ function App() {
               <li className="mb-[18px] flex items-start gap-3.5">
               <img src={first} alt="Performance 2" className="h-10 w-10 object-contain" />           
                 <div>
-                  <strong>HyprLinc :50 Founding Badge (1/50)</strong><br />
+                  <strong>Hyprlinc :50 Founding Badge (1/50)</strong><br />
                   <span className="text-[0.98rem] text-[#444]">Visible on profile, listings, dashboards, and partner pages—builds authority, exclusivity, and long-term status.</span>
                 </div>
               </li>
@@ -266,7 +266,7 @@ function App() {
             </ul>
             <div className="mt-2.5 flex items-start gap-2.5 rounded-[10px] border border-solid border-[#ffe6a7] bg-[#fff7e6] p-3 text-[0.98rem] text-[#b45309]">
               <span className="mt-0.5 text-[1.3em]">⚠️</span>
-              <span className="text-[#b45309]"><strong>Not just joining—</strong>you're helping build and directly shape the future of HyprLinc. These benefits are reserved only for the first 50 early adopters. They will never be offered again.</span>
+              <span className="text-[#b45309]"><strong>Not just joining—</strong>you're helping build and directly shape the future of Hyprlinc. These benefits are reserved only for the first 50 early adopters. They will never be offered again.</span>
             </div>
           </div>
         </div>
@@ -295,7 +295,7 @@ function App() {
               <img src={p2} alt="Performance 2" className="h-10 w-10 object-contain" />
             </div>
             <AnimatedNumber endValue={3} suffix="X" />
-            <div className="text-center text-base text-gray-600">Higher engagement rate for Campaigns run on HyprLinc</div>
+            <div className="text-center text-base text-gray-600">Higher engagement rate for Campaigns run on Hyprlinc</div>
           </div>
           <div className="flex flex-col items-center rounded-[30px] bg-[#F6F5FF] p-8 transition-transform duration-200 hover:-translate-y-1">
             <div className="mb-3">
@@ -319,7 +319,7 @@ function App() {
           <span className="text-xs font-semibold text-blue-600 tracking-wide">Industry Challenge</span>
         </div>
         <h2 className="heading text-center font-montserrat font-bold text-2xl sm:text-3xl md:text-4xl text-[#2563eb] mb-2">Why Traditional Influencer Marketing<br className="hidden md:block"/> Doesn't Work Anymore</h2>
-        <p className="content text-center font-montserrat text-sm sm:text-base md:text-lg text-[#444] max-w-2xl mb-8 md:mb-12">Influencer marketing is powerful—but when done manually, it's inefficient, slow, and unreliable. HyprLinc fixes that.</p>
+        <p className="content text-center font-montserrat text-sm sm:text-base md:text-lg text-[#444] max-w-2xl mb-8 md:mb-12">Influencer marketing is powerful—but when done manually, it's inefficient, slow, and unreliable. Hyprlinc fixes that.</p>
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 w-full max-w-5xl justify-center items-start mt-2 md:mt-4">
           {/* Left Column */}
           <div className="flex-1 bg-white rounded-2xl border border-[#fbeaea] p-4 sm:p-6 md:p-8 shadow-sm mb-6 md:mb-0">
@@ -373,7 +373,7 @@ function App() {
               <span className="inline-block w-5 h-5 md:w-6 md:h-6 mr-2 align-middle">
                 <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><rect width="24" height="24" rx="12" fill="#e6f9f1"/><path d="M8 12h8M12 8v8" stroke="#22c55e" strokeWidth="2" strokeLinecap="round"/></svg>
               </span>
-              <span className="font-inter font-bold text-[18px] md:text-[20px] leading-[24px] md:leading-[28px] align-middle bg-gradient-to-r from-[#10B981] via-[#2DD4BF] to-[#67E8F9] bg-clip-text text-transparent">How HyprLinc Solves It</span>
+              <span className="font-inter font-bold text-[18px] md:text-[20px] leading-[24px] md:leading-[28px] align-middle bg-gradient-to-r from-[#10B981] via-[#2DD4BF] to-[#67E8F9] bg-clip-text text-transparent">How Hyprlinc Solves It</span>
             </div>
             <ul className="space-y-4 md:space-y-5">
               <li className="flex items-start gap-3 md:gap-4">
@@ -420,7 +420,7 @@ function App() {
         </h2>
 
         <p className="mb-12 max-w-[700px] text-center text-lg text-gray-600">
-          HyprLinc connects creators, Brand and Marketing agencies in a revolutionary new way
+          Hyprlinc connects creators, Brand and Marketing agencies in a revolutionary new way
           enabling seamless collaborations and campaign tracking on multiple channels.
         </p>
 
@@ -480,7 +480,7 @@ function App() {
       <section id="features" className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16">
         <h2 className="mb-[18px] text-center text-4xl font-bold">Features</h2>
         <div className="mb-12 max-w-[750px] text-center text-[1.1rem] leading-7 text-gray-600">
-          HyprLinc integrates effortlessly with social media platforms like Instagram, YouTube, and TikTok, as well as CRM tools such as HubSpot and Salesforce, allowing brands to sync influencer data directly with marketing strategies. The exclusive influencer marketplace provides influencers with access to top-tier brand deals while giving brands the ability to create custom influencer programs for long-term partnerships
+          Hyprlinc integrates effortlessly with social media platforms like Instagram, YouTube, and TikTok, as well as CRM tools such as HubSpot and Salesforce, allowing brands to sync influencer data directly with marketing strategies. The exclusive influencer marketplace provides influencers with access to top-tier brand deals while giving brands the ability to create custom influencer programs for long-term partnerships
         </div>
         <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
           <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
@@ -543,8 +543,8 @@ function App() {
                 <div className="mb-1 flex items-center gap-4">
                   <span className="text-base font-semibold text-blue-600">August 2025</span>
                 </div>
-                <div className="mb-2 text-lg font-bold text-blue-700">MVP Alpha Launch + HyprLinc :50</div>
-                <div className="mb-3 text-base text-gray-600">Public alpha with AI Editor v1, licensing engine, and real-time customization. 50 hand-picked creators, brands, and agencies testing features via HyprLinc:50 program.</div>
+                <div className="mb-2 text-lg font-bold text-blue-700">MVP Alpha Launch + Hyprlinc :50</div>
+                <div className="mb-3 text-base text-gray-600">Public alpha with AI Editor v1, licensing engine, and real-time customization. 50 hand-picked creators, brands, and agencies testing features via Hyprlinc:50 program.</div>
                 <div className="flex gap-2">
                   <span className="rounded-md bg-green-100 py-0.5 px-2.5 text-sm font-semibold text-green-700">150+ Pilot Partners</span>
                 </div>
@@ -571,7 +571,7 @@ function App() {
                 <div className="mb-1 flex items-center gap-4">
                   <span className="text-base font-semibold text-purple-600">Q2 2026</span>
                 </div>
-                <div className="mb-2 text-lg font-bold text-purple-700">HyprLinc Full v1 Launch</div>
+                <div className="mb-2 text-lg font-bold text-purple-700">Hyprlinc Full v1 Launch</div>
                 <div className="mb-3 text-base text-gray-600">Launch v1 with full dashboard, brand-side analytics, licensing hub, and API access. Reach Rs1.2M ARR through usage-based pricing, transactions, and early enterprise deals.</div>
                 <div className="flex gap-2">
                   <span className="rounded-md bg-purple-100 py-0.5 px-2.5 text-sm font-semibold text-purple-700">Rs 1.2M ARR</span>
@@ -605,7 +605,7 @@ function App() {
         </h2>
 
         <div className="mb-8 max-w-[700px] text-center text-lg text-gray-600">
-          HyprLinc gives you first-mover access to the future of AI-powered influencer
+          Hyprlinc gives you first-mover access to the future of AI-powered influencer
           marketing. Get early platform perks, preferred placement, and premium tools
           — before it opens to the public.
         </div>
