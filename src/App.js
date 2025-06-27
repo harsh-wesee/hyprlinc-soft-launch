@@ -23,33 +23,70 @@ import left3 from './l3.png';
 import left4 from './l4.png';
 import left5 from './l5.png';
 
-
-
-
 import { useState, useEffect } from 'react';
+
 function App() {
   const [activeRole, setActiveRole] = useState('creator');
   const [navOpen, setNavOpen] = useState(false);
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setNavOpen(false); // Close mobile menu after clicking
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f7f5ff] to-[#f7f8fc]">
       {/* Header Bar */}
       <header className="sticky top-0 z-10 flex w-full items-center justify-between bg-white py-3 pl-4 pr-4 md:pl-8 md:pr-10 shadow-[0_1px_8px_rgba(0,0,0,0.03)]">
         <div className="flex items-center gap-4 md:gap-9">
+          {/* Hamburger for mobile - Moved to first position */}
+          <button className="md:hidden" onClick={() => setNavOpen(!navOpen)} aria-label="Open navigation">
+            <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke="#222" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+          </button>
           
+          {/* Logo */}
           <div className="flex items-center text-[1.7rem] font-bold tracking-[1px] text-[#222]">
             <img src={logo} alt="HYPRLINC" className="h-4" />
           </div>
-          {/* Hamburger for mobile */}
-          <button className="md:hidden mr-2" onClick={() => setNavOpen(!navOpen)} aria-label="Open navigation">
-            <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke="#222" strokeWidth="2" strokeLinecap="round"/></svg>
-          </button>
+
           {/* Desktop Nav */}
           <nav className="hidden md:flex gap-6 text-base text-[#222]">
-            <span>HyprLinc : 50</span>
-            <span>Problem & Solution</span>
-            <span>Features</span>
-            <span>How It Works</span>
-            <span>Investors Opportunity</span>
+            <span 
+              onClick={() => scrollToSection('hyprlinc50')} 
+              className="cursor-pointer hover:text-blue-600 transition-colors"
+            >
+              HyprLinc : 50
+            </span>
+            <span 
+              onClick={() => scrollToSection('problem-solution')} 
+              className="cursor-pointer hover:text-blue-600 transition-colors"
+            >
+              Problem & Solution
+            </span>
+            <span 
+              onClick={() => scrollToSection('how-it-works')} 
+              className="cursor-pointer hover:text-blue-600 transition-colors"
+            >
+              How It Works
+            </span>
+            <span 
+              onClick={() => scrollToSection('features')} 
+              className="cursor-pointer hover:text-blue-600 transition-colors"
+            >
+              Features
+            </span>
+            
+            <span 
+              onClick={() => scrollToSection('investors')} 
+              className="cursor-pointer hover:text-blue-600 transition-colors"
+            >
+              Investors Opportunity
+            </span>
           </nav>
         </div>
         <button className="mr-2 md:mr-6 flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#2A9B54] py-2 px-5 md:px-7 text-base font-medium text-white shadow-[0_2px_8px_rgba(24,119,242,0.08)] transition-all duration-500 ease-in-out hover:from-[#007AFF] hover:to-[#004999]">
@@ -64,11 +101,36 @@ function App() {
             <button className="self-end mb-4" onClick={() => setNavOpen(false)} aria-label="Close navigation">
               <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6" stroke="#222" strokeWidth="2" strokeLinecap="round"/></svg>
             </button>
-            <span className="py-2 border-b border-gray-200">HyprLinc : 50</span>
-            <span className="py-2 border-b border-gray-200">Problem & Solution</span>
-            <span className="py-2 border-b border-gray-200">Features</span>
-            <span className="py-2 border-b border-gray-200">How It Works</span>
-            <span className="py-2">Investors Opportunity</span>
+            <span 
+              onClick={() => scrollToSection('hyprlinc50')} 
+              className="py-2 border-b border-gray-200 cursor-pointer"
+            >
+              HyprLinc : 50
+            </span>
+            <span 
+              onClick={() => scrollToSection('problem-solution')} 
+              className="py-2 border-b border-gray-200 cursor-pointer"
+            >
+              Problem & Solution
+            </span>
+            <span 
+              onClick={() => scrollToSection('features')} 
+              className="py-2 border-b border-gray-200 cursor-pointer"
+            >
+              Features
+            </span>
+            <span 
+              onClick={() => scrollToSection('how-it-works')} 
+              className="py-2 border-b border-gray-200 cursor-pointer"
+            >
+              How It Works
+            </span>
+            <span 
+              onClick={() => scrollToSection('investors')} 
+              className="py-2 cursor-pointer"
+            >
+              Investors Opportunity
+            </span>
           </div>
         </div>
       </header>
@@ -106,7 +168,7 @@ function App() {
         </div>
       </main>
       {/* Join HyprLinc:50 Section */}
-      <section className="mx-auto mt-20 mb-16 flex w-full max-w-[1100px] flex-col items-center px-4">
+      <section id="hyprlinc50" className="mx-auto mt-20 mb-16 flex w-full max-w-[1100px] flex-col items-center px-4">
         <div className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4">
           <span className="text-sm font-medium text-blue-600">Limited Time Opportunity</span>
         </div>
@@ -210,7 +272,7 @@ function App() {
         </div>
       </section>
       {/* Platform Performance Section */}
-      <section className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16">
+      <section id="problem-solution" className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16">
         <div className="mb-4 inline-flex items-center gap-2 rounded-xl bg-blue-100 py-1.5 px-3.5 text-base font-medium text-blue-700 shadow-[0_1px_4px_rgba(37,99,235,0.04)]">
           <span className="text-[1.3em]">📊</span> Platform Performance
         </div>
@@ -348,7 +410,7 @@ function App() {
       </section>
       {/* Why Traditional Influencer Marketing is not working? */}
       
-      <section className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16">
+      <section id="how-it-works" className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16">
         <div className="mb-4 inline-flex items-center gap-2 rounded-xl bg-blue-50 py-1.5 px-3">
           <span className="text-blue-600 text-sm">How it works</span>
         </div>
@@ -415,7 +477,7 @@ function App() {
         <p className="mt-3 text-sm text-gray-500">Only 50 spots available</p>
       </section>
       {/* Features Section */}
-      <section className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16">
+      <section id="features" className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16">
         <h2 className="mb-[18px] text-center text-4xl font-bold">Features</h2>
         <div className="mb-12 max-w-[750px] text-center text-[1.1rem] leading-7 text-gray-600">
           HyprLinc integrates effortlessly with social media platforms like Instagram, YouTube, and TikTok, as well as CRM tools such as HubSpot and Salesforce, allowing brands to sync influencer data directly with marketing strategies. The exclusive influencer marketplace provides influencers with access to top-tier brand deals while giving brands the ability to create custom influencer programs for long-term partnerships
@@ -453,30 +515,9 @@ function App() {
           </div>
         </div>
       </section>
-      {/* Why Now Section */}
-      <section className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16">
-        <div className="w-full max-w-full rounded-2xl border-[1.5px] border-solid border-blue-200 bg-white p-10 shadow-[0_4px_24px_rgba(37,99,235,0.06)] md:max-w-[850px]">
-          <div className="mb-6 flex items-center gap-3">
-            <span className="text-xl font-bold text-blue-600">•</span>
-            <span className="text-2xl font-bold text-gray-800">Why Now</span>
-          </div>
-          <div className="grid grid-cols-1 gap-x-8 gap-y-5 md:grid-cols-2">
-            <div className="text-lg leading-7 text-gray-600"><span className="font-semibold text-blue-600">AI-native ad infrastructure</span> is being adopted faster than agencies can adapt — brands now demand real-time personalization, localization, and compliance.</div>
-            <div className="text-lg leading-7 text-gray-600">The <span className="font-semibold text-blue-600">creator economy is maturing</span>: 450M+ creators exist globally, yet monetization infrastructure is fragmented, slow, and mostly built for Web2.</div>
-            <div className="text-lg leading-7 text-gray-600"><span className="font-semibold text-blue-600">Regulatory pressure is rising</span> — FTC, GDPR, and platform policy shifts will make compliance automation essential, not optional.</div>
-            <div className="text-lg leading-7 text-gray-600"><span className="font-semibold text-blue-600">Open-source AI + UGC unlock</span> means Mirao can dominate long-tail scale — before legacy incumbents can pivot.</div>
-          </div>
-        </div>
-        <div className="mt-8 flex flex-col items-center gap-2">
-        <button className="flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-r from-[#0F2972] to-[#1D4ED8] py-3 px-8 text-lg font-semibold text-white shadow-[0_2px_8px_rgba(15,41,114,0.15)] transition-all duration-200 hover:shadow-[0_2px_8px_rgba(15,41,114,0.25)] hover:from-[#0F2972] hover:to-[#1D4ED8]/90">
-  <span className="text-[1.2em]">🔒</span> 
-  Unlock Investor Access
-</button>
-          <div className="text-base font-medium text-gray-500">Limited Availability – Investment Round Closing Soon</div>
-        </div>
-      </section>
+      
       {/* Strategic Growth Roadmap Section */}
-      <section className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16">
+      <section id="investors" className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16">
         <div className="w-full max-w-full rounded-2xl bg-white p-10 shadow-[0_4px_24px_rgba(0,0,0,0.05)] md:max-w-[850px]">
           <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
             <span className="text-2xl font-bold text-gray-800">Strategic Growth Roadmap</span>
