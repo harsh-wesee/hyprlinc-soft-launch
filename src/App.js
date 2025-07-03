@@ -62,7 +62,7 @@ function App() {
 
           {/* Logo */}
           <div className="flex items-center text-[1.7rem] font-bold tracking-[1px] text-[#222]">
-            <img src={logo} alt="HYPRLINC" className="h-4" />
+            <img src={logo} alt="HYPRLINC" className="h-5" />
           </div>
 
           {/* Desktop Nav */}
@@ -100,7 +100,7 @@ function App() {
             </span>
           </nav>
         </div>
-        <button className="mr-2 md:mr-6 flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#2A9B54] py-2 px-5 md:px-7 text-base font-medium text-white shadow-[0_2px_8px_rgba(24,119,242,0.08)] transition-all duration-500 ease-in-out hover:from-[#007AFF] hover:to-[#004999]">
+        <button className="mr-2 md:mr-6 flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#2A9B54] py-1.5 px-3 md:px-6 text-base font-medium text-white shadow-[0_2px_8px_rgba(24,119,242,0.08)] transition-all duration-500 ease-in-out hover:from-[#007AFF] hover:to-[#004999]">
           Early Access
         </button>
         {/* Mobile Nav Drawer */}
