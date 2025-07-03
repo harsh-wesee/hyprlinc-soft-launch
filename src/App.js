@@ -23,6 +23,8 @@ import left3 from "./l3.png";
 import left4 from "./l4.png";
 import left5 from "./l5.png";
 
+/* this is the soft launch SPA for hyprlinc */
+
 import { useState, useEffect } from "react";
 
 function App() {
