@@ -22,14 +22,27 @@ import left1 from "./l1.png";
 import left3 from "./l3.png";
 import left4 from "./l4.png";
 import left5 from "./l5.png";
+import Overlay0 from "./Overlay.png";
+import Overlay1 from "./Overlay (1).png";
+import Overlay2 from "./Overlay (2).png";
+import Overlay3 from "./Overlay (3).png";
+import Overlay4 from "./Overlay (4).png";
+import Overlay5 from "./Overlay (5).png";
 
 /* this is the soft launch SPA for hyprlinc */
 
 import { useState, useEffect } from "react";
+import { joinWaitlist } from "./services/join-waitlist";
 
 function App() {
   const [activeRole, setActiveRole] = useState("creator");
   const [navOpen, setNavOpen] = useState(false);
+  // Waitlist form state
+  const [waitlistName, setWaitlistName] = useState("");
+  const [waitlistEmail, setWaitlistEmail] = useState("");
+  const [waitlistLoading, setWaitlistLoading] = useState(false);
+  const [waitlistMessage, setWaitlistMessage] = useState("");
+  const [waitlistError, setWaitlistError] = useState("");
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -37,6 +50,29 @@ function App() {
       element.scrollIntoView({ behavior: "smooth" });
     }
     setNavOpen(false); // Close mobile menu after clicking
+  };
+
+  const handleWaitlistSubmit = async (e) => {
+    e.preventDefault();
+    setWaitlistLoading(true);
+    setWaitlistMessage("");
+    setWaitlistError("");
+    try {
+      const userType =
+        activeRole.charAt(0).toUpperCase() + activeRole.slice(1); // Capitalize for API
+      const result = await joinWaitlist({
+        userType,
+        name: waitlistName,
+        email: waitlistEmail,
+      });
+      setWaitlistMessage(result.message);
+      setWaitlistName("");
+      setWaitlistEmail("");
+    } catch (err) {
+      setWaitlistError(err.message);
+    } finally {
+      setWaitlistLoading(false);
+    }
   };
 
   return (
@@ -193,14 +229,14 @@ function App() {
               based on audience demographics, engagement metrics, and campaign
               goals.
             </p>
-            <div className="mb-8 flex gap-[18px]">
-              <button className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-[#2563eb] py-3 px-8 text-[1.1rem] font-medium text-white shadow-[0_2px_8px_rgba(37,99,235,0.08)]">
+            <div className="mb-8 flex gap-3 md:gap-[18px]">
+              <button className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-[#2563eb] py-0.5 md:py-2 px-4 md:px-8 text-[1.1rem] font-medium text-white shadow-[0_2px_8px_rgba(37,99,235,0.08)] whitespace-nowrap">
                 Watch Demo{" "}
-                <span className="ml-2 rounded-[10px] bg-white py-0.5 px-2 text-[0.95em] text-[#2563eb]">
+                <span className="ml-2 rounded-[10px] bg-white py-0 px-2 text-[0.95em] text-[#2563eb]">
                   2 min
                 </span>
               </button>
-              <div className="flex items-center gap-3 rounded-lg border border-solid border-[#e5e7eb] bg-white p-3">
+              <div className="flex items-center gap-3 rounded-lg border border-solid border-[#e5e7eb] bg-white p-2 md:p-3">
                 <span className="text-[1.3em]">⚡</span>
                 <div className="flex items-center gap-2">
                   <span className="text-base font-semibold text-[#2563eb]">
@@ -290,24 +326,37 @@ function App() {
                 Agency
               </button>
             </div>
-            <form className="mt-2 flex w-full flex-col gap-3.5">
+            <form className="mt-2 flex w-full flex-col gap-3.5" onSubmit={handleWaitlistSubmit}>
               <input
                 type="text"
                 placeholder="Your Name"
                 className="w-full rounded-lg border border-solid border-[#e5e7eb] bg-[#f9fafb] p-3 text-base text-[#222] outline-none transition-colors duration-200 focus:border-[1.5px] focus:border-solid focus:border-[#2563eb]"
+                value={waitlistName}
+                onChange={e => setWaitlistName(e.target.value)}
+                required
               />
               <input
                 type="email"
                 placeholder="Your email"
                 className="w-full rounded-lg border border-solid border-[#e5e7eb] bg-[#f9fafb] p-3 text-base text-[#222] outline-none transition-colors duration-200 focus:border-[1.5px] focus:border-solid focus:border-[#2563eb]"
+                value={waitlistEmail}
+                onChange={e => setWaitlistEmail(e.target.value)}
+                required
               />
               <button
                 className="mt-1.5 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border-none bg-[#a5c8fa] py-3 text-lg font-semibold text-white transition-colors duration-200 hover:bg-[#2563eb]"
                 type="submit"
+                disabled={waitlistLoading}
               >
-                Join Creator Waitlist{" "}
+                {waitlistLoading ? "Joining..." : `Join ${activeRole.charAt(0).toUpperCase() + activeRole.slice(1)} Waitlist`} {" "}
                 <span className="ml-1 text-[1.2em]">→</span>
               </button>
+              {waitlistMessage && (
+                <div className="text-green-600 text-sm mt-2">{waitlistMessage}</div>
+              )}
+              {waitlistError && (
+                <div className="text-red-600 text-sm mt-2">{waitlistError}</div>
+              )}
             </form>
           </div>
           {/* Right: Benefits */}
@@ -391,9 +440,9 @@ function App() {
                 </div>
               </li>
             </ul>
-            <div className="mt-2.5 flex items-start gap-2.5 rounded-[10px] border border-solid border-[#ffe6a7] bg-[#fff7e6] p-3 text-[0.98rem] text-[#b45309]">
+            <div className="mt-2.5 flex items-start gap-2.5 rounded-[10px] border border-solid border-[#FEE2E2] bg-[#EEF2FFB2] p-3 text-[0.98rem] text-[#b45309]">
               <span className="mt-0.5 text-[1.3em]">⚠️</span>
-              <span className="text-[#b45309]">
+              <span className="text-[#111827]">
                 <strong>Not just joining—</strong>you're helping build and
                 directly shape the future of Hyprlinc. These benefits are
                 reserved only for the first 50 early adopters. They will never
@@ -408,8 +457,10 @@ function App() {
         id="problem-solution"
         className="mx-auto mt-20 mb-16 flex w-full max-w-[1100px] flex-col items-center px-4"
       >
-        <div className="mb-4 inline-flex items-center gap-2 rounded-xl bg-blue-100 py-1.5 px-3.5 text-base font-medium text-blue-700 shadow-[0_1px_4px_rgba(37,99,235,0.04)]">
-          <span className="text-[1.3em]">📊</span> Platform Performance
+        <div className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4">
+          <span className="text-sm font-medium text-blue-600">
+            Platform Performance
+          </span>
         </div>
         <h2 className="text-center font-montserrat font-bold text-2xl sm:text-2xl md:text-2xl text-[#2563eb] mb-2">
           <span className="text-blue-600">
@@ -479,8 +530,8 @@ function App() {
       </section>
       {/* Why Traditional Influencer Marketing Doesn't Work Anymore */}
       <section className="mx-auto mt-20 mb-16 flex w-full max-w-[1100px] flex-col items-center px-4">
-        <div className="mb-3 inline-flex items-center rounded-xl bg-blue-100 py-1 px-4">
-          <span className="text-xs font-semibold text-blue-600 tracking-wide">
+      <div className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4">
+          <span className="text-sm font-medium text-blue-600">
             Industry Challenge
           </span>
         </div>
@@ -500,7 +551,7 @@ function App() {
                 <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
                   <rect width="24" height="24" rx="12" fill="#fde8e8" />
                   <path
-                    d="M8 12h8M12 8v8"
+                    d="M8 12h8"
                     stroke="#f87171"
                     strokeWidth="2"
                     strokeLinecap="round"
@@ -787,7 +838,7 @@ function App() {
       {/* Features Section */}
       <section
         id="features"
-        className="mx-auto mt-1 flex w-full max-w-[1100px] flex-col items-center px-4 py-16"
+        className="mx-auto mt-1 flex w-full max-w-[1100px] flex-col items-center px-4 py-13"
       >
         <h2 className="text-center font-montserrat font-bold text-2xl sm:text-2xl md:text-2xl text-[#2563eb] mb-2">
           Features
@@ -803,8 +854,8 @@ function App() {
         </div>
         <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
           <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
-            <div className="mb-3 text-[2.2em]">🔍</div>
-            <div className="mb-2 text-lg font-semibold text-blue-600">
+            <img src={Overlay0} alt="Feature 1" className="mb-3 w-12 h-12 object-contain" />
+            <div className="mb-2 text-lg font-semibold bg-gradient-to-r from-[#007AFF] to-[#004999] bg-clip-text text-transparent">
               Personalized Campaign Suggestions
             </div>
             <div className="text-base text-gray-600">
@@ -813,8 +864,8 @@ function App() {
             </div>
           </div>
           <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
-            <div className="mb-3 text-[2.2em]">📊</div>
-            <div className="mb-2 text-lg font-semibold text-blue-600">
+            <img src={Overlay1} alt="Feature 2" className="mb-3 w-12 h-12 object-contain" />
+            <div className="mb-2 text-lg font-semibold bg-gradient-to-r from-[#007AFF] to-[#004999] bg-clip-text text-transparent">
               Smart campaign Dashboard
             </div>
             <div className="text-base text-gray-600">
@@ -823,8 +874,8 @@ function App() {
             </div>
           </div>
           <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
-            <div className="mb-3 text-[2.2em]">📄</div>
-            <div className="mb-2 text-lg font-semibold text-blue-600">
+            <img src={Overlay2} alt="Feature 3" className="mb-3 w-12 h-12 object-contain" />
+            <div className="mb-2 text-lg font-semibold bg-gradient-to-r from-[#007AFF] to-[#004999] bg-clip-text text-transparent">
               Real- Time insight
             </div>
             <div className="text-base text-gray-600">
@@ -833,8 +884,8 @@ function App() {
             </div>
           </div>
           <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
-            <div className="mb-3 text-[2.2em]">📅</div>
-            <div className="mb-2 text-lg font-semibold text-blue-600">
+            <img src={Overlay3} alt="Feature 4" className="mb-3 w-12 h-12 object-contain" />
+            <div className="mb-2 text-lg font-semibold bg-gradient-to-r from-[#007AFF] to-[#004999] bg-clip-text text-transparent">
               Advanced Influencer Search Engine
             </div>
             <div className="text-base text-gray-600">
@@ -843,8 +894,8 @@ function App() {
             </div>
           </div>
           <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
-            <div className="mb-3 text-[2.2em]">📝</div>
-            <div className="mb-2 text-lg font-semibold text-blue-600">
+            <img src={Overlay4} alt="Feature 5" className="mb-3 w-12 h-12 object-contain" />
+            <div className="mb-2 text-lg font-semibold bg-gradient-to-r from-[#007AFF] to-[#004999] bg-clip-text text-transparent">
               Campaign Brief Builder
             </div>
             <div className="text-base text-gray-600">
@@ -853,8 +904,8 @@ function App() {
             </div>
           </div>
           <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
-            <div className="mb-3 text-[2.2em]">🤝</div>
-            <div className="mb-2 text-lg font-semibold text-blue-600">
+            <img src={Overlay5} alt="Feature 6" className="mb-3 w-12 h-12 object-contain" />
+            <div className="mb-2 text-lg font-semibold bg-gradient-to-r from-[#007AFF] to-[#004999] bg-clip-text text-transparent">
               Direct Collaboration
             </div>
             <div className="text-base text-gray-600">
@@ -998,8 +1049,8 @@ function App() {
         </div>
       </section>
       {/* Final Call to Action Section */}
-      <section className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-20">
-        <div className="inline-flex items-center rounded-full bg-blue-100 py-1 px-4">
+      <section className="mx-auto mt-8 flex w-full max-w-[1100px] flex-col items-center px-4 pb-20">
+        <div className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4">
           <span className="text-sm font-medium text-blue-600">
             Early Access Ends Soon
           </span>
@@ -1019,7 +1070,7 @@ function App() {
         </div>
 
         <div className="mb-4 flex flex-col items-center">
-          <button className="group flex cursor-pointer items-center gap-3 rounded-lg bg-blue-600 py-3 px-8 text-lg font-semibold text-white shadow-lg transition-all hover:bg-blue-700">
+          <button className="group flex cursor-pointer items-center gap-3 rounded-lg bg-blue-600 py-2 md:py-3 px-4 md:px-8 text-lg font-semibold text-white shadow-lg transition-all hover:bg-blue-700 mx-2 md:mx-0">
             Claim Early Access{" "}
             <span className="ml-1 rounded-md bg-blue-500 py-0.5 px-2.5 text-sm font-medium text-white group-hover:bg-blue-600">
               Limited Spots
