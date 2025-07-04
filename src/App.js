@@ -80,21 +80,38 @@ function App() {
       {/* Header Bar */}
       <header className="sticky top-0 z-10 flex w-full items-center justify-between bg-white py-3 pl-4 pr-4 md:pl-8 md:pr-10 shadow-[0_1px_8px_rgba(0,0,0,0.03)]">
         <div className="flex items-center gap-4 md:gap-9">
-          {/* Hamburger for mobile - Moved to first position */}
-          <button
-            className="md:hidden"
-            onClick={() => setNavOpen(!navOpen)}
-            aria-label="Open navigation"
-          >
-            <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
-              <path
-                d="M4 6h16M4 12h16M4 18h16"
-                stroke="#222"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-          </button>
+          {/* Hamburger for mobile - replaced with cancel button when open */}
+          {navOpen ? (
+            <button
+              className="md:hidden"
+              onClick={() => setNavOpen(false)}
+              aria-label="Close navigation"
+            >
+              <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
+                <path
+                  d="M6 6l12 12M6 18L18 6"
+                  stroke="#222"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </button>
+          ) : (
+            <button
+              className="md:hidden"
+              onClick={() => setNavOpen(true)}
+              aria-label="Open navigation"
+            >
+              <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
+                <path
+                  d="M4 6h16M4 12h16M4 18h16"
+                  stroke="#222"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </button>
+          )}
 
           {/* Logo */}
           <div className="flex items-center text-[1.7rem] font-bold tracking-[1px] text-[#222]">
@@ -139,75 +156,48 @@ function App() {
         <button className="mr-2 md:mr-6 flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#2A9B54] py-1.5 px-3 md:px-6 text-base font-medium text-white shadow-[0_2px_8px_rgba(24,119,242,0.08)] transition-all duration-500 ease-in-out hover:from-[#007AFF] hover:to-[#004999]">
           Early Access
         </button>
-        {/* Mobile Nav Drawer */}
-        <div
-          className={`fixed inset-0 z-30 transition-all duration-300 ${
-            navOpen ? "block" : "hidden"
-          }`}
-        >
-          {/* Overlay */}
-          <div
-            className="absolute inset-0 bg-black bg-opacity-40"
-            onClick={() => setNavOpen(false)}
-          ></div>
-          {/* Drawer */}
-          <div
-            className={`absolute top-0 left-0 h-full w-3/4 max-w-xs bg-white shadow-lg p-6 flex flex-col gap-6 transform ${
-              navOpen ? "translate-x-0" : "-translate-x-full"
-            } transition-transform duration-300`}
-          >
-            <button
-              className="self-end mb-4"
-              onClick={() => setNavOpen(false)}
-              aria-label="Close navigation"
-            >
-              <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
-                <path
-                  d="M6 6l12 12M6 18L18 6"
-                  stroke="#222"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </button>
-            <span
-              onClick={() => scrollToSection("hyprlinc50")}
-              className="py-2 border-b border-gray-200 cursor-pointer"
-            >
-              Hyprlinc : 50
-            </span>
-            <span
-              onClick={() => scrollToSection("problem-solution")}
-              className="py-2 border-b border-gray-200 cursor-pointer"
-            >
-              Problem & Solution
-            </span>
-            <span
-              onClick={() => scrollToSection("features")}
-              className="py-2 border-b border-gray-200 cursor-pointer"
-            >
-              Features
-            </span>
-            <span
-              onClick={() => scrollToSection("how-it-works")}
-              className="py-2 border-b border-gray-200 cursor-pointer"
-            >
-              How It Works
-            </span>
-            <span
-              onClick={() => scrollToSection("investors")}
-              className="py-2 cursor-pointer"
-            >
-              Investors Opportunity
-            </span>
-          </div>
-        </div>
       </header>
 
+      {/* Mobile Nav Dropdown Panel */}
+      {navOpen && (
+        <div className="fixed left-0 top-[64px] z-30 w-64 bg-white shadow-lg rounded-b-xl py-4 md:hidden">
+          <span
+            onClick={() => { scrollToSection("hyprlinc50"); setNavOpen(false); }}
+            className="block py-3 px-6 border-b border-gray-200 text-base font-medium cursor-pointer hover:bg-gray-50"
+          >
+            Hyprlinc : 50
+          </span>
+          <span
+            onClick={() => { scrollToSection("problem-solution"); setNavOpen(false); }}
+            className="block py-3 px-6 border-b border-gray-200 text-base font-medium cursor-pointer hover:bg-gray-50"
+          >
+            Problem & Solution
+          </span>
+          <span
+            onClick={() => { scrollToSection("features"); setNavOpen(false); }}
+            className="block py-3 px-6 border-b border-gray-200 text-base font-medium cursor-pointer hover:bg-gray-50"
+          >
+            Features
+          </span>
+          <span
+            onClick={() => { scrollToSection("how-it-works"); setNavOpen(false); }}
+            className="block py-3 px-6 border-b border-gray-200 text-base font-medium cursor-pointer hover:bg-gray-50"
+          >
+            How It Works
+          </span>
+          <span
+            onClick={() => { scrollToSection("investors"); setNavOpen(false); }}
+            className="block py-3 px-6 text-base font-medium cursor-pointer hover:bg-gray-50"
+          >
+            Investors Opportunity
+          </span>
+        </div>
+      )}
+
       {/* Main Content */}
-      <main className="relative mx-auto flex max-w-[1200px] flex-col items-start px-4 pt-20 pb-0">
-        <div className="flex w-full justify-between">
-          <div className="max-w-[700px]">
+      <main className="relative mx-auto flex flex-col md:flex-row max-w-[1200px] items-start px-4 pt-4 md:pt-16 pb-0 w-full">
+        <div className="flex flex-col w-full md:w-auto md:flex-row justify-between">
+          <div className="max-w-full md:max-w-[700px] w-full">
             <h1 className="mb-6 text-left text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.3] tracking-tight">
               <span className="text-[#1877f2]">
                 Connecting Brands, <br />
@@ -229,16 +219,16 @@ function App() {
               based on audience demographics, engagement metrics, and campaign
               goals.
             </p>
-            <div className="mb-8 flex gap-3 md:gap-[18px]">
-              <button className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-[#2563eb] py-0.5 md:py-2 px-4 md:px-8 text-[1.1rem] font-medium text-white shadow-[0_2px_8px_rgba(37,99,235,0.08)] whitespace-nowrap">
+            <div className="mb-8 flex flex-col gap-3 md:flex-row md:gap-[18px] w-full">
+              <button className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-[#2563eb] py-3 md:py-2 px-4 md:px-8 text-[1.1rem] font-medium text-white shadow-[0_2px_8px_rgba(37,99,235,0.08)] whitespace-nowrap w-full md:w-auto justify-center">
                 Watch Demo{" "}
                 <span className="ml-2 rounded-[10px] bg-white py-0 px-2 text-[0.95em] text-[#2563eb]">
                   2 min
                 </span>
               </button>
-              <div className="flex items-center gap-3 rounded-lg border border-solid border-[#e5e7eb] bg-white p-2 md:p-3">
-                <span className="text-[1.3em]">⚡</span>
-                <div className="flex items-center gap-2">
+              <div className="flex items-center gap-3 rounded-lg border border-solid border-[#e5e7eb] bg-white p-2 md:p-3 w-full md:w-auto justify-center">
+                
+                <div className="flex flex-col md:flex-row items-center gap-2 w-full md:w-auto">
                   <span className="text-base font-semibold text-[#2563eb]">
                     Only 50 spots available
                   </span>
@@ -249,7 +239,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="relative hidden w-[450px] md:block">
+          <div className="relative hidden md:block w-[450px]">
             <img
               src={hero_bg}
               alt="Travel Freedom"
@@ -845,8 +835,7 @@ function App() {
         </h2>
         <div className="mb-12 max-w-[750px] text-center text-[1.1rem] leading-7 text-gray-600">
           Hyprlinc integrates effortlessly with social media platforms like
-          Instagram, YouTube, and TikTok, as well as CRM tools such as HubSpot
-          and Salesforce, allowing brands to sync influencer data directly with
+          Instagram & YouTube, allowing brands to sync influencer data directly with
           marketing strategies. The exclusive influencer marketplace provides
           influencers with access to top-tier brand deals while giving brands
           the ability to create custom influencer programs for long-term
@@ -967,8 +956,7 @@ function App() {
                   MVP Alpha Launch + Hyprlinc :50
                 </div>
                 <div className="mb-3 text-base text-gray-600">
-                  Public alpha with AI Editor v1, licensing engine, and
-                  real-time customization. 50 hand-picked creators, brands, and
+                  50 hand-picked creators, brands, and
                   agencies testing features via Hyprlinc:50 program.
                 </div>
                 <div className="flex gap-2">
@@ -988,16 +976,16 @@ function App() {
                   </span>
                 </div>
                 <div className="mb-2 text-lg font-bold text-pink-700">
-                  Seed Funding Round (Rs 2.5M)
+                  Seed Funding Round (Rs 5M)
                 </div>
                 <div className="mb-3 text-base text-gray-600">
-                  Secure Rs 2.5M Seed to accelerate engineering, go-to-market,
+                  Secure Rs. 5M Seed to accelerate engineering, go-to-market,
                   and creator onboarding at scale. Targeting 12-month runway and
-                  $1M post-Seed ARR.
+                  Rs. 1.5M post-Seed ARR.
                 </div>
                 <div className="flex gap-2">
                   <span className="rounded-md bg-pink-100 py-0.5 px-2.5 text-sm font-semibold text-pink-700">
-                    Rs 2.5M Target
+                    Rs. 5M Target
                   </span>
                 </div>
               </div>
@@ -1016,12 +1004,12 @@ function App() {
                 </div>
                 <div className="mb-3 text-base text-gray-600">
                   Launch v1 with full dashboard, brand-side analytics, licensing
-                  hub, and API access. Reach Rs1.2M ARR through usage-based
+                  hub, and API access. Reach Rs1.5M ARR through usage-based
                   pricing, transactions, and early enterprise deals.
                 </div>
                 <div className="flex gap-2">
                   <span className="rounded-md bg-purple-100 py-0.5 px-2.5 text-sm font-semibold text-purple-700">
-                    Rs 1.2M ARR
+                    Rs. 1.5M ARR
                   </span>
                 </div>
               </div>
@@ -1056,7 +1044,7 @@ function App() {
           </span>
         </div>
 
-        <h2 className="mt-6 mb-5 max-w-[800px] text-center text-5xl font-bold leading-tight">
+        <h2 className="mt-6 mb-5 max-w-[800px] text-center text-3xl md:text-5xl font-bold leading-tight">
           Secure Your Spot in the{" "}
           <span className="text-blue-600">AI Creator Economy</span> —
           <br />
@@ -1084,31 +1072,9 @@ function App() {
         </div>
       </section>
       {/* Footer Section */}
-      <footer className="bg-gray-800 py-16 text-white">
-        {/* <div className="mx-auto grid w-full max-w-[1100px] grid-cols-1 gap-10 px-8 md:grid-cols-5">
-          <div className="text-base text-gray-300 md:col-span-2">
-            Connecting brands, influencers, and agencies through an innovative platform that simplifies collaboration and maximizes results.
-          </div>
-          <div className="flex flex-col gap-3">
-            <div className="text-lg font-semibold text-white">Platform</div>
-            <div className="cursor-pointer text-base text-gray-300 transition-colors duration-200 hover:text-white">Overview</div>
-            <div className="cursor-pointer text-base text-gray-300 transition-colors duration-200 hover:text-white">Marketplace</div>
-            <div className="cursor-pointer text-base text-gray-300 transition-colors duration-200 hover:text-white">Leaderboard</div>
-          </div>
-          <div className="flex flex-col gap-3">
-            <div className="text-lg font-semibold text-white">Solutions</div>
-            <div className="cursor-pointer text-base text-gray-300 transition-colors duration-200 hover:text-white">For Creators</div>
-            <div className="cursor-pointer text-base text-gray-300 transition-colors duration-200 hover:text-white">For Brands</div>
-            <div className="cursor-pointer text-base text-gray-300 transition-colors duration-200 hover:text-white">For Agencies</div>
-          </div>
-          <div className="flex flex-col gap-3">
-            <div className="text-lg font-semibold text-white">Company</div>
-            <div className="cursor-pointer text-base text-gray-300 transition-colors duration-200 hover:text-white">Investors</div>
-            <div className="cursor-pointer text-base text-gray-300 transition-colors duration-200 hover:text-white">Comparison</div>
-            <div className="cursor-pointer text-base text-gray-300 transition-colors duration-200 hover:text-white">Pricing</div>
-          </div>
-        </div> */}
-        <div className="mx-auto mt-16 flex w-full max-w-[1100px] flex-wrap items-center justify-between gap-4 border-t border-solid border-gray-700 px-8 pt-8">
+      <footer className="bg-gray-800 py-12 text-white">
+
+        <div className="mx-auto flex w-full max-w-[1100px] flex-wrap items-center justify-between border-solid border-gray-700 px-8 pt-8">
           <div className="text-base text-gray-400">
             © 2025 Hyprlinc All rights reserved.
           </div>
