@@ -1,5 +1,5 @@
 export async function joinWaitlist({ userType, name, email }) {
-    const response = await fetch('http://localhost:5001/api/v1/waitlist/join', {
+    const response = await fetch('https://api.hyprlinc.com/api/v1/waitlist/join', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
