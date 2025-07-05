@@ -18,7 +18,6 @@ import right2 from "./r2.png";
 import right3 from "./r3.png";
 import right4 from "./r4.png";
 import left1 from "./l1.png";
-
 import left3 from "./l3.png";
 import left4 from "./l4.png";
 import left5 from "./l5.png";
@@ -31,8 +30,10 @@ import Overlay5 from "./Overlay (5).png";
 
 /* this is the soft launch SPA for hyprlinc */
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { joinWaitlist } from "./services/join-waitlist";
+import { ChevronRight, Users, Target, Building, UserPlus, FileText, Handshake, DollarSign } from 'lucide-react';
+
 
 function App() {
   const [activeRole, setActiveRole] = useState("creator");
@@ -723,8 +724,9 @@ function App() {
         </div>
       </section>
       {/* How it works - Updated with consistent typography */}
+      <HowItWorks />
 
-      <section
+      {/* <section
         id="how-it-works"
         className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16"
       >
@@ -824,7 +826,7 @@ function App() {
           Get Exclusive Early Access
         </button>
         <p className="mt-3 text-sm text-gray-500">Only 50 spots available</p>
-      </section>
+      </section> */}
       {/* Features Section */}
       <section
         id="features"
@@ -1120,5 +1122,285 @@ const AnimatedNumber = ({ endValue, suffix = "", duration = 2000 }) => {
       {count}
       {suffix}
     </div>
+  );
+};
+
+const HowItWorks = () => {
+  const [activeTab, setActiveTab] = useState('creators');
+  const [isVisible, setIsVisible] = useState(false);
+  const [animationPhase, setAnimationPhase] = useState(0);
+  const [activeButtonIndex, setActiveButtonIndex] = useState(0);
+  const sectionRef = useRef(null);
+
+  // Color cycling configuration
+  const colorCycle = [
+    { bg: 'bg-emerald-500', hover: 'hover:bg-emerald-600', text: 'text-emerald-500' },
+    { bg: 'bg-purple-500', hover: 'hover:bg-purple-600', text: 'text-purple-500' },
+    { bg: 'bg-orange-500', hover: 'hover:bg-orange-600', text: 'text-orange-500' }
+  ];
+
+  // Mock image components (replace with your actual images)
+  const signup = <UserPlus className="w-6 h-6 text-blue-600" />;
+  const create = <FileText className="w-6 h-6 text-blue-600" />;
+  const collaborate = <Handshake className="w-6 h-6 text-blue-600" />;
+  const getpaid = <DollarSign className="w-6 h-6 text-blue-600" />;
+
+  const tabConfig = {
+    creators: {
+      label: 'For Creators',
+      color: 'bg-emerald-500',
+      hoverColor: 'hover:bg-emerald-600',
+      icon: Users
+    },
+    brands: {
+      label: 'For Brands',
+      color: 'bg-purple-500',
+      hoverColor: 'hover:bg-purple-600',
+      icon: Target
+    },
+    agencies: {
+      label: 'For Agencies',
+      color: 'bg-orange-500',
+      hoverColor: 'hover:bg-orange-600',
+      icon: Building
+    }
+  };
+
+  const steps = [
+    {
+      icon: signup,
+      title: 'Sign up',
+      description: 'Register as a brand, influencer, or agency'
+    },
+    {
+      icon: create,
+      title: 'Create or Apply for Campaign',
+      description: 'Find and collaborate on tailored campaigns'
+    },
+    {
+      icon: collaborate,
+      title: 'Collaborate & Execute',
+      description: 'Finalize deliverables and track progress'
+    },
+    {
+      icon: getpaid,
+      title: 'Get Paid',
+      description: 'Post the finalised content and get paid'
+    }
+  ];
+
+  // Intersection Observer for scroll animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // Start animation sequence
+          const timer = setTimeout(() => {
+            setAnimationPhase(1);
+          }, 500);
+          return () => clearTimeout(timer);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Sequential button animation when visible
+  useEffect(() => {
+    if (isVisible) {
+      const buttonInterval = setInterval(() => {
+        setActiveButtonIndex((prevIndex) => (prevIndex + 1) % Object.keys(tabConfig).length);
+      }, 2000); // Change button every 2 seconds
+
+      return () => clearInterval(buttonInterval);
+    }
+  }, [isVisible]);
+
+  // Arrow animation sequence
+  useEffect(() => {
+    if (animationPhase === 1) {
+      const timer = setTimeout(() => setAnimationPhase(2), 800);
+      return () => clearTimeout(timer);
+    } else if (animationPhase === 2) {
+      const timer = setTimeout(() => setAnimationPhase(3), 800);
+      return () => clearTimeout(timer);
+    } else if (animationPhase === 3) {
+      const timer = setTimeout(() => setAnimationPhase(4), 800);
+      return () => clearTimeout(timer);
+    }
+  }, [animationPhase]);
+
+  const getActiveColor = (type = 'bg') => {
+    if (isVisible) {
+      const currentColor = colorCycle[activeButtonIndex];
+      return type === 'bg' ? currentColor.bg : currentColor.hover;
+    }
+    const config = tabConfig[activeTab];
+    return type === 'bg' ? config.color : config.hoverColor;
+  };
+
+  const getActiveTextColor = () => {
+    if (isVisible) {
+      return colorCycle[activeButtonIndex].text;
+    }
+    const config = tabConfig[activeTab];
+    return config.color.replace('bg-', 'text-');
+  };
+
+  const getButtonColor = (buttonIndex) => {
+    if (isVisible && activeButtonIndex === buttonIndex) {
+      return colorCycle[activeButtonIndex];
+    }
+    const config = Object.values(tabConfig)[buttonIndex];
+    return { bg: config.color, hover: config.hoverColor, text: config.color.replace('bg-', 'text-') };
+  };
+
+  const ArrowConnector = ({ index, isVisible }) => (
+    <div className={`absolute top-6 left-full transform -translate-y-1/2 transition-all duration-1000 ${
+      isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
+    }`}>
+      <div className="flex items-center">
+        <div className={`w-8 h-0.5 ${getActiveColor()} transition-all duration-500`}></div>
+        <ChevronRight className={`w-4 h-4 ${getActiveColor().replace('bg-', 'text-')} transition-all duration-500`} />
+      </div>
+    </div>
+  );
+
+  return (
+    <section
+      ref={sectionRef}
+      id="how-it-works"
+      className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16"
+    >
+      {/* Header */}
+      <div className={`mb-4 inline-flex items-center gap-2 rounded-xl bg-blue-50 py-1.5 px-3 transition-all duration-700 ${
+        isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
+      }`}>
+        <span className="text-blue-600 text-sm">How it works</span>
+      </div>
+
+      <h2 className={`text-center font-montserrat font-bold text-2xl sm:text-2xl md:text-2xl text-[#2563eb] mb-2 transition-all duration-700 delay-200 ${
+        isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
+      }`}>
+        Transforming Influencer Marketing
+      </h2>
+
+      <p className={`mb-12 max-w-[750px] text-center text-[1.1rem] leading-7 text-gray-600 transition-all duration-700 delay-300 ${
+        isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
+      }`}>
+        Hyprlinc connects creators, Brand and Marketing agencies in a
+        revolutionary new way enabling seamless collaborations and campaign
+        tracking on multiple channels.
+      </p>
+
+      {/* Tab Buttons - Sequential Animation */}
+      <div className={`mb-10 flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center transition-all duration-700 delay-400 ${
+        isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
+      }`}>
+        {Object.entries(tabConfig).map(([key, config], buttonIndex) => {
+          const Icon = config.icon;
+          const buttonColor = getButtonColor(buttonIndex);
+          const isActiveButton = isVisible && activeButtonIndex === buttonIndex;
+          
+          return (
+            <button
+              key={key}
+              onClick={() => setActiveTab(key)}
+              className={`px-3 py-2 sm:px-4 sm:py-2 rounded-full font-medium transition-all duration-500 flex items-center justify-center gap-2 text-sm sm:text-base ${
+                isActiveButton
+                  ? `${buttonColor.bg} text-white shadow-lg transform scale-105`
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              }`}
+            >
+              <Icon className="w-3 h-3 sm:w-4 sm:h-4" />
+              {config.label}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Process Steps - All Cards Change Together */}
+      <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 w-full">
+        {steps.map((step, index) => {
+          const isAnyButtonActive = isVisible;
+          const cardColor = isAnyButtonActive ? colorCycle[activeButtonIndex] : { bg: 'bg-blue-100', text: 'text-blue-600' };
+          
+          return (
+            <div
+              key={index}
+              className={`relative flex flex-col items-center text-center transition-all duration-700 ${
+                isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+              }`}
+              style={{ transitionDelay: `${500 + index * 200}ms` }}
+            >
+              {/* Card */}
+              <div className={`relative mb-4 h-12 w-12 sm:h-16 sm:w-16 flex items-center justify-center rounded-full transition-all duration-500 ${
+                isAnyButtonActive ? `${cardColor.bg} shadow-lg` : 'bg-blue-100'
+              }`}>
+                <div className={`transition-all duration-500 ${
+                  isAnyButtonActive ? 'text-white' : 'text-blue-600'
+                }`}>
+                  {step.icon}
+                </div>
+                
+                {/* Pulse animation for all cards when any button is active */}
+                {isAnyButtonActive && (
+                  <div className={`absolute inset-0 rounded-full ${cardColor.bg} opacity-20 animate-ping`}></div>
+                )}
+              </div>
+
+              {/* Arrow Connector - Hidden on mobile */}
+              {index < steps.length - 1 && (
+                <div className="hidden md:block">
+                  <ArrowConnector 
+                    index={index} 
+                    isVisible={animationPhase > index}
+                  />
+                </div>
+              )}
+
+              <h3 className={`mb-2 text-base sm:text-lg font-semibold transition-all duration-500 ${
+                isAnyButtonActive ? cardColor.text : 'text-blue-600'
+              }`}>
+                {step.title}
+              </h3>
+              <p className="text-sm sm:text-base text-gray-600">
+                {step.description}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* CTA Button */}
+      <button className={`mt-12 flex items-center gap-2 rounded-lg px-4 py-3 sm:px-6 sm:py-3 font-semibold text-white transition-all duration-700 delay-1000 ${
+        isVisible 
+          ? `${getActiveColor()} ${getActiveColor('hover')} opacity-100 transform translate-y-0 shadow-lg hover:shadow-xl hover:scale-105` 
+          : 'bg-blue-600 opacity-0 transform translate-y-4'
+      }`}>
+        Get Exclusive Early Access
+        <ChevronRight className="w-4 h-4" />
+      </button>
+      
+      <p className={`mt-3 text-sm text-gray-500 transition-all duration-700 delay-1100 ${
+        isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
+      }`}>
+        Only 50 spots available
+      </p>
+
+      {/* Background Animation */}
+      {isVisible && (
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <div className={`absolute top-1/2 left-1/2 w-96 h-96 ${getActiveColor().replace('bg-', 'bg-')} opacity-5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse`}></div>
+        </div>
+      )}
+    </section>
   );
 };
