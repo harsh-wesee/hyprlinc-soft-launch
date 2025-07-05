@@ -1135,9 +1135,9 @@ const HowItWorks = ({ scrollToSection }) => {
 
   // Color cycling configuration
   const colorCycle = [
-    { bg: 'bg-emerald-500', hover: 'hover:bg-emerald-600', text: 'text-emerald-500' },
-    { bg: 'bg-purple-500', hover: 'hover:bg-purple-600', text: 'text-purple-500' },
-    { bg: 'bg-orange-500', hover: 'hover:bg-orange-600', text: 'text-orange-500' }
+    { bg: 'bg-emerald-300', hover: 'hover:bg-emerald-400', text: 'text-emerald-500' },
+    { bg: 'bg-purple-300', hover: 'hover:bg-purple-400', text: 'text-purple-500' },
+    { bg: 'bg-orange-300', hover: 'hover:bg-orange-400', text: 'text-orange-500' }
   ];
 
   // Mock image components (replace with your actual images)
