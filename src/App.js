@@ -154,7 +154,7 @@ function App() {
             </span>
           </nav>
         </div>
-        <button className="mr-2 md:mr-6 flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#2A9B54] py-1.5 px-3 md:px-6 text-base font-medium text-white shadow-[0_2px_8px_rgba(24,119,242,0.08)] transition-all duration-500 ease-in-out hover:from-[#007AFF] hover:to-[#004999]">
+        <button className="mr-2 md:mr-6 flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#2A9B54] py-1.5 px-3 md:px-6 text-base font-medium text-white shadow-[0_2px_8px_rgba(24,119,242,0.08)] transition-all duration-500 ease-in-out hover:from-[#007AFF] hover:to-[#004999]" onClick={() => scrollToSection("hyprlinc50")}>
           Early Access
         </button>
       </header>
@@ -724,7 +724,7 @@ function App() {
         </div>
       </section>
       {/* How it works - Updated with consistent typography */}
-      <HowItWorks />
+      <HowItWorks scrollToSection={scrollToSection} />
 
       {/* <section
         id="how-it-works"
@@ -1060,12 +1060,13 @@ function App() {
         </div>
 
         <div className="mb-4 flex flex-col items-center">
-          <button className="group flex cursor-pointer items-center gap-3 rounded-lg bg-blue-600 py-2 md:py-3 px-4 md:px-8 text-lg font-semibold text-white shadow-lg transition-all hover:bg-blue-700 mx-2 md:mx-0">
+          <button className="group flex cursor-pointer items-center gap-3 rounded-lg bg-blue-600 py-2 md:py-3 px-4 md:px-8 text-lg font-semibold text-white shadow-lg transition-all hover:bg-blue-700 mx-2 md:mx-0" onClick={() => scrollToSection("hyprlinc50")}>
             Claim Early Access{" "}
             <span className="ml-1 rounded-md bg-blue-500 py-0.5 px-2.5 text-sm font-medium text-white group-hover:bg-blue-600">
               Limited Spots
             </span>
             <span className="ml-1">→</span>
+            
           </button>
         </div>
 
@@ -1125,7 +1126,7 @@ const AnimatedNumber = ({ endValue, suffix = "", duration = 2000 }) => {
   );
 };
 
-const HowItWorks = () => {
+const HowItWorks = ({ scrollToSection }) => {
   const [activeTab, setActiveTab] = useState('creators');
   const [isVisible, setIsVisible] = useState(false);
   const [animationPhase, setAnimationPhase] = useState(0);
@@ -1380,11 +1381,14 @@ const HowItWorks = () => {
       </div>
 
       {/* CTA Button */}
-      <button className={`mt-12 flex items-center gap-2 rounded-lg px-4 py-3 sm:px-6 sm:py-3 font-semibold text-white transition-all duration-700 delay-1000 ${
-        isVisible 
-          ? `${getActiveColor()} ${getActiveColor('hover')} opacity-100 transform translate-y-0 shadow-lg hover:shadow-xl hover:scale-105` 
-          : 'bg-blue-600 opacity-0 transform translate-y-4'
-      }`}>
+      <button 
+        className={`mt-12 flex items-center gap-2 rounded-lg px-4 py-3 sm:px-6 sm:py-3 font-semibold text-white transition-all duration-700 delay-1000 ${
+          isVisible 
+            ? 'bg-[#2563EB] hover:bg-[#1d4ed8] opacity-100 transform translate-y-0 shadow-lg hover:shadow-xl hover:scale-105' 
+            : 'bg-blue-600 opacity-0 transform translate-y-4'
+        }`}
+        onClick={() => scrollToSection("hyprlinc50")}
+      >
         Get Exclusive Early Access
         <ChevronRight className="w-4 h-4" />
       </button>
