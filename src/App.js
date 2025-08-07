@@ -27,13 +27,24 @@ import Overlay2 from "./Overlay (2).png";
 import Overlay3 from "./Overlay (3).png";
 import Overlay4 from "./Overlay (4).png";
 import Overlay5 from "./Overlay (5).png";
+import influencer from "./influencer.png";
+import brand from "./brand.png";
+import agency from "./agency.png";
 
 /* this is the soft launch SPA for hyprlinc */
 
 import { useState, useEffect, useRef } from "react";
 import { joinWaitlist } from "./services/join-waitlist";
-import { ChevronRight, Users, Target, Building, UserPlus, FileText, Handshake, DollarSign } from 'lucide-react';
-
+import {
+  ChevronRight,
+  Users,
+  Target,
+  Building,
+  UserPlus,
+  FileText,
+  Handshake,
+  DollarSign,
+} from "lucide-react";
 
 function App() {
   const [activeRole, setActiveRole] = useState("creator");
@@ -59,8 +70,7 @@ function App() {
     setWaitlistMessage("");
     setWaitlistError("");
     try {
-      const userType =
-        activeRole.charAt(0).toUpperCase() + activeRole.slice(1); // Capitalize for API
+      const userType = activeRole.charAt(0).toUpperCase() + activeRole.slice(1); // Capitalize for API
       const result = await joinWaitlist({
         userType,
         name: waitlistName,
@@ -154,7 +164,10 @@ function App() {
             </span>
           </nav>
         </div>
-        <button className="mr-2 md:mr-6 flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#2A9B54] py-1.5 px-3 md:px-6 text-base font-medium text-white shadow-[0_2px_8px_rgba(24,119,242,0.08)] transition-all duration-500 ease-in-out hover:from-[#007AFF] hover:to-[#004999]" onClick={() => scrollToSection("hyprlinc50")}>
+        <button
+          className="mr-2 md:mr-6 flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#2A9B54] py-1.5 px-3 md:px-6 text-base font-medium text-white shadow-[0_2px_8px_rgba(24,119,242,0.08)] transition-all duration-500 ease-in-out hover:from-[#007AFF] hover:to-[#004999]"
+          onClick={() => scrollToSection("hyprlinc50")}
+        >
           Early Access
         </button>
       </header>
@@ -163,31 +176,46 @@ function App() {
       {navOpen && (
         <div className="fixed left-0 top-[64px] z-30 w-64 bg-white shadow-lg rounded-b-xl py-4 md:hidden">
           <span
-            onClick={() => { scrollToSection("hyprlinc50"); setNavOpen(false); }}
+            onClick={() => {
+              scrollToSection("hyprlinc50");
+              setNavOpen(false);
+            }}
             className="block py-3 px-6 border-b border-gray-200 text-base font-medium cursor-pointer hover:bg-gray-50"
           >
             Hyprlinc : 50
           </span>
           <span
-            onClick={() => { scrollToSection("problem-solution"); setNavOpen(false); }}
+            onClick={() => {
+              scrollToSection("problem-solution");
+              setNavOpen(false);
+            }}
             className="block py-3 px-6 border-b border-gray-200 text-base font-medium cursor-pointer hover:bg-gray-50"
           >
             Problem & Solution
           </span>
           <span
-            onClick={() => { scrollToSection("features"); setNavOpen(false); }}
+            onClick={() => {
+              scrollToSection("features");
+              setNavOpen(false);
+            }}
             className="block py-3 px-6 border-b border-gray-200 text-base font-medium cursor-pointer hover:bg-gray-50"
           >
             Features
           </span>
           <span
-            onClick={() => { scrollToSection("how-it-works"); setNavOpen(false); }}
+            onClick={() => {
+              scrollToSection("how-it-works");
+              setNavOpen(false);
+            }}
             className="block py-3 px-6 border-b border-gray-200 text-base font-medium cursor-pointer hover:bg-gray-50"
           >
             How It Works
           </span>
           <span
-            onClick={() => { scrollToSection("investors"); setNavOpen(false); }}
+            onClick={() => {
+              scrollToSection("investors");
+              setNavOpen(false);
+            }}
             className="block py-3 px-6 text-base font-medium cursor-pointer hover:bg-gray-50"
           >
             Investors Opportunity
@@ -228,13 +256,12 @@ function App() {
                 </span>
               </button>
               <div className="flex items-center gap-3 rounded-lg border border-solid border-[#e5e7eb] bg-white p-2 md:p-3 w-full md:w-auto justify-center">
-                
                 <div className="flex flex-col md:flex-row items-center gap-2 w-full md:w-auto">
-                  <span className="text-base font-semibold text-[#2563eb]">
+                  {/* <span className="text-base font-semibold text-[#2563eb]">
                     Only 50 spots available
-                  </span>
-                  <span className="rounded-lg bg-[#e5f3ff] py-1 px-3 text-sm font-medium text-[#2563eb]">
-                    Limited Spots
+                  </span> */}
+                  <span className="rounded-lg bg-[#e5f3ff] py-1 px-3 text-sm text-[#2563eb] font-bold">
+                    Join Now
                   </span>
                 </div>
               </div>
@@ -251,7 +278,7 @@ function App() {
         </div>
       </main>
       {/* Join Hyprlinc:50 Section */}
-      <section
+      {/* <section
         id="hyprlinc50"
         className="mx-auto mt-20 mb-16 flex w-full max-w-[1100px] flex-col items-center px-4"
       >
@@ -272,11 +299,11 @@ function App() {
           creator marketing. Get lifetime perks, elite visibility, and direct
           influence—before the world catches on.
         </p>
-      </section>
+      </section> */}
+
       {/* Founders Circle Section */}
-      <section className="mx-auto mt-16 w-full max-w-full bg-none px-0 pb-20 sm:max-w-[1100px] md:flex md:flex-col md:items-center">
+      {/* <section className="mx-auto mt-16 w-full max-w-full bg-none px-0 pb-20 sm:max-w-[1100px] md:flex md:flex-col md:items-center">
         <div className="flex w-full max-w-full flex-col justify-center gap-10 md:flex-row md:items-start">
-          {/* Left: Form */}
           <div className="flex basis-0 flex-col items-start bg-white p-9 shadow-[0_2px_16px_rgba(24,119,242,0.06)] md:min-w-[350px] md:max-w-[420px] md:flex-1 md:rounded-2xl">
             <h2 className="mb-2 text-2xl font-bold text-[#222]">
               Founder's Circle
@@ -350,7 +377,7 @@ function App() {
               )}
             </form>
           </div>
-          {/* Right: Benefits */}
+     
           <div className="flex basis-0 flex-col items-start rounded-2xl border-[1.5px] border-solid border-[#e3eafd] bg-[#f9fbff] p-9 shadow-[0_2px_16px_rgba(24,119,242,0.06)] md:min-w-[350px] md:max-w-[420px] md:flex-1">
             <h3 className="mb-4 flex items-center gap-2 text-base md:text-lg font-semibold text-[#2563eb]">
               Creator Founder's Circle Benefits
@@ -442,7 +469,69 @@ function App() {
             </div>
           </div>
         </div>
+      </section> */}
+
+      {/* Join as a influencer, brand and agency */}
+      <section
+       id="Join as a influencer, brand and agency"
+       className="px-4 py-16 md:px-14 md:py-28">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
+            {/* Influencer Card */}
+            <div className="w-full max-w-xs h-56 rounded-xl bg-[#EBF5FF] border border-gray-200 py-8 flex flex-col items-center justify-center text-center">
+              <div className="flex flex-col items-center justify-center h-full">
+                <img
+                  src={influencer}
+                  className="w-16 mb-4"
+                  alt="Influencer icon"
+                />
+                <h2 className="text-lg font-semibold text-gray-800 mb-2">
+                  For Influencer
+                </h2>
+                <p className="text-gray-600 mb-6 text-xs">
+                  Discover and connect with influencers
+                </p>
+                <button className="bg-[#4B5563] text-white rounded-2xl py-1 hover:bg-gray-600 transition text-sm w-32">
+                  Get Started
+                </button>
+              </div>
+            </div>
+
+            {/* Brand Card */}
+            <div className="w-full max-w-xs h-56 rounded-xl bg-[#F3F0FF] border border-gray-200 py-8 flex flex-col items-center justify-center text-center">
+              <div className="flex flex-col items-center justify-center h-full">
+                <img src={brand} className="w-16 mb-4" alt="Brand icon" />
+                <h2 className="text-lg font-semibold text-gray-800 mb-2">
+                  For Brand
+                </h2>
+                <p className="text-gray-600 mb-6 text-xs">
+                  Discover and connect with influencers
+                </p>
+                <button className="bg-[#4B5563] text-white rounded-2xl py-1 hover:bg-gray-600 transition text-sm w-32">
+                  Get Started
+                </button>
+              </div>
+            </div>
+
+            {/* Agency Card */}
+            <div className="w-full max-w-xs h-56 rounded-xl bg-[#EAFAF0] border border-gray-200 py-8 flex flex-col items-center justify-center text-center">
+              <div className="flex flex-col items-center justify-center h-full">
+                <img src={agency} className="w-16 mb-4" alt="Agency icon" />
+                <h2 className="text-lg font-semibold text-gray-800 mb-2">
+                  For Agency
+                </h2>
+                <p className="text-gray-600 mb-6 text-xs">
+                  Discover and connect with influencers
+                </p>
+                <button className="bg-[#4B5563] text-white rounded-2xl py-1 hover:bg-gray-600 transition text-sm w-32">
+                  Get Started
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
+
       {/* Platform Performance Section */}
       <section
         id="problem-solution"
@@ -521,7 +610,7 @@ function App() {
       </section>
       {/* Why Traditional Influencer Marketing Doesn't Work Anymore */}
       <section className="mx-auto mt-20 mb-16 flex w-full max-w-[1100px] flex-col items-center px-4">
-      <div className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4">
+        <div className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4">
           <span className="text-sm font-medium text-blue-600">
             Industry Challenge
           </span>
@@ -832,20 +921,29 @@ function App() {
         id="features"
         className="mx-auto mt-1 flex w-full max-w-[1100px] flex-col items-center px-4 py-13"
       >
-        <h2 className="text-center font-montserrat font-bold text-2xl sm:text-2xl md:text-2xl text-[#2563eb] mb-2">
+        <div className="text-center font-montserrat font-bold text-2xl md:text-4xl bg-gradient-to-r from-[#007AFF] to-[#004999] bg-clip-text text-transparent mb-2">
           Features
-        </h2>
-        <div className="mb-12 max-w-[750px] text-center text-[1.1rem] leading-7 text-gray-600">
+        </div>
+        {/* <div className="mb-12 max-w-[750px] text-center text-[1.1rem] leading-7 text-gray-600">
           Hyprlinc integrates effortlessly with social media platforms like
-          Instagram & YouTube, allowing brands to sync influencer data directly with
-          marketing strategies. The exclusive influencer marketplace provides
-          influencers with access to top-tier brand deals while giving brands
-          the ability to create custom influencer programs for long-term
+          Instagram & YouTube, allowing brands to sync influencer data directly
+          with marketing strategies. The exclusive influencer marketplace
+          provides influencers with access to top-tier brand deals while giving
+          brands the ability to create custom influencer programs for long-term
           partnerships
+        </div> */}
+        <div className="mb-12 max-w-[750px] text-center text-md font-medium leading-7 text-gray-600">
+          Hyprlinc integrates effortlessly with social media platforms like
+          Instagram & YouTube, allowing brands to sync influencer data directly
+          with marketing strategies.
         </div>
         <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
-            <img src={Overlay0} alt="Feature 1" className="mb-3 w-12 h-12 object-contain" />
+          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
+            <img
+              src={Overlay0}
+              alt="Feature 1"
+              className="mb-3 w-12 h-12 object-contain"
+            />
             <div className="mb-2 text-lg font-semibold bg-gradient-to-r from-[#007AFF] to-[#004999] bg-clip-text text-transparent">
               Personalized Campaign Suggestions
             </div>
@@ -854,8 +952,12 @@ function App() {
               and vibe.
             </div>
           </div>
-          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
-            <img src={Overlay1} alt="Feature 2" className="mb-3 w-12 h-12 object-contain" />
+          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
+            <img
+              src={Overlay1}
+              alt="Feature 2"
+              className="mb-3 w-12 h-12 object-contain"
+            />
             <div className="mb-2 text-lg font-semibold bg-gradient-to-r from-[#007AFF] to-[#004999] bg-clip-text text-transparent">
               Smart campaign Dashboard
             </div>
@@ -864,8 +966,12 @@ function App() {
               a clean, user-friendly interface.
             </div>
           </div>
-          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
-            <img src={Overlay2} alt="Feature 3" className="mb-3 w-12 h-12 object-contain" />
+          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
+            <img
+              src={Overlay2}
+              alt="Feature 3"
+              className="mb-3 w-12 h-12 object-contain"
+            />
             <div className="mb-2 text-lg font-semibold bg-gradient-to-r from-[#007AFF] to-[#004999] bg-clip-text text-transparent">
               Real- Time insight
             </div>
@@ -874,8 +980,12 @@ function App() {
               audience insights.
             </div>
           </div>
-          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
-            <img src={Overlay3} alt="Feature 4" className="mb-3 w-12 h-12 object-contain" />
+          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
+            <img
+              src={Overlay3}
+              alt="Feature 4"
+              className="mb-3 w-12 h-12 object-contain"
+            />
             <div className="mb-2 text-lg font-semibold bg-gradient-to-r from-[#007AFF] to-[#004999] bg-clip-text text-transparent">
               Advanced Influencer Search Engine
             </div>
@@ -884,8 +994,12 @@ function App() {
               demographics, and more.
             </div>
           </div>
-          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
-            <img src={Overlay4} alt="Feature 5" className="mb-3 w-12 h-12 object-contain" />
+          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
+            <img
+              src={Overlay4}
+              alt="Feature 5"
+              className="mb-3 w-12 h-12 object-contain"
+            />
             <div className="mb-2 text-lg font-semibold bg-gradient-to-r from-[#007AFF] to-[#004999] bg-clip-text text-transparent">
               Campaign Brief Builder
             </div>
@@ -894,8 +1008,12 @@ function App() {
               budgets.
             </div>
           </div>
-          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
-            <img src={Overlay5} alt="Feature 6" className="mb-3 w-12 h-12 object-contain" />
+          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
+            <img
+              src={Overlay5}
+              alt="Feature 6"
+              className="mb-3 w-12 h-12 object-contain"
+            />
             <div className="mb-2 text-lg font-semibold bg-gradient-to-r from-[#007AFF] to-[#004999] bg-clip-text text-transparent">
               Direct Collaboration
             </div>
@@ -958,8 +1076,8 @@ function App() {
                   MVP Alpha Launch + Hyprlinc :50
                 </div>
                 <div className="mb-3 text-base text-gray-600">
-                  50 hand-picked creators, brands, and
-                  agencies testing features via Hyprlinc:50 program.
+                  50 hand-picked creators, brands, and agencies testing features
+                  via Hyprlinc:50 program.
                 </div>
                 <div className="flex gap-2">
                   <span className="rounded-md bg-green-100 py-0.5 px-2.5 text-sm font-semibold text-green-700">
@@ -1060,13 +1178,15 @@ function App() {
         </div>
 
         <div className="mb-4 flex flex-col items-center">
-          <button className="group flex cursor-pointer items-center gap-3 rounded-lg bg-blue-600 py-2 md:py-3 px-4 md:px-8 text-lg font-semibold text-white shadow-lg transition-all hover:bg-blue-700 mx-2 md:mx-0" onClick={() => scrollToSection("hyprlinc50")}>
+          <button
+            className="group flex cursor-pointer items-center gap-3 rounded-lg bg-blue-600 py-2 md:py-3 px-4 md:px-8 text-lg font-semibold text-white shadow-lg transition-all hover:bg-blue-700 mx-2 md:mx-0"
+            onClick={() => scrollToSection("hyprlinc50")}
+          >
             Claim Early Access{" "}
             <span className="ml-1 rounded-md bg-blue-500 py-0.5 px-2.5 text-sm font-medium text-white group-hover:bg-blue-600">
               Limited Spots
             </span>
             <span className="ml-1">→</span>
-            
           </button>
         </div>
 
@@ -1076,7 +1196,6 @@ function App() {
       </section>
       {/* Footer Section */}
       <footer className="bg-gray-800 py-12 text-white">
-
         <div className="mx-auto flex w-full max-w-[1100px] flex-wrap items-center justify-between border-solid border-gray-700 px-8 pt-8">
           <div className="text-base text-gray-400">
             © 2025 Hyprlinc All rights reserved.
@@ -1127,7 +1246,7 @@ const AnimatedNumber = ({ endValue, suffix = "", duration = 2000 }) => {
 };
 
 const HowItWorks = ({ scrollToSection }) => {
-  const [activeTab, setActiveTab] = useState('creators');
+  const [activeTab, setActiveTab] = useState("creators");
   const [isVisible, setIsVisible] = useState(false);
   const [animationPhase, setAnimationPhase] = useState(0);
   const [activeButtonIndex, setActiveButtonIndex] = useState(0);
@@ -1135,9 +1254,21 @@ const HowItWorks = ({ scrollToSection }) => {
 
   // Color cycling configuration
   const colorCycle = [
-    { bg: 'bg-emerald-300', hover: 'hover:bg-emerald-400', text: 'text-emerald-500' },
-    { bg: 'bg-purple-300', hover: 'hover:bg-purple-400', text: 'text-purple-500' },
-    { bg: 'bg-orange-300', hover: 'hover:bg-orange-400', text: 'text-orange-500' }
+    {
+      bg: "bg-emerald-300",
+      hover: "hover:bg-emerald-400",
+      text: "text-emerald-500",
+    },
+    {
+      bg: "bg-purple-300",
+      hover: "hover:bg-purple-400",
+      text: "text-purple-500",
+    },
+    {
+      bg: "bg-orange-300",
+      hover: "hover:bg-orange-400",
+      text: "text-orange-500",
+    },
   ];
 
   // Mock image components (replace with your actual images)
@@ -1148,46 +1279,46 @@ const HowItWorks = ({ scrollToSection }) => {
 
   const tabConfig = {
     creators: {
-      label: 'For Creators',
-      color: 'bg-emerald-500',
-      hoverColor: 'hover:bg-emerald-600',
-      icon: Users
+      label: "For Creators",
+      color: "bg-emerald-500",
+      hoverColor: "hover:bg-emerald-600",
+      icon: Users,
     },
     brands: {
-      label: 'For Brands',
-      color: 'bg-purple-500',
-      hoverColor: 'hover:bg-purple-600',
-      icon: Target
+      label: "For Brands",
+      color: "bg-purple-500",
+      hoverColor: "hover:bg-purple-600",
+      icon: Target,
     },
     agencies: {
-      label: 'For Agencies',
-      color: 'bg-orange-500',
-      hoverColor: 'hover:bg-orange-600',
-      icon: Building
-    }
+      label: "For Agencies",
+      color: "bg-orange-500",
+      hoverColor: "hover:bg-orange-600",
+      icon: Building,
+    },
   };
 
   const steps = [
     {
       icon: signup,
-      title: 'Sign up',
-      description: 'Register as a brand, influencer, or agency'
+      title: "Sign up",
+      description: "Register as a brand, influencer, or agency",
     },
     {
       icon: create,
-      title: 'Create or Apply for Campaign',
-      description: 'Find and collaborate on tailored campaigns'
+      title: "Create or Apply for Campaign",
+      description: "Find and collaborate on tailored campaigns",
     },
     {
       icon: collaborate,
-      title: 'Collaborate & Execute',
-      description: 'Finalize deliverables and track progress'
+      title: "Collaborate & Execute",
+      description: "Finalize deliverables and track progress",
     },
     {
       icon: getpaid,
-      title: 'Get Paid',
-      description: 'Post the finalised content and get paid'
-    }
+      title: "Get Paid",
+      description: "Post the finalised content and get paid",
+    },
   ];
 
   // Intersection Observer for scroll animation
@@ -1217,7 +1348,9 @@ const HowItWorks = ({ scrollToSection }) => {
   useEffect(() => {
     if (isVisible) {
       const buttonInterval = setInterval(() => {
-        setActiveButtonIndex((prevIndex) => (prevIndex + 1) % Object.keys(tabConfig).length);
+        setActiveButtonIndex(
+          (prevIndex) => (prevIndex + 1) % Object.keys(tabConfig).length
+        );
       }, 2000); // Change button every 2 seconds
 
       return () => clearInterval(buttonInterval);
@@ -1238,13 +1371,13 @@ const HowItWorks = ({ scrollToSection }) => {
     }
   }, [animationPhase]);
 
-  const getActiveColor = (type = 'bg') => {
+  const getActiveColor = (type = "bg") => {
     if (isVisible) {
       const currentColor = colorCycle[activeButtonIndex];
-      return type === 'bg' ? currentColor.bg : currentColor.hover;
+      return type === "bg" ? currentColor.bg : currentColor.hover;
     }
     const config = tabConfig[activeTab];
-    return type === 'bg' ? config.color : config.hoverColor;
+    return type === "bg" ? config.color : config.hoverColor;
   };
 
   const getActiveTextColor = () => {
@@ -1252,7 +1385,7 @@ const HowItWorks = ({ scrollToSection }) => {
       return colorCycle[activeButtonIndex].text;
     }
     const config = tabConfig[activeTab];
-    return config.color.replace('bg-', 'text-');
+    return config.color.replace("bg-", "text-");
   };
 
   const getButtonColor = (buttonIndex) => {
@@ -1260,16 +1393,29 @@ const HowItWorks = ({ scrollToSection }) => {
       return colorCycle[activeButtonIndex];
     }
     const config = Object.values(tabConfig)[buttonIndex];
-    return { bg: config.color, hover: config.hoverColor, text: config.color.replace('bg-', 'text-') };
+    return {
+      bg: config.color,
+      hover: config.hoverColor,
+      text: config.color.replace("bg-", "text-"),
+    };
   };
 
   const ArrowConnector = ({ index, isVisible }) => (
-    <div className={`absolute top-6 left-full transform -translate-y-1/2 transition-all duration-1000 ${
-      isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
-    }`}>
+    <div
+      className={`absolute top-6 left-full transform -translate-y-1/2 transition-all duration-1000 ${
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-50"
+      }`}
+    >
       <div className="flex items-center">
-        <div className={`w-8 h-0.5 ${getActiveColor()} transition-all duration-500`}></div>
-        <ChevronRight className={`w-4 h-4 ${getActiveColor().replace('bg-', 'text-')} transition-all duration-500`} />
+        <div
+          className={`w-8 h-0.5 ${getActiveColor()} transition-all duration-500`}
+        ></div>
+        <ChevronRight
+          className={`w-4 h-4 ${getActiveColor().replace(
+            "bg-",
+            "text-"
+          )} transition-all duration-500`}
+        />
       </div>
     </div>
   );
@@ -1281,35 +1427,51 @@ const HowItWorks = ({ scrollToSection }) => {
       className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16"
     >
       {/* Header */}
-      <div className={`mb-4 inline-flex items-center gap-2 rounded-xl bg-blue-50 py-1.5 px-3 transition-all duration-700 ${
-        isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
-      }`}>
+      <div
+        className={`mb-4 inline-flex items-center gap-2 rounded-xl bg-blue-50 py-1.5 px-3 transition-all duration-700 ${
+          isVisible
+            ? "opacity-100 transform translate-y-0"
+            : "opacity-0 transform translate-y-4"
+        }`}
+      >
         <span className="text-blue-600 text-sm">How it works</span>
       </div>
 
-      <h2 className={`text-center font-montserrat font-bold text-2xl sm:text-2xl md:text-2xl text-[#2563eb] mb-2 transition-all duration-700 delay-200 ${
-        isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
-      }`}>
+      <h2
+        className={`text-center font-montserrat font-bold text-2xl sm:text-2xl md:text-2xl text-[#2563eb] mb-2 transition-all duration-700 delay-200 ${
+          isVisible
+            ? "opacity-100 transform translate-y-0"
+            : "opacity-0 transform translate-y-4"
+        }`}
+      >
         Transforming Influencer Marketing
       </h2>
 
-      <p className={`mb-12 max-w-[750px] text-center text-[1.1rem] leading-7 text-gray-600 transition-all duration-700 delay-300 ${
-        isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
-      }`}>
+      <p
+        className={`mb-12 max-w-[750px] text-center text-[1.1rem] leading-7 text-gray-600 transition-all duration-700 delay-300 ${
+          isVisible
+            ? "opacity-100 transform translate-y-0"
+            : "opacity-0 transform translate-y-4"
+        }`}
+      >
         Hyprlinc connects creators, Brand and Marketing agencies in a
         revolutionary new way enabling seamless collaborations and campaign
         tracking on multiple channels.
       </p>
 
       {/* Tab Buttons - Sequential Animation */}
-      <div className={`mb-10 flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center transition-all duration-700 delay-400 ${
-        isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
-      }`}>
+      <div
+        className={`mb-10 flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center transition-all duration-700 delay-400 ${
+          isVisible
+            ? "opacity-100 transform translate-y-0"
+            : "opacity-0 transform translate-y-4"
+        }`}
+      >
         {Object.entries(tabConfig).map(([key, config], buttonIndex) => {
           const Icon = config.icon;
           const buttonColor = getButtonColor(buttonIndex);
           const isActiveButton = isVisible && activeButtonIndex === buttonIndex;
-          
+
           return (
             <button
               key={key}
@@ -1317,7 +1479,7 @@ const HowItWorks = ({ scrollToSection }) => {
               className={`px-3 py-2 sm:px-4 sm:py-2 rounded-full font-medium transition-all duration-500 flex items-center justify-center gap-2 text-sm sm:text-base ${
                 isActiveButton
                   ? `${buttonColor.bg} text-white shadow-lg transform scale-105`
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               }`}
             >
               <Icon className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -1331,45 +1493,59 @@ const HowItWorks = ({ scrollToSection }) => {
       <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 w-full">
         {steps.map((step, index) => {
           const isAnyButtonActive = isVisible;
-          const cardColor = isAnyButtonActive ? colorCycle[activeButtonIndex] : { bg: 'bg-blue-100', text: 'text-blue-600' };
-          
+          const cardColor = isAnyButtonActive
+            ? colorCycle[activeButtonIndex]
+            : { bg: "bg-blue-100", text: "text-blue-600" };
+
           return (
             <div
               key={index}
               className={`relative flex flex-col items-center text-center transition-all duration-700 ${
-                isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'
+                isVisible
+                  ? "opacity-100 transform translate-y-0"
+                  : "opacity-0 transform translate-y-8"
               }`}
               style={{ transitionDelay: `${500 + index * 200}ms` }}
             >
               {/* Card */}
-              <div className={`relative mb-4 h-12 w-12 sm:h-16 sm:w-16 flex items-center justify-center rounded-full transition-all duration-500 ${
-                isAnyButtonActive ? `${cardColor.bg} shadow-lg` : 'bg-blue-100'
-              }`}>
-                <div className={`transition-all duration-500 ${
-                  isAnyButtonActive ? 'text-white' : 'text-blue-600'
-                }`}>
+              <div
+                className={`relative mb-4 h-12 w-12 sm:h-16 sm:w-16 flex items-center justify-center rounded-full transition-all duration-500 ${
+                  isAnyButtonActive
+                    ? `${cardColor.bg} shadow-lg`
+                    : "bg-blue-100"
+                }`}
+              >
+                <div
+                  className={`transition-all duration-500 ${
+                    isAnyButtonActive ? "text-white" : "text-blue-600"
+                  }`}
+                >
                   {step.icon}
                 </div>
-                
+
                 {/* Pulse animation for all cards when any button is active */}
                 {isAnyButtonActive && (
-                  <div className={`absolute inset-0 rounded-full ${cardColor.bg} opacity-20 animate-ping`}></div>
+                  <div
+                    className={`absolute inset-0 rounded-full ${cardColor.bg} opacity-20 animate-ping`}
+                  ></div>
                 )}
               </div>
 
               {/* Arrow Connector - Hidden on mobile */}
               {index < steps.length - 1 && (
                 <div className="hidden md:block">
-                  <ArrowConnector 
-                    index={index} 
+                  <ArrowConnector
+                    index={index}
                     isVisible={animationPhase > index}
                   />
                 </div>
               )}
 
-              <h3 className={`mb-2 text-base sm:text-lg font-semibold transition-all duration-500 ${
-                isAnyButtonActive ? cardColor.text : 'text-blue-600'
-              }`}>
+              <h3
+                className={`mb-2 text-base sm:text-lg font-semibold transition-all duration-500 ${
+                  isAnyButtonActive ? cardColor.text : "text-blue-600"
+                }`}
+              >
                 {step.title}
               </h3>
               <p className="text-sm sm:text-base text-gray-600">
@@ -1381,28 +1557,37 @@ const HowItWorks = ({ scrollToSection }) => {
       </div>
 
       {/* CTA Button */}
-      <button 
+      <button
         className={`mt-12 flex items-center gap-2 rounded-lg px-4 py-3 sm:px-6 sm:py-3 font-semibold text-white transition-all duration-700 delay-1000 ${
-          isVisible 
-            ? 'bg-[#2563EB] hover:bg-[#1d4ed8] opacity-100 transform translate-y-0 shadow-lg hover:shadow-xl hover:scale-105' 
-            : 'bg-blue-600 opacity-0 transform translate-y-4'
+          isVisible
+            ? "bg-[#2563EB] hover:bg-[#1d4ed8] opacity-100 transform translate-y-0 shadow-lg hover:shadow-xl hover:scale-105"
+            : "bg-blue-600 opacity-0 transform translate-y-4"
         }`}
         onClick={() => scrollToSection("hyprlinc50")}
       >
         Get Exclusive Early Access
         <ChevronRight className="w-4 h-4" />
       </button>
-      
-      <p className={`mt-3 text-sm text-gray-500 transition-all duration-700 delay-1100 ${
-        isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-4'
-      }`}>
+
+      <p
+        className={`mt-3 text-sm text-gray-500 transition-all duration-700 delay-1100 ${
+          isVisible
+            ? "opacity-100 transform translate-y-0"
+            : "opacity-0 transform translate-y-4"
+        }`}
+      >
         Only 50 spots available
       </p>
 
       {/* Background Animation */}
       {isVisible && (
         <div className="absolute inset-0 -z-10 overflow-hidden">
-          <div className={`absolute top-1/2 left-1/2 w-96 h-96 ${getActiveColor().replace('bg-', 'bg-')} opacity-5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse`}></div>
+          <div
+            className={`absolute top-1/2 left-1/2 w-96 h-96 ${getActiveColor().replace(
+              "bg-",
+              "bg-"
+            )} opacity-5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse`}
+          ></div>
         </div>
       )}
     </section>
