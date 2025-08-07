@@ -4,15 +4,6 @@ import p1 from "./p1.png";
 import p2 from "./p2.png";
 import p3 from "./p3.png";
 import p4 from "./p4.png";
-import signup from "./signup.png";
-import collaborate from "./col.png";
-import create from "./apply.png";
-import getpaid from "./paid.png";
-import first from "./1.png";
-import second from "./2.png";
-import third from "./3.png";
-import fourth from "./4.png";
-import fifth from "./5.png";
 import right1 from "./r1.png";
 import right2 from "./r2.png";
 import right3 from "./r3.png";
@@ -36,15 +27,28 @@ import agency from "./agency.png";
 import { useState, useEffect, useRef } from "react";
 import { joinWaitlist } from "./services/join-waitlist";
 import {
-  ChevronRight,
-  Users,
-  Target,
-  Building,
   UserPlus,
   FileText,
   Handshake,
   DollarSign,
 } from "lucide-react";
+import { GoQuestion } from "react-icons/go";
+import {
+  FaInstagram,
+  FaRocket,
+  FaTwitter,
+  FaYoutube,
+} from "react-icons/fa6";
+import {
+  BsLayers,
+  BsLightbulb,
+} from "react-icons/bs";
+import {
+  AiFillPlayCircle,
+  AiOutlineBarChart,
+  AiOutlineFall,
+  AiTwotoneStar,
+} from "react-icons/ai";
 
 function App() {
   const [activeRole, setActiveRole] = useState("creator");
@@ -132,44 +136,37 @@ function App() {
           {/* Desktop Nav */}
           <nav className="hidden md:flex gap-6 text-base text-[#222]">
             <span
-              onClick={() => scrollToSection("hyprlinc50")}
-              className="cursor-pointer hover:text-blue-600 transition-colors"
-            >
-              Hyprlinc : 50
-            </span>
-            <span
               onClick={() => scrollToSection("problem-solution")}
-              className="cursor-pointer hover:text-blue-600 transition-colors"
+              className="flex gap-2 cursor-pointer hover:text-blue-600 transition-colors"
             >
+              <GoQuestion className=" w-6 h-6" />
               Problem & Solution
             </span>
             <span
               onClick={() => scrollToSection("how-it-works")}
-              className="cursor-pointer hover:text-blue-600 transition-colors"
+              className="flex gap-2 cursor-pointer hover:text-blue-600 transition-colors"
             >
+              <BsLayers className="w-6 h-6" />
               How It Works
             </span>
             <span
               onClick={() => scrollToSection("features")}
-              className="cursor-pointer hover:text-blue-600 transition-colors"
+              className="flex gap-2 cursor-pointer hover:text-blue-600 transition-colors"
             >
+              <BsLightbulb className="w-6 h-6" />
               Features
-            </span>
-
-            <span
-              onClick={() => scrollToSection("investors")}
-              className="cursor-pointer hover:text-blue-600 transition-colors"
-            >
-              Investors Opportunity
             </span>
           </nav>
         </div>
-        <button
-          className="mr-2 md:mr-6 flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#2A9B54] py-1.5 px-3 md:px-6 text-base font-medium text-white shadow-[0_2px_8px_rgba(24,119,242,0.08)] transition-all duration-500 ease-in-out hover:from-[#007AFF] hover:to-[#004999]"
-          onClick={() => scrollToSection("hyprlinc50")}
-        >
-          Early Access
-        </button>
+
+        <div className="flex items-center gap-4 md:gap-6">
+          {/* Sign In Button */}
+          <button className="">Sign Up</button>
+          {/* Sign Up Button */}
+          <button className="font-semibold mr-2 md:mr-6 flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-br from-[#007AFF] to-[#153885] py-1.5 px-3 md:px-6 text-base text-white shadow-[0_2px_8px_rgba(24,119,242,0.08)] transition-all duration-500 ease-in-out hover:from-[#007AFF] hover:to-[#004999]">
+            Login
+          </button>
+        </div>
       </header>
 
       {/* Mobile Nav Dropdown Panel */}
@@ -249,22 +246,13 @@ function App() {
               goals.
             </p>
             <div className="mb-8 flex flex-col gap-3 md:flex-row md:gap-[18px] w-full">
-              <button className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-[#2563eb] py-3 md:py-2 px-4 md:px-8 text-[1.1rem] font-medium text-white shadow-[0_2px_8px_rgba(37,99,235,0.08)] whitespace-nowrap w-full md:w-auto justify-center">
+              <button className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#153885] py-3 md:py-4 px-4 md:px-8 text-[1.1rem] font-medium text-white shadow-[0_2px_8px_rgba(37,99,235,0.08)] whitespace-nowrap w-full md:w-auto justify-center">
+                <AiFillPlayCircle className=" w-6 h-6" />
                 Watch Demo{" "}
-                <span className="ml-2 rounded-[10px] bg-white py-0 px-2 text-[0.95em] text-[#2563eb]">
+                <span className="ml-2 rounded-2xl bg-transparent border border-blue-200 py-0 px-2 text-[0.95em] text-white">
                   2 min
                 </span>
               </button>
-              <div className="flex items-center gap-3 rounded-lg border border-solid border-[#e5e7eb] bg-white p-2 md:p-3 w-full md:w-auto justify-center">
-                <div className="flex flex-col md:flex-row items-center gap-2 w-full md:w-auto">
-                  {/* <span className="text-base font-semibold text-[#2563eb]">
-                    Only 50 spots available
-                  </span> */}
-                  <span className="rounded-lg bg-[#e5f3ff] py-1 px-3 text-sm text-[#2563eb] font-bold">
-                    Join Now
-                  </span>
-                </div>
-              </div>
             </div>
           </div>
           <div className="relative hidden md:block w-[450px]">
@@ -277,6 +265,7 @@ function App() {
           </div>
         </div>
       </main>
+
       {/* Join Hyprlinc:50 Section */}
       {/* <section
         id="hyprlinc50"
@@ -473,8 +462,9 @@ function App() {
 
       {/* Join as a influencer, brand and agency */}
       <section
-       id="Join as a influencer, brand and agency"
-       className="px-4 py-16 md:px-14 md:py-28">
+        id="Join as a influencer, brand and agency"
+        className="px-4 py-16 md:px-14 md:py-28"
+      >
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
             {/* Influencer Card */}
@@ -535,29 +525,28 @@ function App() {
       {/* Platform Performance Section */}
       <section
         id="problem-solution"
-        className="mx-auto mt-20 mb-16 flex w-full max-w-[1100px] flex-col items-center px-4"
+        className="mx-auto mb-16 flex w-full max-w-[1100px] flex-col items-center px-4"
       >
-        <div className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4">
-          <span className="text-sm font-medium text-blue-600">
+        <div className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4 border border-blue-500">
+          <span className="flex gap-2 text-sm font-medium text-blue-600">
+            <AiOutlineBarChart className="w-5 h-5" />
             Platform Performance
           </span>
         </div>
-        <h2 className="text-center font-montserrat font-bold text-2xl sm:text-2xl md:text-2xl text-[#2563eb] mb-2">
-          <span className="text-blue-600">
-            Transforming Influencer Marketing
-          </span>
+        <h2 className="text-center font-montserrat font-bold text-2xl sm:text-2xl md:text-4xl my-2 bg-gradient-to-r from-[#007AFF] to-[#153885] text-transparent bg-clip-text">
+          Transforming Influencer Marketing
         </h2>
         <div className="mb-10 max-w-[600px] text-center text-[1.1rem] text-gray-600">
-          Our AI-powered platform delivers measurable results for creators and
-          brands alike.
+          Our AI-powered platform delivers measurable results for creators,
+          brand and marketing agencies.
         </div>
-        <div className="grid w-full grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4">
-          <div className="flex flex-col items-center rounded-[30px] bg-[#F6F5FF] p-8 transition-transform duration-200 hover:-translate-y-1">
+        <div className="grid w-full grid-cols-1 gap-7 sm:grid-cols-2 md:grid-cols-4">
+          <div className="flex flex-col items-center rounded-[224px] bg-[#EAFAF0] p-8 transition-transform duration-200 hover:-translate-y-1">
             <div className="mb-3">
               <img
                 src={p1}
                 alt="Performance 1"
-                className="h-10 w-10 object-contain"
+                className="h-10 w-10 object-contain text-green-600"
               />
             </div>
             <AnimatedNumber endValue={10} suffix="X" />
@@ -565,7 +554,7 @@ function App() {
               Faster Campaign Planning & execution
             </div>
           </div>
-          <div className="flex flex-col items-center rounded-[30px] bg-[#F6F5FF] p-8 transition-transform duration-200 hover:-translate-y-1">
+          <div className="flex flex-col items-center rounded-[224px] bg-[#EAFAF0] p-8 transition-transform duration-200 hover:-translate-y-1">
             <div className="mb-3">
               <img
                 src={p2}
@@ -578,7 +567,7 @@ function App() {
               Higher engagement rate for Campaigns run on Hyprlinc
             </div>
           </div>
-          <div className="flex flex-col items-center rounded-[30px] bg-[#F6F5FF] p-8 transition-transform duration-200 hover:-translate-y-1">
+          <div className="flex flex-col items-center rounded-[224px] bg-[#EAFAF0] p-8 transition-transform duration-200 hover:-translate-y-1">
             <div className="mb-3">
               <img
                 src={p3}
@@ -592,7 +581,7 @@ function App() {
               profiling
             </div>
           </div>
-          <div className="flex flex-col items-center rounded-[30px] bg-[#F6F5FF] p-8 transition-transform duration-200 hover:-translate-y-1">
+          <div className="flex flex-col items-center rounded-[224px] bg-[#EAFAF0] p-8 transition-transform duration-200 hover:-translate-y-1">
             <div className="mb-3">
               <img
                 src={p4}
@@ -608,14 +597,15 @@ function App() {
           </div>
         </div>
       </section>
+
       {/* Why Traditional Influencer Marketing Doesn't Work Anymore */}
       <section className="mx-auto mt-20 mb-16 flex w-full max-w-[1100px] flex-col items-center px-4">
-        <div className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4">
+        <div className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4 border border-blue-600">
           <span className="text-sm font-medium text-blue-600">
             Industry Challenge
           </span>
         </div>
-        <h2 className="text-center font-montserrat font-bold text-2xl sm:text-2xl md:text-2xl text-[#2563eb] mb-2">
+        <h2 className="text-center font-montserrat font-bold text-2xl md:text-4xl bg-gradient-to-r from-[#153885] to-[#007AFF] text-transparent bg-clip-text my-3">
           Why Traditional Influencer Marketing
           <br className="hidden md:block" /> Doesn't Work Anymore
         </h2>
@@ -624,198 +614,148 @@ function App() {
           inefficient, slow, and unreliable. Hyprlinc fixes that.
         </p>
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 w-full max-w-5xl justify-center items-start mt-2 md:mt-4">
-          {/* Left Column */}
-          <div className="flex-1 bg-white rounded-2xl border border-[#fbeaea] p-4 sm:p-6 md:p-8 shadow-sm mb-6 md:mb-0">
-            <div className="flex items-center mb-4 md:mb-6">
-              <span className="inline-block w-5 h-5 md:w-6 md:h-6 mr-2 align-middle">
-                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                  <rect width="24" height="24" rx="12" fill="#fde8e8" />
-                  <path
-                    d="M8 12h8"
-                    stroke="#f87171"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
-              <span
-                className="font-inter font-bold text-[18px] md:text-[20px] leading-[24px] md:leading-[28px] align-middle"
-                style={{ color: "#F47274" }}
-              >
-                Manual Influencer Marketing
-              </span>
+          {/* Left Column - Manual Influencer Marketing */}
+          <div className="flex-1">
+            <div className=" mb-6 md:mb-8">
+              <div className="flex items-center mb-4 md:mb-6">
+                <span className="inline-block w-5 h-5 md:w-6 md:h-6 mr-2 align-middle bg-red-50">
+                  <AiOutlineFall className="w-6 h-6 text-[#F47274]" />
+                </span>
+                <span
+                  className="font-inter font-bold text-[18px] md:text-[20px] leading-[24px] md:leading-[28px] align-middle"
+                  style={{ color: "#F47274" }}
+                >
+                  Manual Influencer Marketing
+                </span>
+              </div>
             </div>
-            <ul className="space-y-4 md:space-y-5">
-              <li className="flex items-start gap-3 md:gap-4">
-                <img
-                  src={left1}
-                  alt="Modular UGC Powered by AI"
-                  className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain"
-                />
-                <div>
-                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">
-                    Campaigns That Crawl
-                  </div>
-                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">
-                    Finding influencers is time-consuming and hit-or-miss.
-                  </div>
-                </div>
-              </li>
-              <li className="flex items-start gap-3 md:gap-4">
-                <img
-                  src={left1}
-                  alt="Modular UGC Powered by AI"
-                  className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain"
-                />
-                <div>
-                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">
-                    Bleeding on Custom Edits
-                  </div>
-                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">
-                    No way to verify audience authenticity or engagement.
-                  </div>
-                </div>
-              </li>
-              <li className="flex items-start gap-3 md:gap-4">
-                <img
-                  src={left3}
-                  alt="Modular UGC Powered by AI"
-                  className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain"
-                />
-                <div>
-                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">
-                    ROI You Can't Predict
-                  </div>
-                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">
-                    Messy coordination through DMs, emails, and spreadsheets.
-                  </div>
-                </div>
-              </li>
-              <li className="flex items-start gap-3 md:gap-4">
-                <img
-                  src={left4}
-                  alt="Modular UGC Powered by AI"
-                  className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain"
-                />
-                <div>
-                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">
-                    Licensing Chaos
-                  </div>
-                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">
-                    Payment risks and delays create trust issues.
+
+            <div className="grid grid-cols-1 gap-4 md:gap-6">
+              {[
+                {
+                  icon: left1,
+                  title: "Campaigns That Crawl",
+                  description:
+                    "Finding influencers is time-consuming and hit-or-miss.",
+                },
+                {
+                  icon: left1,
+                  title: "Bleeding on Custom Edits",
+                  description:
+                    "No way to verify audience authenticity or engagement.",
+                },
+                {
+                  icon: left3,
+                  title: "ROI You Can't Predict",
+                  description:
+                    "Messy coordination through DMs, emails, and spreadsheets.",
+                },
+                {
+                  icon: left4,
+                  title: "Licensing Chaos",
+                  description: "Payment risks and delays create trust issues.",
+                },
+                {
+                  icon: left5,
+                  title: "Licensing Chaos",
+                  description: "No clear performance metrics or ROI tracking.",
+                },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl border border-[#fbeaea] p-4 sm:p-5 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div className="flex items-start gap-3 md:gap-4">
+                    <img
+                      src={item.icon}
+                      alt={item.title}
+                      className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain"
+                    />
+                    <div>
+                      <div className="font-inter font-medium text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">
+                        {item.title}
+                      </div>
+                      <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22px] text-black mt-1">
+                        {item.description}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </li>
-              <li className="flex items-start gap-3 md:gap-4">
-                <img
-                  src={left5}
-                  alt="Modular UGC Powered by AI"
-                  className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain"
-                />
-                <div>
-                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">
-                    Licensing Chaos
-                  </div>
-                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">
-                    No clear performance metrics or ROI tracking.
-                  </div>
-                </div>
-              </li>
-            </ul>
+              ))}
+            </div>
           </div>
-          {/* Right Column */}
-          <div className="flex-1 bg-white rounded-2xl border border-[#e6f9f1] p-4 sm:p-6 md:p-8 shadow-sm">
-            <div className="flex items-center mb-4 md:mb-6">
-              <span className="inline-block w-5 h-5 md:w-6 md:h-6 mr-2 align-middle">
-                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                  <rect width="24" height="24" rx="12" fill="#e6f9f1" />
-                  <path
-                    d="M8 12h8M12 8v8"
-                    stroke="#22c55e"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
-              <span className="font-inter font-bold text-[18px] md:text-[20px] leading-[24px] md:leading-[28px] align-middle bg-gradient-to-r from-[#10B981] via-[#2DD4BF] to-[#67E8F9] bg-clip-text text-transparent">
-                How Hyprlinc Solves It
-              </span>
+
+          {/* Right Column - How Hyprlinc Solves It */}
+          <div className="flex-1">
+            <div className="mb-6 md:mb-8">
+              <div className="flex items-center mb-4 md:mb-6">
+                <span className="inline-block w-5 h-5 md:w-6 md:h-6 mr-2 align-middle bg-green-50">
+                  <AiTwotoneStar className="w-6 h-6 text-[#10B981]" />
+                </span>
+                <span className="font-inter font-bold text-[18px] md:text-[20px] leading-[24px] md:leading-[28px] align-middle bg-gradient-to-r from-[#10B981] via-[#2DD4BF] to-[#67E8F9] bg-clip-text text-transparent">
+                  How Hyprlinc Solves It
+                </span>
+              </div>
             </div>
-            <ul className="space-y-4 md:space-y-5">
-              <li className="flex items-start gap-3 md:gap-4">
-                <img
-                  src={right1}
-                  alt="Modular UGC Powered by AI"
-                  className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain"
-                />
-                <div>
-                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">
-                    Modular UGC Powered by AI
-                  </div>
-                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">
-                    AI-powered matchmaking instantly connects you with creators
-                    who match your brand's niche, goals, and audience type
-                  </div>
-                </div>
-              </li>
-              <li className="flex items-start gap-3 md:gap-4">
-                <img
-                  src={right2}
-                  alt="Predict ROI Before You Launch"
-                  className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain"
-                />
-                <div>
-                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">
-                    Predict ROI Before You Launch
-                  </div>
-                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">
-                    Real-time data + fraud detection ensures you collaborate
-                    only with trusted, high-engagement creators
-                  </div>
-                </div>
-              </li>
-              <li className="flex items-start gap-3 md:gap-4">
-                <img
-                  src={right3}
-                  alt="Automated Legal, Built In"
-                  className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain"
-                />
-                <div>
-                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">
-                    Automated Legal, Built In
-                  </div>
-                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">
-                    Built-in project management, messaging, and milestone
-                    tracking in one centralized dashboard.
-                  </div>
-                </div>
-              </li>
-              <li className="flex items-start gap-3 md:gap-4">
-                <img
-                  src={right4}
-                  alt="One Export. Every Channel."
-                  className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain"
-                />
-                <div>
-                  <div className="font-inter font-medium font-weight-500 text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">
-                    One Export. Every Channel.
-                  </div>
-                  <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22.75px] text-black">
-                    Escrow-secured payments that release only upon delivery of
-                    agreed campaign milestones. Transparent analytics showing
-                    reach, engagement, conversions, and ROI—updated in
-                    real-time.
+
+            <div className="grid grid-cols-1 gap-4 md:gap-6">
+              {[
+                {
+                  icon: right1,
+                  title: "Modular UGC Powered by AI",
+                  description:
+                    "AI-powered matchmaking instantly connects you with creators who match your brand's niche, goals, and audience type",
+                },
+                {
+                  icon: right2,
+                  title: "Predict ROI Before You Launch",
+                  description:
+                    "Real-time data + fraud detection ensures you collaborate only with trusted, high-engagement creators",
+                },
+                {
+                  icon: right3,
+                  title: "Automated Legal, Built In",
+                  description:
+                    "Built-in project management, messaging, and milestone tracking in one centralized dashboard.",
+                },
+                {
+                  icon: right4,
+                  title: "One Export. Every Channel.",
+                  description:
+                    "Escrow-secured payments that release only upon delivery of agreed campaign milestones. Transparent analytics showing reach, engagement, conversions, and ROI—updated in real-time.",
+                },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl border border-[#e6f9f1] p-4 sm:p-5 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div className="flex items-start gap-3 md:gap-4">
+                    <img
+                      src={item.icon}
+                      alt={item.title}
+                      className="w-7 h-7 md:w-8 md:h-8 mt-1 object-contain"
+                    />
+                    <div>
+                      <div className="font-inter font-medium text-[15px] md:text-[16px] leading-[22px] md:leading-[24px] text-black">
+                        {item.title}
+                      </div>
+                      <div className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22px] text-black mt-1">
+                        {item.description}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </li>
-            </ul>
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
       {/* How it works - Updated with consistent typography */}
       <HowItWorks scrollToSection={scrollToSection} />
 
-      {/* <section
+      {/* 
+      <section
         id="how-it-works"
         className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16"
       >
@@ -916,29 +856,22 @@ function App() {
         </button>
         <p className="mt-3 text-sm text-gray-500">Only 50 spots available</p>
       </section> */}
+
       {/* Features Section */}
       <section
         id="features"
-        className="mx-auto mt-1 flex w-full max-w-[1100px] flex-col items-center px-4 py-13"
+        className="mx-auto mt-1 flex w-full max-w-[1100px] flex-col items-center px-4 py-16"
       >
         <div className="text-center font-montserrat font-bold text-2xl md:text-4xl bg-gradient-to-r from-[#007AFF] to-[#004999] bg-clip-text text-transparent mb-2">
           Features
         </div>
-        {/* <div className="mb-12 max-w-[750px] text-center text-[1.1rem] leading-7 text-gray-600">
-          Hyprlinc integrates effortlessly with social media platforms like
-          Instagram & YouTube, allowing brands to sync influencer data directly
-          with marketing strategies. The exclusive influencer marketplace
-          provides influencers with access to top-tier brand deals while giving
-          brands the ability to create custom influencer programs for long-term
-          partnerships
-        </div> */}
         <div className="mb-12 max-w-[750px] text-center text-md font-medium leading-7 text-gray-600">
           Hyprlinc integrates effortlessly with social media platforms like
           Instagram & YouTube, allowing brands to sync influencer data directly
           with marketing strategies.
         </div>
         <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
+          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1 hover:border-[#007AFF]">
             <img
               src={Overlay0}
               alt="Feature 1"
@@ -952,7 +885,7 @@ function App() {
               and vibe.
             </div>
           </div>
-          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
+          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1 hover:border-[#007AFF]">
             <img
               src={Overlay1}
               alt="Feature 2"
@@ -966,7 +899,7 @@ function App() {
               a clean, user-friendly interface.
             </div>
           </div>
-          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
+          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1 hover:border-[#007AFF]">
             <img
               src={Overlay2}
               alt="Feature 3"
@@ -980,7 +913,7 @@ function App() {
               audience insights.
             </div>
           </div>
-          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
+          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1 hover:border-[#007AFF]">
             <img
               src={Overlay3}
               alt="Feature 4"
@@ -994,7 +927,7 @@ function App() {
               demographics, and more.
             </div>
           </div>
-          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
+          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1 hover:border-[#007AFF]">
             <img
               src={Overlay4}
               alt="Feature 5"
@@ -1008,7 +941,7 @@ function App() {
               budgets.
             </div>
           </div>
-          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1">
+          <div className="flex flex-col items-start rounded-2xl border border-solid border-gray-200 bg-[#EDF1FF] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-transform duration-200 hover:-translate-y-1 hover:border-[#007AFF]">
             <img
               src={Overlay5}
               alt="Feature 6"
@@ -1026,7 +959,7 @@ function App() {
       </section>
 
       {/* Strategic Growth Roadmap Section */}
-      <section
+      {/* <section
         id="investors"
         className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16"
       >
@@ -1040,7 +973,6 @@ function App() {
             </span>
           </div>
           <div className="relative flex flex-col gap-8 before:absolute before:top-2 before:bottom-2 before:left-[7px] before:w-0.5 before:bg-gray-200">
-            {/* Milestone 1 */}
             <div className="relative flex items-start gap-6">
               <div className="z-10 mt-1.5 h-4 w-4 rounded-full border-4 border-solid border-white bg-green-500"></div>
               <div className="flex-1">
@@ -1063,7 +995,6 @@ function App() {
                 </div>
               </div>
             </div>
-            {/* Milestone 2 */}
             <div className="relative flex items-start gap-6">
               <div className="z-10 mt-1.5 h-4 w-4 rounded-full border-4 border-solid border-white bg-blue-500"></div>
               <div className="flex-1">
@@ -1086,7 +1017,6 @@ function App() {
                 </div>
               </div>
             </div>
-            {/* Milestone 3 */}
             <div className="relative flex items-start gap-6">
               <div className="z-10 mt-1.5 h-4 w-4 rounded-full border-4 border-solid border-white bg-pink-500"></div>
               <div className="flex-1">
@@ -1110,7 +1040,6 @@ function App() {
                 </div>
               </div>
             </div>
-            {/* Milestone 4 */}
             <div className="relative flex items-start gap-6">
               <div className="z-10 mt-1.5 h-4 w-4 rounded-full border-4 border-solid border-white bg-purple-500"></div>
               <div className="flex-1">
@@ -1134,7 +1063,6 @@ function App() {
                 </div>
               </div>
             </div>
-            {/* Milestone 5 */}
             <div className="relative flex items-start gap-6">
               <div className="z-10 mt-1.5 h-4 w-4 rounded-full border-4 border-solid border-white bg-orange-500"></div>
               <div className="flex-1">
@@ -1155,9 +1083,10 @@ function App() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+
       {/* Final Call to Action Section */}
-      <section className="mx-auto mt-8 flex w-full max-w-[1100px] flex-col items-center px-4 pb-20">
+      {/* <section className="mx-auto mt-8 flex w-full max-w-[1100px] flex-col items-center px-4 pb-20">
         <div className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4">
           <span className="text-sm font-medium text-blue-600">
             Early Access Ends Soon
@@ -1193,23 +1122,16 @@ function App() {
         <div className="text-base text-gray-500">
           Only 50 spots available. No commitment required.
         </div>
-      </section>
+      </section> */}
+
+      {/* Trusted Branch */}
+      <TrustedBrands />
+
+      {/* FrequentlyAskedQuestions */}
+      <FrequentlyAskedQuestions />
+
       {/* Footer Section */}
-      <footer className="bg-gray-800 py-12 text-white">
-        <div className="mx-auto flex w-full max-w-[1100px] flex-wrap items-center justify-between border-solid border-gray-700 px-8 pt-8">
-          <div className="text-base text-gray-400">
-            © 2025 Hyprlinc All rights reserved.
-          </div>
-          <div className="flex gap-6">
-            <span className="cursor-pointer text-base text-gray-400 transition-colors duration-200 hover:text-white">
-              Privacy Policy
-            </span>
-            <span className="cursor-pointer text-base text-gray-400 transition-colors duration-200 hover:text-white">
-              Terms of Service
-            </span>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
@@ -1238,187 +1160,398 @@ const AnimatedNumber = ({ endValue, suffix = "", duration = 2000 }) => {
   }, [endValue, duration]);
 
   return (
-    <div className="mb-1 text-4xl font-bold text-[#2563EB]">
+    <div className="mb-1 text-4xl font-bold text-[#08AA44]">
       {count}
       {suffix}
     </div>
   );
 };
 
+// const HowItWorks = ({ scrollToSection }) => {
+//   const [activeTab, setActiveTab] = useState("creators");
+//   const [isVisible, setIsVisible] = useState(false);
+//   const [animationPhase, setAnimationPhase] = useState(0);
+//   const [activeButtonIndex, setActiveButtonIndex] = useState(0);
+//   const sectionRef = useRef(null);
+
+//   // Color cycling configuration
+//   const colorCycle = [
+//     {
+//       bg: "bg-emerald-300",
+//       hover: "hover:bg-emerald-400",
+//       text: "text-emerald-500",
+//     },
+//     {
+//       bg: "bg-purple-300",
+//       hover: "hover:bg-purple-400",
+//       text: "text-purple-500",
+//     },
+//     {
+//       bg: "bg-orange-300",
+//       hover: "hover:bg-orange-400",
+//       text: "text-orange-500",
+//     },
+//   ];
+
+//   // Mock image components (replace with your actual images)
+//   const signup = <UserPlus className="w-6 h-6 text-blue-600" />;
+//   const create = <FileText className="w-6 h-6 text-blue-600" />;
+//   const collaborate = <Handshake className="w-6 h-6 text-blue-600" />;
+//   const getpaid = <DollarSign className="w-6 h-6 text-blue-600" />;
+
+//   const tabConfig = {
+//     creators: {
+//       label: "For Creators",
+//       color: "bg-emerald-500",
+//       hoverColor: "hover:bg-emerald-600",
+//       icon: Users,
+//     },
+//     brands: {
+//       label: "For Brands",
+//       color: "bg-purple-500",
+//       hoverColor: "hover:bg-purple-600",
+//       icon: Target,
+//     },
+//     agencies: {
+//       label: "For Agencies",
+//       color: "bg-orange-500",
+//       hoverColor: "hover:bg-orange-600",
+//       icon: Building,
+//     },
+//   };
+
+//   const steps = [
+//     {
+//       icon: signup,
+//       title: "Sign up",
+//       description: "Register as a brand, influencer, or agency",
+//     },
+//     {
+//       icon: create,
+//       title: "Create or Apply for Campaign",
+//       description: "Find and collaborate on tailored campaigns",
+//     },
+//     {
+//       icon: collaborate,
+//       title: "Collaborate & Execute",
+//       description: "Finalize deliverables and track progress",
+//     },
+//     {
+//       icon: getpaid,
+//       title: "Get Paid",
+//       description: "Post the finalised content and get paid",
+//     },
+//   ];
+
+//   // Intersection Observer for scroll animation
+//   useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       ([entry]) => {
+//         if (entry.isIntersecting) {
+//           setIsVisible(true);
+//           // Start animation sequence
+//           const timer = setTimeout(() => {
+//             setAnimationPhase(1);
+//           }, 500);
+//           return () => clearTimeout(timer);
+//         }
+//       },
+//       { threshold: 0.3 }
+//     );
+
+//     if (sectionRef.current) {
+//       observer.observe(sectionRef.current);
+//     }
+
+//     return () => observer.disconnect();
+//   }, []);
+
+//   // Sequential button animation when visible
+//   useEffect(() => {
+//     if (isVisible) {
+//       const buttonInterval = setInterval(() => {
+//         setActiveButtonIndex(
+//           (prevIndex) => (prevIndex + 1) % Object.keys(tabConfig).length
+//         );
+//       }, 2000); // Change button every 2 seconds
+
+//       return () => clearInterval(buttonInterval);
+//     }
+//   }, [isVisible]);
+
+//   // Arrow animation sequence
+//   useEffect(() => {
+//     if (animationPhase === 1) {
+//       const timer = setTimeout(() => setAnimationPhase(2), 800);
+//       return () => clearTimeout(timer);
+//     } else if (animationPhase === 2) {
+//       const timer = setTimeout(() => setAnimationPhase(3), 800);
+//       return () => clearTimeout(timer);
+//     } else if (animationPhase === 3) {
+//       const timer = setTimeout(() => setAnimationPhase(4), 800);
+//       return () => clearTimeout(timer);
+//     }
+//   }, [animationPhase]);
+
+//   const getActiveColor = (type = "bg") => {
+//     if (isVisible) {
+//       const currentColor = colorCycle[activeButtonIndex];
+//       return type === "bg" ? currentColor.bg : currentColor.hover;
+//     }
+//     const config = tabConfig[activeTab];
+//     return type === "bg" ? config.color : config.hoverColor;
+//   };
+
+//   const getActiveTextColor = () => {
+//     if (isVisible) {
+//       return colorCycle[activeButtonIndex].text;
+//     }
+//     const config = tabConfig[activeTab];
+//     return config.color.replace("bg-", "text-");
+//   };
+
+//   const getButtonColor = (buttonIndex) => {
+//     if (isVisible && activeButtonIndex === buttonIndex) {
+//       return colorCycle[activeButtonIndex];
+//     }
+//     const config = Object.values(tabConfig)[buttonIndex];
+//     return {
+//       bg: config.color,
+//       hover: config.hoverColor,
+//       text: config.color.replace("bg-", "text-"),
+//     };
+//   };
+
+//   const ArrowConnector = ({ index, isVisible }) => (
+//     <div
+//       className={`absolute top-6 left-full transform -translate-y-1/2 transition-all duration-1000 ${
+//         isVisible ? "opacity-100 scale-100" : "opacity-0 scale-50"
+//       }`}
+//     >
+//       <div className="flex items-center">
+//         <div
+//           className={`w-8 h-0.5 ${getActiveColor()} transition-all duration-500`}
+//         ></div>
+//         <ChevronRight
+//           className={`w-4 h-4 ${getActiveColor().replace(
+//             "bg-",
+//             "text-"
+//           )} transition-all duration-500`}
+//         />
+//       </div>
+//     </div>
+//   );
+
+//   return (
+//     <section
+//       ref={sectionRef}
+//       id="how-it-works"
+//       className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16"
+//     >
+//       {/* Header */}
+//       <div
+//         className={` inline-flex items-center gap-2 rounded-xl bg-blue-50 py-1.5 px-3 transition-all duration-700 border border-blue-600 ${
+//           isVisible
+//             ? "opacity-100 transform translate-y-0"
+//             : "opacity-0 transform translate-y-4"
+//         }`}
+//       >
+//         <span className=" flex gap-2 text-blue-600 text-sm">
+//           <FaRocket className="inline-block w-5 h-5" />
+//           How it works
+//         </span>
+//       </div>
+
+//       <h2
+//         className={`text-center font-montserrat font-bold text-2xl md:text-4xl bg-gradient-to-r from-[#153885] to-[#007AFF] text-transparent bg-clip-text my-3 transition-all duration-700 delay-200 ${
+//           isVisible
+//             ? "opacity-100 transform translate-y-0"
+//             : "opacity-0 transform translate-y-4"
+//         }`}
+//       >
+//         Transforming Influencer Marketing
+//       </h2>
+
+//       <p
+//         className={`mb-12 max-w-[750px] text-center text-[1.1rem] leading-7 text-gray-600 transition-all duration-700 delay-300 ${
+//           isVisible
+//             ? "opacity-100 transform translate-y-0"
+//             : "opacity-0 transform translate-y-4"
+//         }`}
+//       >
+//         Hyprlinc connects creators, Brand and Marketing agencies in a
+//         revolutionary new way enabling seamless collaborations and campaign
+//         tracking on multiple channels.
+//       </p>
+
+//       {/* Tab Buttons - Sequential Animation */}
+//       <div
+//         className={`mb-10 flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center transition-all duration-700 delay-400 ${
+//           isVisible
+//             ? "opacity-100 transform translate-y-0"
+//             : "opacity-0 transform translate-y-4"
+//         }`}
+//       >
+//         {Object.entries(tabConfig).map(([key, config], buttonIndex) => {
+//           const Icon = config.icon;
+//           const buttonColor = getButtonColor(buttonIndex);
+//           const isActiveButton = isVisible && activeButtonIndex === buttonIndex;
+
+//           return (
+//             <button
+//               key={key}
+//               onClick={() => setActiveTab(key)}
+//               className={`px-3 py-2 sm:px-4 sm:py-2 rounded-full font-medium transition-all duration-500 flex items-center justify-center gap-2 text-sm sm:text-base ${
+//                 isActiveButton
+//                   ? `${buttonColor.bg} text-white shadow-lg transform scale-105`
+//                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+//               }`}
+//             >
+//               <Icon className="w-3 h-3 sm:w-4 sm:h-4" />
+//               {config.label}
+//             </button>
+//           );
+//         })}
+//       </div>
+
+//       {/* Process Steps - All Cards Change Together */}
+//       <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 w-full">
+//         {steps.map((step, index) => {
+//           const isAnyButtonActive = isVisible;
+//           const cardColor = isAnyButtonActive
+//             ? colorCycle[activeButtonIndex]
+//             : { bg: "bg-blue-100", text: "text-blue-600" };
+
+//           return (
+//             <div
+//               key={index}
+//               className={`relative flex flex-col items-center text-center transition-all duration-700 ${
+//                 isVisible
+//                   ? "opacity-100 transform translate-y-0"
+//                   : "opacity-0 transform translate-y-8"
+//               }`}
+//               style={{ transitionDelay: `${500 + index * 200}ms` }}
+//             >
+//               {/* Card */}
+//               <div
+//                 className={`relative mb-4 h-12 w-12 sm:h-16 sm:w-16 flex items-center justify-center rounded-full transition-all duration-500 ${
+//                   isAnyButtonActive
+//                     ? `${cardColor.bg} shadow-lg`
+//                     : "bg-blue-100"
+//                 }`}
+//               >
+//                 <div
+//                   className={`transition-all duration-500 ${
+//                     isAnyButtonActive ? "text-white" : "text-blue-600"
+//                   }`}
+//                 >
+//                   {step.icon}
+//                 </div>
+
+//                 {/* Pulse animation for all cards when any button is active */}
+//                 {isAnyButtonActive && (
+//                   <div
+//                     className={`absolute inset-0 rounded-full ${cardColor.bg} opacity-20 animate-ping`}
+//                   ></div>
+//                 )}
+//               </div>
+
+//               {/* Arrow Connector - Hidden on mobile */}
+//               {index < steps.length - 1 && (
+//                 <div className="hidden md:block">
+//                   <ArrowConnector
+//                     index={index}
+//                     isVisible={animationPhase > index}
+//                   />
+//                 </div>
+//               )}
+
+//               <h3
+//                 className={`mb-2 text-base sm:text-lg font-semibold transition-all duration-500 ${
+//                   isAnyButtonActive ? cardColor.text : "text-blue-600"
+//                 }`}
+//               >
+//                 {step.title}
+//               </h3>
+//               <p className="text-sm sm:text-base text-gray-600">
+//                 {step.description}
+//               </p>
+//             </div>
+//           );
+//         })}
+//       </div>
+
+//       {/* CTA Button */}
+//       <button
+//         className={`mt-12 flex items-center gap-2 rounded-3xl px-4 py-3 sm:px-6 sm:py-3 font-semibold text-white transition-all duration-700 delay-1000 ${
+//           isVisible
+//             ? "bg-[#2563EB] hover:bg-[#1d4ed8] opacity-100 transform translate-y-0 shadow-lg hover:shadow-xl hover:scale-105"
+//             : "bg-blue-600 opacity-0 transform translate-y-4"
+//         }`}
+//         onClick={() => scrollToSection("hyprlinc50")}
+//       >
+//         Sign Up
+//         <ChevronRight className="w-4 h-4" />
+//       </button>
+
+//       {/* Background Animation */}
+//       {isVisible && (
+//         <div className="absolute inset-0 -z-10 overflow-hidden">
+//           <div
+//             className={`absolute top-1/2 left-1/2 w-96 h-96 ${getActiveColor().replace(
+//               "bg-",
+//               "bg-"
+//             )} opacity-5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse`}
+//           ></div>
+//         </div>
+//       )}
+//     </section>
+//   );
+// };
+
+
 const HowItWorks = ({ scrollToSection }) => {
   const [activeTab, setActiveTab] = useState("creators");
-  const [isVisible, setIsVisible] = useState(false);
-  const [animationPhase, setAnimationPhase] = useState(0);
-  const [activeButtonIndex, setActiveButtonIndex] = useState(0);
   const sectionRef = useRef(null);
-
-  // Color cycling configuration
-  const colorCycle = [
-    {
-      bg: "bg-emerald-300",
-      hover: "hover:bg-emerald-400",
-      text: "text-emerald-500",
-    },
-    {
-      bg: "bg-purple-300",
-      hover: "hover:bg-purple-400",
-      text: "text-purple-500",
-    },
-    {
-      bg: "bg-orange-300",
-      hover: "hover:bg-orange-400",
-      text: "text-orange-500",
-    },
-  ];
-
-  // Mock image components (replace with your actual images)
-  const signup = <UserPlus className="w-6 h-6 text-blue-600" />;
-  const create = <FileText className="w-6 h-6 text-blue-600" />;
-  const collaborate = <Handshake className="w-6 h-6 text-blue-600" />;
-  const getpaid = <DollarSign className="w-6 h-6 text-blue-600" />;
+  const [isVisible, setIsVisible] = useState(false);
 
   const tabConfig = {
-    creators: {
-      label: "For Creators",
-      color: "bg-emerald-500",
-      hoverColor: "hover:bg-emerald-600",
-      icon: Users,
-    },
-    brands: {
-      label: "For Brands",
-      color: "bg-purple-500",
-      hoverColor: "hover:bg-purple-600",
-      icon: Target,
-    },
-    agencies: {
-      label: "For Agencies",
-      color: "bg-orange-500",
-      hoverColor: "hover:bg-orange-600",
-      icon: Building,
-    },
+    creators: "For Creators",
+    brands: "For Brands",
+    agencies: "For Agencies",
   };
 
   const steps = [
     {
-      icon: signup,
+      icon: <UserPlus className="w-6 h-6 text-blue-600" />,
       title: "Sign up",
       description: "Register as a brand, influencer, or agency",
     },
     {
-      icon: create,
+      icon: <FileText className="w-6 h-6 text-blue-600" />,
       title: "Create or Apply for Campaign",
       description: "Find and collaborate on tailored campaigns",
     },
     {
-      icon: collaborate,
+      icon: <Handshake className="w-6 h-6 text-blue-600" />,
       title: "Collaborate & Execute",
       description: "Finalize deliverables and track progress",
     },
     {
-      icon: getpaid,
+      icon: <DollarSign className="w-6 h-6 text-blue-600" />,
       title: "Get Paid",
       description: "Post the finalised content and get paid",
     },
   ];
 
-  // Intersection Observer for scroll animation
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          // Start animation sequence
-          const timer = setTimeout(() => {
-            setAnimationPhase(1);
-          }, 500);
-          return () => clearTimeout(timer);
-        }
-      },
+      ([entry]) => setIsVisible(entry.isIntersecting),
       { threshold: 0.3 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
-
-  // Sequential button animation when visible
-  useEffect(() => {
-    if (isVisible) {
-      const buttonInterval = setInterval(() => {
-        setActiveButtonIndex(
-          (prevIndex) => (prevIndex + 1) % Object.keys(tabConfig).length
-        );
-      }, 2000); // Change button every 2 seconds
-
-      return () => clearInterval(buttonInterval);
-    }
-  }, [isVisible]);
-
-  // Arrow animation sequence
-  useEffect(() => {
-    if (animationPhase === 1) {
-      const timer = setTimeout(() => setAnimationPhase(2), 800);
-      return () => clearTimeout(timer);
-    } else if (animationPhase === 2) {
-      const timer = setTimeout(() => setAnimationPhase(3), 800);
-      return () => clearTimeout(timer);
-    } else if (animationPhase === 3) {
-      const timer = setTimeout(() => setAnimationPhase(4), 800);
-      return () => clearTimeout(timer);
-    }
-  }, [animationPhase]);
-
-  const getActiveColor = (type = "bg") => {
-    if (isVisible) {
-      const currentColor = colorCycle[activeButtonIndex];
-      return type === "bg" ? currentColor.bg : currentColor.hover;
-    }
-    const config = tabConfig[activeTab];
-    return type === "bg" ? config.color : config.hoverColor;
-  };
-
-  const getActiveTextColor = () => {
-    if (isVisible) {
-      return colorCycle[activeButtonIndex].text;
-    }
-    const config = tabConfig[activeTab];
-    return config.color.replace("bg-", "text-");
-  };
-
-  const getButtonColor = (buttonIndex) => {
-    if (isVisible && activeButtonIndex === buttonIndex) {
-      return colorCycle[activeButtonIndex];
-    }
-    const config = Object.values(tabConfig)[buttonIndex];
-    return {
-      bg: config.color,
-      hover: config.hoverColor,
-      text: config.color.replace("bg-", "text-"),
-    };
-  };
-
-  const ArrowConnector = ({ index, isVisible }) => (
-    <div
-      className={`absolute top-6 left-full transform -translate-y-1/2 transition-all duration-1000 ${
-        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-50"
-      }`}
-    >
-      <div className="flex items-center">
-        <div
-          className={`w-8 h-0.5 ${getActiveColor()} transition-all duration-500`}
-        ></div>
-        <ChevronRight
-          className={`w-4 h-4 ${getActiveColor().replace(
-            "bg-",
-            "text-"
-          )} transition-all duration-500`}
-        />
-      </div>
-    </div>
-  );
 
   return (
     <section
@@ -1426,170 +1559,258 @@ const HowItWorks = ({ scrollToSection }) => {
       id="how-it-works"
       className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16"
     >
-      {/* Header */}
-      <div
-        className={`mb-4 inline-flex items-center gap-2 rounded-xl bg-blue-50 py-1.5 px-3 transition-all duration-700 ${
-          isVisible
-            ? "opacity-100 transform translate-y-0"
-            : "opacity-0 transform translate-y-4"
-        }`}
-      >
-        <span className="text-blue-600 text-sm">How it works</span>
+      {/* How it works tag */}
+      <div className={`inline-flex items-center gap-2 rounded-xl bg-blue-50 py-1.5 px-3 border border-blue-600 transition-all duration-700 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+        <span className="text-blue-600 text-sm font-medium">🚀 How it works</span>
       </div>
 
-      <h2
-        className={`text-center font-montserrat font-bold text-2xl sm:text-2xl md:text-2xl text-[#2563eb] mb-2 transition-all duration-700 delay-200 ${
-          isVisible
-            ? "opacity-100 transform translate-y-0"
-            : "opacity-0 transform translate-y-4"
-        }`}
-      >
+      {/* Heading */}
+      <h2 className="text-center font-bold text-2xl md:text-4xl bg-gradient-to-r from-[#153885] to-[#007AFF] text-transparent bg-clip-text my-3">
         Transforming Influencer Marketing
       </h2>
 
-      <p
-        className={`mb-12 max-w-[750px] text-center text-[1.1rem] leading-7 text-gray-600 transition-all duration-700 delay-300 ${
-          isVisible
-            ? "opacity-100 transform translate-y-0"
-            : "opacity-0 transform translate-y-4"
-        }`}
-      >
-        Hyprlinc connects creators, Brand and Marketing agencies in a
-        revolutionary new way enabling seamless collaborations and campaign
-        tracking on multiple channels.
+      {/* Subtitle */}
+      <p className="mb-12 max-w-[750px] text-center text-[1.1rem] leading-7 text-gray-600">
+        HyprLinc connects creators, Brand and Marketing agencies in a revolutionary new way enabling seamless collaborations and campaign tracking on multiple channels.
       </p>
 
-      {/* Tab Buttons - Sequential Animation */}
-      <div
-        className={`mb-10 flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center transition-all duration-700 delay-400 ${
-          isVisible
-            ? "opacity-100 transform translate-y-0"
-            : "opacity-0 transform translate-y-4"
-        }`}
-      >
-        {Object.entries(tabConfig).map(([key, config], buttonIndex) => {
-          const Icon = config.icon;
-          const buttonColor = getButtonColor(buttonIndex);
-          const isActiveButton = isVisible && activeButtonIndex === buttonIndex;
-
-          return (
-            <button
-              key={key}
-              onClick={() => setActiveTab(key)}
-              className={`px-3 py-2 sm:px-4 sm:py-2 rounded-full font-medium transition-all duration-500 flex items-center justify-center gap-2 text-sm sm:text-base ${
-                isActiveButton
-                  ? `${buttonColor.bg} text-white shadow-lg transform scale-105`
-                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-              }`}
-            >
-              <Icon className="w-3 h-3 sm:w-4 sm:h-4" />
-              {config.label}
-            </button>
-          );
-        })}
+      {/* Tab Buttons */}
+      <div className="mb-10 flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center bg-gray-200 rounded-3xl p-2 transition-all duration-700 shadow-inner">
+        {Object.entries(tabConfig).map(([key, label]) => (
+          <button
+            key={key}
+            onClick={() => setActiveTab(key)}
+            className={`px-4 py-2 rounded-full font-medium text-sm sm:text-base transition-all duration-300 ${
+              activeTab === key
+                ? "bg-[#004999] text-white shadow"
+                : " text-gray-600 hover:bg-gray-200"
+            }`}
+          >
+            {label}
+          </button>
+        ))}
       </div>
 
-      {/* Process Steps - All Cards Change Together */}
-      <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 w-full">
-        {steps.map((step, index) => {
-          const isAnyButtonActive = isVisible;
-          const cardColor = isAnyButtonActive
-            ? colorCycle[activeButtonIndex]
-            : { bg: "bg-blue-100", text: "text-blue-600" };
-
-          return (
-            <div
-              key={index}
-              className={`relative flex flex-col items-center text-center transition-all duration-700 ${
-                isVisible
-                  ? "opacity-100 transform translate-y-0"
-                  : "opacity-0 transform translate-y-8"
-              }`}
-              style={{ transitionDelay: `${500 + index * 200}ms` }}
-            >
-              {/* Card */}
-              <div
-                className={`relative mb-4 h-12 w-12 sm:h-16 sm:w-16 flex items-center justify-center rounded-full transition-all duration-500 ${
-                  isAnyButtonActive
-                    ? `${cardColor.bg} shadow-lg`
-                    : "bg-blue-100"
-                }`}
-              >
-                <div
-                  className={`transition-all duration-500 ${
-                    isAnyButtonActive ? "text-white" : "text-blue-600"
-                  }`}
-                >
-                  {step.icon}
-                </div>
-
-                {/* Pulse animation for all cards when any button is active */}
-                {isAnyButtonActive && (
-                  <div
-                    className={`absolute inset-0 rounded-full ${cardColor.bg} opacity-20 animate-ping`}
-                  ></div>
-                )}
-              </div>
-
-              {/* Arrow Connector - Hidden on mobile */}
-              {index < steps.length - 1 && (
-                <div className="hidden md:block">
-                  <ArrowConnector
-                    index={index}
-                    isVisible={animationPhase > index}
-                  />
-                </div>
-              )}
-
-              <h3
-                className={`mb-2 text-base sm:text-lg font-semibold transition-all duration-500 ${
-                  isAnyButtonActive ? cardColor.text : "text-blue-600"
-                }`}
-              >
-                {step.title}
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600">
-                {step.description}
-              </p>
+      {/* Steps with dotted line */}
+      <div className="relative w-full flex justify-between items-start mt-4">
+        {steps.map((step, index) => (
+          <div key={index} className="flex flex-col items-center text-center w-1/4 px-2">
+            <div className="relative mb-4 h-14 w-14 sm:h-16 sm:w-16 flex items-center justify-center rounded-full bg-blue-100">
+              {step.icon}
             </div>
-          );
-        })}
+            <h3 className="mb-1 text-base font-semibold text-gray-800">{step.title}</h3>
+            <p className="text-sm text-gray-600">{step.description}</p>
+          </div>
+        ))}
+
+        {/* Dotted Line Connector */}
+        <div className="absolute top-7 left-0 w-full border-t border-dotted border-green-500 z-[-1]"></div>
       </div>
 
       {/* CTA Button */}
       <button
-        className={`mt-12 flex items-center gap-2 rounded-lg px-4 py-3 sm:px-6 sm:py-3 font-semibold text-white transition-all duration-700 delay-1000 ${
-          isVisible
-            ? "bg-[#2563EB] hover:bg-[#1d4ed8] opacity-100 transform translate-y-0 shadow-lg hover:shadow-xl hover:scale-105"
-            : "bg-blue-600 opacity-0 transform translate-y-4"
-        }`}
         onClick={() => scrollToSection("hyprlinc50")}
+        className="mt-12 px-6 py-3 rounded-full bg-gradient-to-r from-[#007AFF] to-[#153885] text-white font-semibold hover:bg-blue-700 transition-all"
       >
-        Get Exclusive Early Access
-        <ChevronRight className="w-4 h-4" />
+        Signup
       </button>
-
-      <p
-        className={`mt-3 text-sm text-gray-500 transition-all duration-700 delay-1100 ${
-          isVisible
-            ? "opacity-100 transform translate-y-0"
-            : "opacity-0 transform translate-y-4"
-        }`}
-      >
-        Only 50 spots available
-      </p>
-
-      {/* Background Animation */}
-      {isVisible && (
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          <div
-            className={`absolute top-1/2 left-1/2 w-96 h-96 ${getActiveColor().replace(
-              "bg-",
-              "bg-"
-            )} opacity-5 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse`}
-          ></div>
-        </div>
-      )}
     </section>
+  );
+};
+
+const FrequentlyAskedQuestions = () => {
+  const faqs = [
+    {
+      question: "What is HyprLinc?",
+      answer:
+        "HyprLinc is a smart influencer marketing platform designed to help brands, creators, and agencies discover, connect, and collaborate seamlessly. We use AI to make influencer discovery and campaign execution faster, simpler, and more effective.",
+    },
+    {
+      question: "Is it free to use?",
+      answer:
+        "Yes, creating an account and using core platform features is completely free. We charge a minimal transaction fee only when a paid campaign is executed through the platform.",
+    },
+    {
+      question: "How are campaign payments handled?",
+      answer:
+        "To ensure security for both parties, campaign payments are held safely until deliverables are marked completed and approved by the brand.",
+    },
+    {
+      question: "Can agencies use the platform?",
+      answer:
+        "Yes! Agencies can register and manage multiple creators and campaigns from a single dashboard. They can also be discovered by brands looking for expert execution partners.",
+    },
+    {
+      question: "What kind of analytics does HyprLinc provide?",
+      answer:
+        "Our analytics dashboard provides comprehensive metrics including reach, engagement, click-through rates, conversion data, audience demographics, and ROI calculations.",
+    },
+    {
+      question: "Is HyprLinc available globally?",
+      answer:
+        "HyprLinc is currently focused on the Indian market but is designed to scale globally. We’re already onboarding creators and brands for cross-border collaborations.",
+    },
+  ];
+
+  return (
+    <section className=" text-white py-20 px-4 sm:px-8 lg:px-16">
+      <div className="max-w-4xl mx-auto space-y-10">
+        <h1 className="text-3xl text-gray-800 font-semibold flex items-center justify-center mb-6">
+          Frequently Asked Questions
+        </h1>
+
+        {faqs.map((faq, index) => (
+          <div key={index} className="space-y-2">
+            <h3 className="text-lg text-gray-800 font-semibold">
+              {faq.question}
+            </h3>
+            <p className="text-gray-700">{faq.answer}</p>
+            <hr className="border-gray-700 my-6" />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+const TrustedBrands = () => {
+  const brands = [
+    { name: "Adidas", src: "/logos/adidasLogo.png" },
+    { name: "H&M", src: "/logos/h&mLogo.png" },
+    { name: "Sugar", src: "/logos/sugarLogo.png" },
+    { name: "Burger King", src: "/logos/burgerKingLogo.png" },
+    { name: "Cetaphil", src: "/logos/cetaphilLogo.png" },
+  ];
+
+  return (
+    <section className=" py-16 overflow-hidden">
+      <div className="max-w-5xl mx-auto px-4">
+        <h2 className="text-2xl font-semibold mb-6 text-gray-900">
+          Trusted by leading Brands
+        </h2>
+        <div className="relative">
+          <div className="w-full overflow-hidden">
+            <div className="flex gap-16 animate-slide whitespace-nowrap">
+              {brands.concat(brands).map((brand, index) => (
+                <img
+                  key={index}
+                  src={brand.src}
+                  alt={brand.name}
+                  className="h-24 w-auto object-contain"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Footer = () => {
+  return (
+    <footer className="bg-gradient-to-r from-[#007BFF] to-[#003B95] text-white px-6 py-12">
+      <div className="max-w-7xl mx-auto space-y-8">
+        {/* Top Links */}
+        <div className="flex flex-col md:flex-row justify-between items-center border-b border-white/20 pb-6">
+          <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm text-white/80">
+            <a href="#" className="hover:text-white">
+              Terms of Service
+            </a>
+            <a href="#" className="hover:text-white">
+              Privacy Policy
+            </a>
+            <a href="#" className="hover:text-white">
+              Cancellation Refund Policy
+            </a>
+          </div>
+          <div className="flex items-center gap-4 mt-4 md:mt-0">
+            <span className="text-white/80 text-sm">Follow us</span>
+            <a href="#" className="hover:text-white">
+              <FaTwitter />
+            </a>
+            <a href="#" className="hover:text-white">
+              <FaInstagram />
+            </a>
+            <a href="#" className="hover:text-white">
+              <FaYoutube />
+            </a>
+          </div>
+        </div>
+
+        {/* Grid Section */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
+          {/* Description */}
+          <div className="md:col-span-1 text-white/80">
+            Connecting brands, influencers, and agencies through an innovative
+            platform that simplifies collaboration and maximizes results.
+          </div>
+
+          {/* Links */}
+          <div>
+            <h4 className="font-semibold mb-3">Platform</h4>
+            <ul className="space-y-2 text-white/80">
+              <li>
+                <a href="#" className="hover:text-white">
+                  Overview
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white">
+                  Marketplace
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white">
+                  Leaderboard
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-3">Solutions</h4>
+            <ul className="space-y-2 text-white/80">
+              <li>
+                <a href="#" className="hover:text-white">
+                  For Creators
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white">
+                  For Brands
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white">
+                  For Agencies
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-3">Company</h4>
+            <ul className="space-y-2 text-white/80">
+              <li>
+                <a href="#" className="hover:text-white">
+                  Investors
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white">
+                  Comparison
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white">
+                  Pricing
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 };
