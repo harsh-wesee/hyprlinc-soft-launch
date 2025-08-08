@@ -13,10 +13,15 @@ module.exports = {
           '100%': {
             transform: 'translateX(33%)'
           }
+        },
+        slide: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
         }
       },
       animation: {
-        'move-dots': 'moveDots 3s linear infinite'
+        'move-dots': 'moveDots 3s linear infinite',
+        'slide': 'slide 20s linear infinite',
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
