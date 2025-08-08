@@ -165,9 +165,9 @@ function App() {
           </nav>
         </div>
 
-        <div className="flex items-center gap-4 md:gap-6">
+        <div className="flex items-center gap-2 md:gap-6">
           {/* Sign In Button */}
-          <button className="">Sign Up</button>
+          <button className="text-sm">Sign Up</button>
           {/* Sign Up Button */}
           <button className="font-semibold mr-2 md:mr-6 flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-br from-[#007AFF] to-[#153885] py-1.5 px-3 md:px-6 text-base text-white shadow-[0_2px_8px_rgba(24,119,242,0.08)] transition-all duration-500 ease-in-out hover:from-[#007AFF] hover:to-[#004999]">
             Login
