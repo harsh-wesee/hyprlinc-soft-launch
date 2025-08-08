@@ -4,6 +4,7 @@
 
 @import "@fontsource/montserrat/700.css";
 @import "@fontsource/montserrat/400.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -30,4 +31,16 @@ body {
 
 .animate-move-dots {
   animation: moveDots 2s linear infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+    background-color: #10B981;
+  }
 }
