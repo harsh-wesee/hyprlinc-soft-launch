@@ -1,9 +1,5 @@
 import logo from "./logo.png";
-import hero_bg from "./header_bg.png";
-import p1 from "./Vector.png";
-import p2 from "./Vector (1).png";
-import p3 from "./Vector (2).png";
-import p4 from "./Vector (3).png";
+import hero_bg from "./heroImage.png";
 import right1 from "./r1.png";
 import right2 from "./r2.png";
 import right3 from "./r3.png";
@@ -22,9 +18,9 @@ import Overlay3 from "./Overlay (3).png";
 import Overlay4 from "./Overlay (4).png";
 import Overlay5 from "./Overlay (5).png";
 import rocket from "./rocket.png";
-import influencer from "./influencer.png";
-import brand from "./brand.png";
-import agency from "./agency.png";
+import influencer from "./influencerUpdated.png";
+import brand from "./brandUpdated.png";
+import agency from "./agencyUpdated.png";
 import creator1 from "./creator1.png";
 import creator2 from "./creator2.png";
 import creator3 from "./creator3.png";
@@ -51,10 +47,7 @@ import {
   FaYoutube,
 } from "react-icons/fa6";
 import { BsArrowUpRight, BsLayers, BsLightbulb } from "react-icons/bs";
-import {
-  AiOutlineBarChart,
-  AiOutlinePlayCircle,
-} from "react-icons/ai";
+import { AiOutlineBarChart, AiOutlinePlayCircle } from "react-icons/ai";
 
 function App() {
   const [activeRole, setActiveRole] = useState("creator");
@@ -213,7 +206,7 @@ function App() {
         <div className="flex flex-col w-full md:w-auto md:flex-row justify-between gap-6">
           <div>
             <p className="text-sm w-48 bg-gradient-to-r from-[#D3DDFF] to-[#E2FFED] border border-blue-600 text-blue-700 rounded-3xl py-2 px-3 mb-2">
-              Made In India for India
+              Made in India for India
             </p>
             <div className="max-w-full md:max-w-[700px] w-full">
               <h1 className="text-left text-3xl md:text-5xl lg:text-5xl font-semibold leading-[1.3] tracking-tight py-2 mb-6 bg-gradient-to-r from-[#153885] to-[#007AFF] text-transparent bg-clip-text">
@@ -231,221 +224,26 @@ function App() {
                 and campaign goals.
               </p>
               <div className="mb-8 flex flex-col gap-3 md:flex-row md:gap-[18px] w-full">
-                <button className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#153885] py-3 md:py-4 px-4 md:px-8 text-[1.1rem] font-medium text-white shadow-[0_2px_8px_rgba(37,99,235,0.08)] whitespace-nowrap w-full md:w-auto justify-center">
-                  <AiOutlinePlayCircle className=" w-6 h-6" />
-                  Watch Demo{" "}
-                  <span className="ml-2 rounded-2xl bg-white/20 border border-blue-200 py-0 px-2 text-sm text-white">
-                    2 min
-                  </span>
+                <button className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#153885] py-2 md:py-3 px-3 md:px-5 text-[0.9rem] font-semibold text-white shadow-[0_2px_8px_rgba(37,99,235,0.08)] whitespace-nowrap w-full md:w-auto justify-center">
+                  Find Brand
+                </button>
+                <button className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-white text-slate-900 py-2 md:py-3 px-3 md:px-5 text-[0.9rem] font-semibold shadow-[0_2px_8px_rgba(37,99,235,0.08)] whitespace-nowrap w-full md:w-auto justify-center">
+                  Find Creator
                 </button>
               </div>
             </div>
           </div>
 
-          <div className="relative hidden md:block w-[450px]">
+          <div className="relative hidden md:block ">
             <img
               src={hero_bg}
               alt="Travel Freedom"
-              className="h-[600px] w-full rounded-2xl object-cover shadow-xl"
+              className="h-[600px] w-full rounded-2xl object-cover"
             />
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-[rgba(0,0,0,0.3)] to-transparent"></div>
+            {/* <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-[rgba(0,0,0,0.3)] to-transparent"></div> */}
           </div>
         </div>
       </main>
-
-      {/* Join Hyprlinc:50 Section */}
-      {/* <section
-        id="hyprlinc50"
-        className="mx-auto mt-20 mb-16 flex w-full max-w-[1100px] flex-col items-center px-4"
-      >
-        <div className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4">
-          <span className="text-sm font-medium text-blue-600">
-            Limited Time Opportunity
-          </span>
-        </div>
-
-        <h2 className="mt-6 text-center text-2xl md:text-3xl font-semibold">
-          Join the <span className="text-blue-600">Hyprlinc : 50</span>
-          <br />
-          Founder's Circle
-        </h2>
-
-        <p className="mt-4 mb-12 max-w-[600px] text-center text-lg leading-relaxed text-gray-600">
-          Be one of the first 50 visionaries to shape the future of AI-powered
-          creator marketing. Get lifetime perks, elite visibility, and direct
-          influence—before the world catches on.
-        </p>
-      </section> */}
-
-      {/* Founders Circle Section */}
-      {/* <section className="mx-auto mt-16 w-full max-w-full bg-none px-0 pb-20 sm:max-w-[1100px] md:flex md:flex-col md:items-center">
-        <div className="flex w-full max-w-full flex-col justify-center gap-10 md:flex-row md:items-start">
-          <div className="flex basis-0 flex-col items-start bg-white p-9 shadow-[0_2px_16px_rgba(24,119,242,0.06)] md:min-w-[350px] md:max-w-[420px] md:flex-1 md:rounded-2xl">
-            <h2 className="mb-2 text-2xl font-bold text-[#222]">
-              Founder's Circle
-            </h2>
-            <p className="mb-[22px] text-base text-[#444]">
-              Enter your details to secure your spot and receive lifetime early
-              access benefits.
-            </p>
-            <div className="mb-[22px] flex gap-2.5">
-              <button
-                onClick={() => setActiveRole("creator")}
-                className={`cursor-pointer rounded-[20px] border-none py-[7px] px-[22px] text-base font-medium transition-all duration-200 ${
-                  activeRole === "creator"
-                    ? "bg-gradient-to-r from-[#153885] to-[#2563EB] text-white"
-                    : "bg-[#f3f4f6] text-[#222]"
-                }`}
-              >
-                Creator
-              </button>
-              <button
-                onClick={() => setActiveRole("brand")}
-                className={`cursor-pointer rounded-[20px] border-none py-[7px] px-[22px] text-base font-medium transition-all duration-200 ${
-                  activeRole === "brand"
-                    ? "bg-gradient-to-r from-[#153885] to-[#2563EB] text-white"
-                    : "bg-[#f3f4f6] text-[#222]"
-                }`}
-              >
-                Brand
-              </button>
-              <button
-                onClick={() => setActiveRole("agency")}
-                className={`cursor-pointer rounded-[20px] border-none py-[7px] px-[22px] text-base font-medium transition-all duration-200 ${
-                  activeRole === "agency"
-                    ? "bg-gradient-to-r from-[#153885] to-[#2563EB] text-white"
-                    : "bg-[#f3f4f6] text-[#222]"
-                }`}
-              >
-                Agency
-              </button>
-            </div>
-            <form className="mt-2 flex w-full flex-col gap-3.5" onSubmit={handleWaitlistSubmit}>
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full rounded-lg border border-solid border-[#e5e7eb] bg-[#f9fafb] p-3 text-base text-[#222] outline-none transition-colors duration-200 focus:border-[1.5px] focus:border-solid focus:border-[#2563eb]"
-                value={waitlistName}
-                onChange={e => setWaitlistName(e.target.value)}
-                required
-              />
-              <input
-                type="email"
-                placeholder="Your email"
-                className="w-full rounded-lg border border-solid border-[#e5e7eb] bg-[#f9fafb] p-3 text-base text-[#222] outline-none transition-colors duration-200 focus:border-[1.5px] focus:border-solid focus:border-[#2563eb]"
-                value={waitlistEmail}
-                onChange={e => setWaitlistEmail(e.target.value)}
-                required
-              />
-              <button
-                className="mt-1.5 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg border-none bg-[#a5c8fa] py-3 text-lg font-semibold text-white transition-colors duration-200 hover:bg-[#2563eb]"
-                type="submit"
-                disabled={waitlistLoading}
-              >
-                {waitlistLoading ? "Joining..." : `Join ${activeRole.charAt(0).toUpperCase() + activeRole.slice(1)} Waitlist`} {" "}
-                <span className="ml-1 text-[1.2em]">→</span>
-              </button>
-              {waitlistMessage && (
-                <div className="text-green-600 text-sm mt-2">{waitlistMessage}</div>
-              )}
-              {waitlistError && (
-                <div className="text-red-600 text-sm mt-2">{waitlistError}</div>
-              )}
-            </form>
-          </div>
-     
-          <div className="flex basis-0 flex-col items-start rounded-2xl border-[1.5px] border-solid border-[#e3eafd] bg-[#f9fbff] p-9 shadow-[0_2px_16px_rgba(24,119,242,0.06)] md:min-w-[350px] md:max-w-[420px] md:flex-1">
-            <h3 className="mb-4 flex items-center gap-2 text-base md:text-lg font-semibold text-[#2563eb]">
-              Creator Founder's Circle Benefits
-            </h3>
-            <ul className="m-0 mb-[18px] w-full list-none p-0">
-              <li className="mb-[18px] flex items-start gap-3.5">
-                <img
-                  src={first}
-                  alt="Performance 2"
-                  className="h-10 w-10 object-contain"
-                />
-                <div>
-                  <strong>Hyprlinc :50 Founding Badge (1/50)</strong>
-                  <br />
-                  <span className="text-[0.98rem] text-[#444]">
-                    Visible on profile, listings, dashboards, and partner
-                    pages—builds authority, exclusivity, and long-term status.
-                  </span>
-                </div>
-              </li>
-              <li className="mb-[18px] flex items-start gap-3.5">
-                <img
-                  src={second}
-                  alt="Performance 2"
-                  className="h-10 w-10 object-contain"
-                />
-                <div>
-                  <strong>One Year Free Premium features</strong>
-                  <br />
-                  <span className="text-[0.98rem] text-[#444]">
-                    Get all Premium account features free for full one year.
-                  </span>
-                </div>
-              </li>
-              <li className="mb-[18px] flex items-start gap-3.5">
-                <img
-                  src={third}
-                  alt="Performance 2"
-                  className="h-10 w-10 object-contain"
-                />
-                <div>
-                  <strong>Creator-First Visibility</strong>
-                  <br />
-                  <span className="text-[0.98rem] text-[#444]">
-                    Show up first in brand results for the first 3
-                    months—guaranteed.
-                  </span>
-                </div>
-              </li>
-              <li className="mb-[18px] flex items-start gap-3.5">
-                <img
-                  src={fourth}
-                  alt="Performance 2"
-                  className="h-10 w-10 object-contain"
-                />
-                <div>
-                  <strong>Beta-Only Tools Access</strong>
-                  <br />
-                  <span className="text-[0.98rem] text-[#444]">
-                    Early birds get automatic access to new AI tools before
-                    anyone else.
-                  </span>
-                </div>
-              </li>
-              <li className="mb-[18px] flex items-start gap-3.5">
-                <img
-                  src={fifth}
-                  alt="Performance 2"
-                  className="h-10 w-10 object-contain"
-                />
-                <div>
-                  <strong>Personalised onboarding & Support</strong>
-                  <br />
-                  <span className="text-[0.98rem] text-[#444]">
-                    Our team personally will help your onboarding to the
-                    platform & provide one on one support.
-                  </span>
-                </div>
-              </li>
-            </ul>
-            <div className="mt-2.5 flex items-start gap-2.5 rounded-[10px] border border-solid border-[#FEE2E2] bg-[#EEF2FFB2] p-3 text-[0.98rem] text-[#b45309]">
-              <span className="mt-0.5 text-[1.3em]">⚠️</span>
-              <span className="text-[#111827]">
-                <strong>Not just joining—</strong>you're helping build and
-                directly shape the future of Hyprlinc. These benefits are
-                reserved only for the first 50 early adopters. They will never
-                be offered again.
-              </span>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Join as a influencer, brand and agency */}
       <section
@@ -455,11 +253,11 @@ function App() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
             {/* Influencer Card */}
-            <div className="w-full max-w-xs h-56 rounded-xl bg-[#EBF5FF] border border-gray-200 py-8 flex flex-col items-center justify-center text-center">
+            <div className="w-full max-w-xs h-56 rounded-xl bg-white border border-gray-200 hover:border-[#007AFF] py-8 flex flex-col items-center justify-center text-center">
               <div className="flex flex-col items-center justify-center h-full">
                 <img
                   src={influencer}
-                  className="w-16 mb-4"
+                  className="w-12 mb-4"
                   alt="Influencer icon"
                 />
                 <h2 className="text-lg font-semibold text-gray-800 mb-2">
@@ -468,39 +266,39 @@ function App() {
                 <p className="text-gray-600 mb-6 text-xs">
                   Discover and connect with influencers
                 </p>
-                <button className="bg-[#4B5563] text-white rounded-2xl py-1 hover:bg-gray-600 transition text-sm w-32">
+                <button className="bg-gradient-to-r from-[#153885] to-[#007AFF] text-white rounded-2xl py-1 hover:bg-gray-600 transition text-sm w-32">
                   Get Started
                 </button>
               </div>
             </div>
 
             {/* Brand Card */}
-            <div className="w-full max-w-xs h-56 rounded-xl bg-[#F3F0FF] border border-gray-200 py-8 flex flex-col items-center justify-center text-center">
+            <div className="w-full max-w-xs h-56 rounded-xl bg-white border border-gray-200 hover:border-[#007AFF] py-8 flex flex-col items-center justify-center text-center">
               <div className="flex flex-col items-center justify-center h-full">
-                <img src={brand} className="w-16 mb-4" alt="Brand icon" />
+                <img src={brand} className="w-12 mb-4" alt="Brand icon" />
                 <h2 className="text-lg font-semibold text-gray-800 mb-2">
                   For Brand
                 </h2>
                 <p className="text-gray-600 mb-6 text-xs">
                   Discover and connect with influencers
                 </p>
-                <button className="bg-[#4B5563] text-white rounded-2xl py-1 hover:bg-gray-600 transition text-sm w-32">
+                <button className="bg-gradient-to-r from-[#153885] to-[#007AFF] text-white rounded-2xl py-1 hover:bg-gray-600 transition text-sm w-32">
                   Get Started
                 </button>
               </div>
             </div>
 
             {/* Agency Card */}
-            <div className="w-full max-w-xs h-56 rounded-xl bg-[#EAFAF0] border border-gray-200 py-8 flex flex-col items-center justify-center text-center">
+            <div className="w-full max-w-xs h-56 rounded-xl bg-white border border-gray-200 hover:border-[#007AFF] py-8 flex flex-col items-center justify-center text-center">
               <div className="flex flex-col items-center justify-center h-full">
-                <img src={agency} className="w-16 mb-4" alt="Agency icon" />
+                <img src={agency} className="w-12 mb-4" alt="Agency icon" />
                 <h2 className="text-lg font-semibold text-gray-800 mb-2">
                   For Agency
                 </h2>
                 <p className="text-gray-600 mb-6 text-xs">
                   Discover and connect with influencers
                 </p>
-                <button className="bg-[#4B5563] text-white rounded-2xl py-1 hover:bg-gray-600 transition text-sm w-32">
+                <button className="bg-gradient-to-r from-[#153885] to-[#007AFF] text-white rounded-2xl py-1 hover:bg-gray-600 transition text-sm w-32">
                   Get Started
                 </button>
               </div>
@@ -510,7 +308,7 @@ function App() {
       </section>
 
       {/* Platform Performance Section */}
-      <section
+      {/* <section
         id="problem-solution"
         className="mx-auto mb-16 flex w-full max-w-[1100px] flex-col items-center px-4"
       >
@@ -528,14 +326,7 @@ function App() {
           brand and marketing agencies.
         </div>
         <div className="grid w-full grid-cols-1 gap-7 sm:grid-cols-2 md:grid-cols-4">
-          <div className="flex flex-col items-center rounded-[224px] bg-[#EAFAF0] p-8 transition-transform duration-200 hover:-translate-y-1">
-            <div className="mb-3">
-              <img
-                src={p1}
-                alt="Performance 1"
-                className="h-10 w-10 object-contain text-green-600"
-              />
-            </div>
+          <div className="flex flex-col items-center rounded-xl shadow-lg bg-white p-8 transition-transform duration-200 hover:-translate-y-1">
             <AnimatedNumber endValue={10} suffix="X" />
             <div className="text-center text-xs text-gray-600">
               Faster Campaign Planning & execution
@@ -578,6 +369,61 @@ function App() {
             </div>
             <AnimatedNumber endValue={100} suffix="%" />
             <div className="text-center text-xs text-gray-700 font-medium">
+              Secure Payments with All transactions are protected until
+              campaigns milestones are met.
+            </div>
+          </div>
+        </div>
+      </section> */}
+
+      {/* Platform Performance Section */}
+      <section
+        id="problem-solution"
+        className="mx-auto mb-16 flex w-full max-w-[1100px] flex-col items-center px-4"
+      >
+        <div className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4 border border-blue-500">
+          <span className="flex gap-2 text-sm font-medium text-blue-600">
+            <AiOutlineBarChart className="w-5 h-5" />
+            Platform Performance
+          </span>
+        </div>
+        <h2 className="text-center font-montserrat font-bold text-2xl sm:text-2xl md:text-4xl my-2 bg-gradient-to-r from-[#007AFF] to-[#153885] text-transparent bg-clip-text">
+          Transforming Influencer Marketing
+        </h2>
+        <div className="mb-10 max-w-[600px] text-center text-[1.1rem] text-gray-600">
+          Our AI-powered platform delivers measurable results for creators,
+          brand and marketing agencies.
+        </div>
+        <div className="grid w-full grid-cols-1 gap-7 sm:grid-cols-2 md:grid-cols-4">
+          {/* Card 1 */}
+          <div className="flex flex-col items-center rounded-xl shadow-lg bg-white p-8 transition-transform duration-200 hover:-translate-y-1">
+            <AnimatedNumber endValue={10} suffix="X" />
+            <div className="text-center text-xs text-gray-600">
+              Faster Campaign Planning & execution
+            </div>
+          </div>
+
+          {/* Card 2 - Fixed to match first card */}
+          <div className="flex flex-col items-center rounded-xl shadow-lg bg-white p-8 transition-transform duration-200 hover:-translate-y-1">
+            <AnimatedNumber endValue={3} suffix="X" />
+            <div className="text-center text-xs text-gray-600">
+              Higher engagement rate for Campaigns run on Hyprlinc
+            </div>
+          </div>
+
+          {/* Card 3 - Fixed to match first card */}
+          <div className="flex flex-col items-center rounded-xl shadow-lg bg-white p-8 transition-transform duration-200 hover:-translate-y-1">
+            <AnimatedNumber endValue={80} suffix="%" />
+            <div className="text-center text-xs text-gray-600">
+              Higher Connection rate due to data backed matchmaking & audience
+              profiling
+            </div>
+          </div>
+
+          {/* Card 4 - Fixed to match first card */}
+          <div className="flex flex-col items-center rounded-xl shadow-lg bg-white p-8 transition-transform duration-200 hover:-translate-y-1">
+            <AnimatedNumber endValue={100} suffix="%" />
+            <div className="text-center text-xs text-gray-600">
               Secure Payments with All transactions are protected until
               campaigns milestones are met.
             </div>
@@ -730,7 +576,7 @@ function App() {
                   key={`right-${index}`}
                   className="bg-white rounded-xl border border-[#e6f9f1] p-4 sm:p-5 shadow-sm hover:shadow-md hover:bg-green-50 transition-shadow"
                 >
-                  <div className="flex items-start gap-3 md:gap-4 h-20">
+                  <div className="flex items-start gap-3 md:gap-4 h-32 md:h-20">
                     <img
                       src={item.icon}
                       alt={item.title}
@@ -754,109 +600,6 @@ function App() {
 
       {/* How it works - Updated with consistent typography */}
       <HowItWorks scrollToSection={scrollToSection} />
-
-      {/* 
-      <section
-        id="how-it-works"
-        className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16"
-      >
-        <div className="mb-4 inline-flex items-center gap-2 rounded-xl bg-blue-50 py-1.5 px-3">
-          <span className="text-blue-600 text-sm">How it works</span>
-        </div>
-
-        <h2 className=" text-center font-montserrat font-bold text-2xl sm:text-2xl md:text-2xl text-[#2563eb] mb-2">
-          Transforming Influencer Marketing
-        </h2>
-
-        <p className="mb-12 max-w-[750px] text-center text-[1.1rem] leading-7 text-gray-600">
-          Hyprlinc connects creators, Brand and Marketing agencies in a
-          revolutionary new way enabling seamless collaborations and campaign
-          tracking on multiple channels.
-        </p>
-
-        <div className="mb-10 flex gap-4 justify-center">
-          <button className="px-4 py-2 bg-emerald-500 text-white rounded-full font-medium">
-            For Creators
-          </button>
-          <button className="px-4 py-2 bg-gray-100 text-gray-600 rounded-full font-medium hover:bg-gray-200">
-            For Brands
-          </button>
-          <button className="px-4 py-2 bg-gray-100 text-gray-600 rounded-full font-medium hover:bg-gray-200">
-            For Agencies
-          </button>
-        </div>
-
-        <div className="relative grid grid-cols-1 md:grid-cols-4 gap-8 w-full">
-          <div className="flex flex-col items-center text-center">
-            <div className="relative mb-4 h-12 w-12 flex items-center justify-center rounded-full bg-blue-100">
-              <img
-                src={signup}
-                alt="Signup"
-                className="h-10 w-10 object-contain"
-              />
-            </div>
-            <h3 className="mb-2 text-lg font-semibold text-blue-600">
-              Sign up
-            </h3>
-            <p className="text-base text-gray-600">
-              Register as a brand, influencer, or agency
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center text-center">
-            <div className="mb-4 h-12 w-12 flex items-center justify-center rounded-full bg-blue-100">
-              <img
-                src={create}
-                alt="Create"
-                className="h-10 w-10 object-contain"
-              />
-            </div>
-            <h3 className="mb-2 text-lg font-semibold text-blue-600">
-              Create or Apply for Campaign
-            </h3>
-            <p className="text-base text-gray-600">
-              Find and collaborate on tailored campaigns
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center text-center">
-            <div className="mb-4 h-12 w-12 flex items-center justify-center rounded-full bg-blue-100">
-              <img
-                src={collaborate}hover:bg-red-50
-                alt="Collaborate"
-                className="h-10 w-10 object-contain"
-              />
-            </div>
-            <h3 className="mb-2 text-lg font-semibold text-blue-600">
-              Collaborate & Execute
-            </h3>
-            <p className="text-base text-gray-600">
-              Finalize deliverables and track progress
-            </p>
-          </div>
-
-          <div className="flex flex-col items-center text-center">
-            <div className="mb-4 h-12 w-12 flex items-center justify-center rounded-full bg-blue-100">
-              <img
-                src={getpaid}
-                alt="Get Paid"
-                className="h-10 w-10 object-contain"
-              />
-            </div>
-            <h3 className="mb-2 text-lg font-semibold text-blue-600">
-              Get Paid
-            </h3>
-            <p className="text-base text-gray-600">
-              Post the finalised content and get paid
-            </p>
-          </div>
-        </div>
-
-        <button className="mt-12 flex items-center gap-2 rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700">
-          Get Exclusive Early Access
-        </button>
-        <p className="mt-3 text-sm text-gray-500">Only 50 spots available</p>
-      </section> */}
 
       {/* Features Section */}
       <section
@@ -959,172 +702,6 @@ function App() {
         </div>
       </section>
 
-      {/* Strategic Growth Roadmap Section */}
-      {/* <section
-        id="investors"
-        className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16"
-      >
-        <div className="w-full max-w-full rounded-2xl bg-white p-10 shadow-[0_4px_24px_rgba(0,0,0,0.05)] md:max-w-[850px]">
-          <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-            <span className="text-2xl font-bold text-gray-800">
-              Strategic Growth Roadmaphover:bg-red-50
-            </span>
-            <span className="rounded-lg bg-green-100 py-1 px-3 text-base font-semibold text-green-700">
-              1 of 7 Milestones Completed
-            </span>
-          </div>
-          <div className="relative flex flex-col gap-8 before:absolute before:top-2 before:bottom-2 before:left-[7px] before:w-0.5 before:bg-gray-200">
-            <div className="relative flex items-start gap-6">
-              <div className="z-10 mt-1.5 h-4 w-4 rounded-full border-4 border-solid border-white bg-green-500"></div>
-              <div className="flex-1">
-                <div className="mb-1 flex items-center gap-4">
-                  <span className="text-base font-semibold text-green-600">
-                    April 2025
-                  </span>
-                  <span className="rounded-md bg-green-100 py-0.5 px-2 text-sm font-medium text-green-700">
-                    Completed
-                  </span>
-                </div>
-                <div className="mb-2 text-lg font-bold text-green-700">
-                  Rs 100K Founder Capital
-                </div>
-                <div className="text-base text-gray-600">
-                  Deploy founder capital to build product infrastructure,
-                  validate creator-side demand, and assemble initial ops team.
-                  10,000+ creators and 100+ global brands in pre-launch
-                  pipeline.
-                </div>
-              </div>
-            </div>
-            <div className="relative flex items-start gap-6">
-              <div className="z-10 mt-1.5 h-4 w-4 rounded-full border-4 border-solid border-white bg-blue-500"></div>
-              <div className="flex-1">
-                <div className="mb-1 flex items-center gap-4">
-                  <span className="text-base font-semibold text-blue-600">
-                    August 2025
-                  </span>
-                </div>
-                <div className="mb-2 text-lg font-bold text-blue-700">
-                  MVP Alpha Launch + Hyprlinc :50
-                </div>
-                <div className="mb-3 text-base text-gray-600">
-                  50 hand-picked creators, brands, and agencies testing features
-                  via Hyprlinc:50 program.
-                </div>
-                <div className="flex gap-2">
-                  <span className="rounded-md bg-green-100 py-0.5 px-2.5 text-sm font-semibold text-green-700">
-                    150+ Pilot Partners
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="relative flex items-start gap-6">
-              <div className="z-10 mt-1.5 h-4 w-4 rounded-full border-4 border-solid border-white bg-pink-500"></div>
-              <div className="flex-1">
-                <div className="mb-1 flex items-center gap-4">
-                  <span className="text-base font-semibold text-pink-600">
-                    Q3 2025
-                  </span>
-                </div>
-                <div className="mb-2 text-lg font-bold text-pink-700">
-                  Seed Funding Round (Rs 5M)
-                </div>
-                <div className="mb-3 text-base text-gray-600">
-                  Secure Rs. 5M Seed to accelerate engineering, go-to-market,
-                  and creator onboarding at scale. Targeting 12-month runway and
-                  Rs. 1.5M post-Seed ARR.
-                </div>
-                <div className="flex gap-2">
-                  <span className="rounded-md bg-pink-100 py-0.5 px-2.5 text-sm font-semibold text-pink-700">
-                    Rs. 5M Target
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="relative flex items-start gap-6">
-              <div className="z-10 mt-1.5 h-4 w-4 rounded-full border-4 border-solid border-white bg-purple-500"></div>
-              <div className="flex-1">
-                <div className="mb-1 flex items-center gap-4">
-                  <span className="text-base font-semibold text-purple-600">
-                    Q2 2026
-                  </span>
-                </div>
-                <div className="mb-2 text-lg font-bold text-purple-700">
-                  Hyprlinc Full v1 Launch
-                </div>
-                <div className="mb-3 text-base text-gray-600">
-                  Launch v1 with full dashboard, brand-side analytics, licensing
-                  hub, and API access. Reach Rs1.5M ARR through usage-based
-                  pricing, transactions, and early enterprise deals.
-                </div>
-                <div className="flex gap-2">
-                  <span className="rounded-md bg-purple-100 py-0.5 px-2.5 text-sm font-semibold text-purple-700">
-                    Rs. 1.5M ARR
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="relative flex items-start gap-6">
-              <div className="z-10 mt-1.5 h-4 w-4 rounded-full border-4 border-solid border-white bg-orange-500"></div>
-              <div className="flex-1">
-                <div className="mb-1 flex items-center gap-4">
-                  <span className="text-base font-semibold text-orange-600">
-                    Q4 2026
-                  </span>
-                </div>
-                <div className="mb-2 text-lg font-bold text-orange-700">
-                  Global Scale & Integrations
-                </div>
-                <div className="text-base text-gray-600">
-                  Expand to global markets, integrate with major social and CRM
-                  platforms, and scale operations for 100K+ creators and 1K+
-                  brands.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Final Call to Action Section */}
-      {/* <section className="mx-auto mt-8 flex w-full max-w-[1100px] flex-col items-center px-4 pb-20">
-        <div className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4">
-          <span className="text-sm font-medium text-blue-600">
-            Early Access Ends Soon
-          </span>
-        </div>
-
-        <h2 className="mt-6 mb-5 max-w-[800px] text-center text-3xl md:text-5xl font-bold leading-tight">
-          Secure Your Spot in the{" "}
-          <span className="text-blue-600">AI Creator Economy</span> —
-          <br />
-          Before the Door Closes
-        </h2>
-
-        <div className="mb-8 max-w-[700px] text-center text-lg text-gray-600">
-          Hyprlinc gives you first-mover access to the future of AI-powered
-          influencer marketing. Get early platform perks, preferred placement,
-          and premium tools — before it opens to the public.
-        </div>
-
-        <div className="mb-4 flex flex-col items-center">
-          <button
-            className="group flex cursor-pointer items-center gap-3 rounded-lg bg-blue-600 py-2 md:py-3 px-4 md:px-8 text-lg font-semibold text-white shadow-lg transition-all hover:bg-blue-700 mx-2 md:mx-0"
-            onClick={() => scrollToSection("hyprlinc50")}
-          >
-            Claim Early Access{" "}
-            <span className="ml-1 rounded-md bg-blue-500 py-0.5 px-2.5 text-sm font-medium text-white group-hover:bg-blue-600">
-              Limited Spots
-            </span>
-            <span className="ml-1">→</span>
-          </button>
-        </div>
-
-        <div className="text-base text-gray-500">
-          Only 50 spots available. No commitment required.
-        </div>
-      </section> */}
-
       {/* Trusted Branch */}
       <TrustedBrands />
 
@@ -1161,7 +738,7 @@ const AnimatedNumber = ({ endValue, suffix = "", duration = 2000 }) => {
   }, [endValue, duration]);
 
   return (
-    <div className="mb-1 text-4xl font-medium  text-[#08AA44]">
+    <div className="mb-1 text-4xl font-semibold bg-gradient-to-r from-[#153885] to-[#007AFF] text-transparent bg-clip-text">
       {count}
       {suffix}
     </div>
@@ -1335,10 +912,10 @@ const HowItWorks = ({ scrollToSection }) => {
                 className="w-8 h-8 object-contain"
               />
             </div>
-            <h3 className="mb-1 text-base font-semibold text-gray-800">
+            <h3 className="mb-1 text-[0.7rem] md:text-base font-semibold text-gray-800">
               {step.title}
             </h3>
-            <p className="text-sm text-gray-600">{step.description}</p>
+            <p className="text-[0.6rem]  md:text-sm text-gray-600">{step.description}</p>
           </div>
         ))}
 
@@ -1518,17 +1095,17 @@ const TrustedBrands = () => {
   ];
 
   return (
-    <section className="py-16 overflow-hidden bg-gray-50">
+    <section className="py-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-semibold mb-8 md:mb-12 text-center text-gray-900">
+        <h2 className="text-2xl md:text-3xl font-semibold mb-8 md:mb-12 text-center bg-gradient-to-r from-[#153885] to-[#007AFF] text-transparent bg-clip-text">
           Trusted by leading Brands
         </h2>
         <div className="relative">
           <div className="w-full overflow-hidden">
             <div className="flex animate-slide whitespace-nowrap">
               {[...brands, ...brands, ...brands].map((brand, index) => (
-                <div 
-                  key={`${brand.name}-${index}`} 
+                <div
+                  key={`${brand.name}-${index}`}
                   className="inline-flex px-4 md:px-8 flex-shrink-0"
                 >
                   <img
