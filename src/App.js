@@ -160,9 +160,23 @@ function App() {
 
         <div className="flex items-center gap-2 md:gap-6">
           {/* Sign In Button */}
-          <button className="text-sm">Sign Up</button>
+          <button
+            onClick={() =>
+              (window.location.href =
+                "https://dashboard.hyprlinc.com/creatorsRegister")
+            }
+            className="text-sm"
+          >
+            Sign Up
+          </button>
           {/* Sign Up Button */}
-          <button className="font-semibold mr-2 md:mr-6 flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-br from-[#007AFF] to-[#153885] py-1.5 px-3 md:px-6 text-base text-white shadow-[0_2px_8px_rgba(24,119,242,0.08)] transition-all duration-500 ease-in-out hover:from-[#007AFF] hover:to-[#004999]">
+          <button
+            onClick={() =>
+              (window.location.href =
+                "https://dashboard.hyprlinc.com/creatorsLogin")
+            }
+            className="font-semibold mr-2 md:mr-6 flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-br from-[#007AFF] to-[#153885] py-1.5 px-3 md:px-6 text-base text-white shadow-[0_2px_8px_rgba(24,119,242,0.08)] transition-all duration-500 ease-in-out hover:from-[#007AFF] hover:to-[#004999]"
+          >
             Login
           </button>
         </div>
@@ -224,10 +238,22 @@ function App() {
                 and campaign goals.
               </p>
               <div className="mb-8 flex flex-col gap-3 md:flex-row md:gap-[18px] w-full">
-                <button className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#153885] py-2 md:py-3 px-3 md:px-5 text-[0.9rem] font-semibold text-white shadow-[0_2px_8px_rgba(37,99,235,0.08)] whitespace-nowrap w-full md:w-auto justify-center">
+                <button
+                  onClick={() =>
+                    (window.location.href =
+                      "https://dashboard.hyprlinc.com/creatorsLogin")
+                  }
+                  className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#153885] py-2 md:py-3 px-3 md:px-5 text-[0.9rem] font-semibold text-white shadow-[0_2px_8px_rgba(37,99,235,0.08)] whitespace-nowrap w-full md:w-auto justify-center"
+                >
                   Find Brand
                 </button>
-                <button className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-white text-slate-900 py-2 md:py-3 px-3 md:px-5 text-[0.9rem] font-semibold shadow-[0_2px_8px_rgba(37,99,235,0.08)] whitespace-nowrap w-full md:w-auto justify-center">
+                <button
+                  onClick={() =>
+                    (window.location.href =
+                      "https://dashboard.hyprlinc.com/brandsLogin")
+                  }
+                  className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-white text-slate-900 py-2 md:py-3 px-3 md:px-5 text-[0.9rem] font-semibold shadow-[0_2px_8px_rgba(37,99,235,0.08)] whitespace-nowrap w-full md:w-auto justify-center"
+                >
                   Find Creator
                 </button>
               </div>
@@ -266,7 +292,13 @@ function App() {
                 <p className="text-gray-600 mb-6 text-xs">
                   Discover and connect with influencers
                 </p>
-                <button className="bg-gradient-to-r from-[#153885] to-[#007AFF] text-white rounded-2xl py-1 hover:bg-gray-600 transition text-sm w-32">
+                <button
+                  onClick={() =>
+                    (window.location.href =
+                      "https://dashboard.hyprlinc.com/creatorsLogin")
+                  }
+                  className="bg-gradient-to-r from-[#153885] to-[#007AFF] text-white rounded-2xl py-1 hover:bg-gray-600 transition text-sm w-32"
+                >
                   Get Started
                 </button>
               </div>
@@ -282,7 +314,13 @@ function App() {
                 <p className="text-gray-600 mb-6 text-xs">
                   Discover and connect with influencers
                 </p>
-                <button className="bg-gradient-to-r from-[#153885] to-[#007AFF] text-white rounded-2xl py-1 hover:bg-gray-600 transition text-sm w-32">
+                <button
+                  onClick={() =>
+                    (window.location.href =
+                      "https://dashboard.hyprlinc.com/brandsLogin")
+                  }
+                  className="bg-gradient-to-r from-[#153885] to-[#007AFF] text-white rounded-2xl py-1 hover:bg-gray-600 transition text-sm w-32"
+                >
                   Get Started
                 </button>
               </div>
@@ -298,7 +336,13 @@ function App() {
                 <p className="text-gray-600 mb-6 text-xs">
                   Discover and connect with influencers
                 </p>
-                <button className="bg-gradient-to-r from-[#153885] to-[#007AFF] text-white rounded-2xl py-1 hover:bg-gray-600 transition text-sm w-32">
+                <button
+                  onClick={() =>
+                    (window.location.href =
+                      "https://dashboard.hyprlinc.com/agencyLogin")
+                  }
+                  className="bg-gradient-to-r from-[#153885] to-[#007AFF] text-white rounded-2xl py-1 hover:bg-gray-600 transition text-sm w-32"
+                >
                   Get Started
                 </button>
               </div>
@@ -915,7 +959,9 @@ const HowItWorks = ({ scrollToSection }) => {
             <h3 className="mb-1 text-[0.7rem] md:text-base font-semibold text-gray-800">
               {step.title}
             </h3>
-            <p className="text-[0.6rem]  md:text-sm text-gray-600">{step.description}</p>
+            <p className="text-[0.6rem]  md:text-sm text-gray-600">
+              {step.description}
+            </p>
           </div>
         ))}
 
@@ -1146,7 +1192,7 @@ const Footer = () => {
             <a href="#" className="hover:text-white">
               <FaTwitter />
             </a>
-            <a href="#" className="hover:text-white">
+            <a href="https://www.instagram.com/p/DNfmSWIzUDm/" className="hover:text-white">
               <FaInstagram />
             </a>
             <a href="#" className="hover:text-white">
@@ -1189,17 +1235,17 @@ const Footer = () => {
             <h4 className="font-semibold mb-3">Solutions</h4>
             <ul className="space-y-2 text-white/80">
               <li>
-                <a href="#" className="hover:text-white">
+                <a href="https://dashboard.hyprlinc.com/creatorsLogin" className="hover:text-white">
                   For Creators
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
+                <a href="https://dashboard.hyprlinc.com/brandsLogin" className="hover:text-white">
                   For Brands
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white">
+                <a href="https://dashboard.hyprlinc.com/agencyLogin" className="hover:text-white">
                   For Agencies
                 </a>
               </li>
