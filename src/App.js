@@ -46,6 +46,7 @@ import { joinWaitlist } from "./services/join-waitlist";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CancellationRefundPolicy from "./pages/CancellationRefundPolicy";
+import ShippingAndDeliveryPolicy from "./pages/ShippingAndDeliveryPolicy";
 import { GoQuestion } from "react-icons/go";
 import {
   FaAngleDown,
@@ -1150,6 +1151,7 @@ function App() {
       <Route path="/terms" element={<TermsOfService />} />
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/cancellation-policy" element={<CancellationRefundPolicy />} />
+      <Route path="/shipping-policy" element={<ShippingAndDeliveryPolicy />} />
     </Routes>
   );
 }
@@ -1717,13 +1719,16 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center border-b border-white/20 pb-6">
           <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm text-white/80">
             <Link to="/terms" className="hover:text-white">
-              Terms of Service
+              Terms & Conditions
             </Link>
             <Link to="/privacy" className="hover:text-white">
               Privacy Policy
             </Link>
             <Link to="/cancellation-policy" className="hover:text-white">
-              Cancellation Refund Policy
+              Cancellation & Refund Policy
+            </Link>
+            <Link to="/shipping-policy" className="hover:text-white">
+              Shipping & Delivery Policy
             </Link>
           </div>
           <div className="flex items-center gap-4 mt-4 md:mt-0">

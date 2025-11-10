@@ -22,7 +22,7 @@ const CancellationRefundPolicy = () => {
       <main className="max-w-4xl mx-auto px-4 py-12 md:py-16">
         <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 font-montserrat mb-6 bg-gradient-to-r from-[#007AFF] to-[#153885] text-transparent bg-clip-text">
-            Cancellation Refund Policy
+            Cancellation & Refund Policy
           </h1>
           <div className="prose prose-lg max-w-none text-gray-700 font-montserrat">
             <p className="text-lg mb-8 leading-relaxed">
