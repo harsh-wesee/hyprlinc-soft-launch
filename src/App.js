@@ -741,6 +741,233 @@ const AnimatedNumber = ({ endValue, suffix = "", duration = 2000 }) => {
   );
 };
 
+// const HowItWorks = ({ scrollToSection }) => {
+//   const [activeTab, setActiveTab] = useState("creators");
+//   const sectionRef = useRef(null);
+//   const [isVisible, setIsVisible] = useState(false);
+
+//   const tabConfig = {
+//     creators: "For Creators",
+//     brands: "For Brands",
+//     agencies: "For Agencies",
+//   };
+
+//   const tabColors = {
+//     creators: "from-[#007AFF] to-[#153885]",
+//     brands: "from-[#8C7CD8] to-[#6A5ACD]",
+//     agencies: "from-[#2AB35D] to-[#1E8A42]",
+//   };
+
+//   const stepsData = {
+//     creators: [
+//       {
+//         icon: creator1,
+//         title: "Sign up",
+//         description: "Register as a brand, influencer, or agency",
+//       },
+//       {
+//         icon: creator2,
+//         title: "Create or Apply for Campaign",
+//         description: "Find and collaborate on tailored campaigns",
+//       },
+//       {
+//         icon: creator3,
+//         title: "Collaborate & Execute",
+//         description: "Finalize deliverables and track progress",
+//       },
+//       {
+//         icon: creator4,
+//         title: "Get Paid",
+//         description: "Post the finalised content and get paid",
+//       },
+//     ],
+//     brands: [
+//       {
+//         icon: brand1,
+//         title: "Sign up",
+//         description: "Register as a brand and set up your business profile",
+//       },
+//       {
+//         icon: brand2,
+//         title: "Post a Campaign",
+//         description:
+//           "Create detailed briefs and define your collaboration goals",
+//       },
+//       {
+//         icon: brand3,
+//         title: "Discover & Shortlist",
+//         description:
+//           "Browse verified influencers and connect with your ideal match",
+//       },
+//       {
+//         icon: brand4,
+//         title: "Launch & Measure",
+//         description:
+//           "Execute, track performance, and pay securely on completion",
+//       },
+//     ],
+//     agencies: [
+//       {
+//         icon: agency1,
+//         title: "Register Your Agency",
+//         description: "Create your agency profile and showcase your expertise",
+//       },
+//       {
+//         icon: agency2,
+//         title: "Onboard Creators",
+//         description: "Add and manage your influencer roster in one place",
+//       },
+//       {
+//         icon: agency3,
+//         title: "Find Brand Campaigns",
+//         description: "Access posted campaigns and pitch your creators",
+//       },
+//       {
+//         icon: agency4,
+//         title: "Execute & Report",
+//         description:
+//           "Collaborate, manage deliverables, and report campaign outcomes",
+//       },
+//     ],
+//   };
+
+//   const currentSteps = stepsData[activeTab];
+//   const currentColor = tabColors[activeTab];
+
+//   useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       ([entry]) => setIsVisible(entry.isIntersecting),
+//       { threshold: 0.3 }
+//     );
+//     if (sectionRef.current) observer.observe(sectionRef.current);
+//     return () => observer.disconnect();
+//   }, []);
+
+//   return (
+//     <section
+//       ref={sectionRef}
+//       id="how-it-works"
+//       className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16"
+//     >
+//       {/* Heading */}
+//       <h2 className="text-center font-bold text-2xl md:text-4xl bg-gradient-to-r from-[#153885] to-[#007AFF] text-transparent bg-clip-text my-3">
+//         Transforming Influencer Marketing
+//       </h2>
+
+      // {/* How it works tag */}
+      // <div
+      //   className={`inline-flex items-center gap-2 rounded-xl bg-blue-50 py-1.5 px-3 border border-blue-600 transition-all duration-700 mb-2 ${
+      //     isVisible ? "opacity-100" : "opacity-0"
+      //   }`}
+      // >
+      //   <img
+      //     src={rocket}
+      //     alt="marketing"
+      //     className="w-4 h-4 md:w-5 md:h-5 mt-1 object-contain"
+      //   />
+      //   <span className="text-blue-600 text-sm font-medium">How it works</span>
+      // </div>
+
+//       {/* Subtitle */}
+//       <p className="mb-12 max-w-[750px] text-center text-[1.1rem] leading-7 text-gray-600">
+//         HyprLinc connects creators, Brand and Marketing agencies in a
+//         revolutionary new way enabling seamless collaborations and campaign
+//         tracking on multiple channels.
+//       </p>
+
+//       {/* Tab Buttons */}
+//       <div className="mb-10 flex gap-2 sm:gap-4 justify-center bg-gray-200 rounded-3xl p-2 transition-all duration-700 shadow-inner">
+//         {Object.entries(tabConfig).map(([key, label]) => (
+//           <button
+//             key={key}
+//             onClick={() => setActiveTab(key)}
+//             className={`px-4 py-2 rounded-full font-medium text-sm sm:text-base transition-all duration-300 ${
+//               activeTab === key
+//                 ? `bg-gradient-to-r ${tabColors[key]} text-white shadow`
+//                 : " text-gray-600 hover:bg-gray-200"
+//             }`}
+//           >
+//             {label}
+//           </button>
+//         ))}
+//       </div>
+
+//       {/* Steps with dotted line */}
+//       <div className="relative w-full flex justify-between items-start mt-4">
+//         {currentSteps.map((step, index) => (
+//           <div
+//             key={index}
+//             className="flex flex-col items-center text-center w-1/4 px-2 relative z-10"
+//           >
+//             <div
+//               className={`relative mb-4 h-14 w-14 sm:h-16 sm:w-16 flex items-center justify-center rounded-full bg-blue-100`}
+//             >
+//               <img
+//                 src={step.icon}
+//                 alt={step.title}
+//                 className="w-8 h-8 object-contain"
+//               />
+//             </div>
+//             <h3 className="mb-1 text-[0.7rem] md:text-base font-semibold text-gray-800">
+//               {step.title}
+//             </h3>
+//             <p className="text-[0.6rem]  md:text-sm text-gray-600">
+//               {step.description}
+//             </p>
+//           </div>
+//         ))}
+
+//         {/* Animated Dotted Line */}
+//         <div className="absolute top-7 w-full h-[4px] md:h-2">
+//           <div className="relative w-full h-full flex justify-between items-center px-8">
+//             {Array.from({ length: currentSteps.length - 1 }).map((_, i) => {
+//               const segmentWidth = 100 / (currentSteps.length - 1);
+//               return (
+//                 <div
+//                   key={i}
+//                   className="absolute h-[4px] md:h-2 flex items-center"
+//                   style={{
+//                     left: `${i * segmentWidth}%`,
+//                     width: `${segmentWidth}%`,
+//                   }}
+//                 >
+//                   {Array.from({ length: 20 }).map((_, dotIndex) => (
+//                     <div
+//                       key={dotIndex}
+//                       className={`h-[4px] w-[4px] md:w-2 md:h-2 rounded-full absolute`}
+//                       style={{
+//                         backgroundColor:
+//                           activeTab === "creators"
+//                             ? "#007AFF"
+//                             : activeTab === "brands"
+//                             ? "#8C7CD8"
+//                             : "#2AB35D",
+//                         left: `${dotIndex * 5}%`,
+//                         animation: `pulse 2s infinite ${
+//                           i * 0.5 + dotIndex * 0.05
+//                         }s`,
+//                       }}
+//                     />
+//                   ))}
+//                 </div>
+//               );
+//             })}
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* CTA Button */}
+//       <button
+//         onClick={() => scrollToSection("hyprlinc50")}
+//         className={`mt-12 px-6 py-3 rounded-full bg-gradient-to-r ${currentColor} text-white font-semibold hover:opacity-90 transition-all`}
+//       >
+//         Signup
+//       </button>
+//     </section>
+//   );
+// };
+
+
 const HowItWorks = ({ scrollToSection }) => {
   const [activeTab, setActiveTab] = useState("creators");
   const sectionRef = useRef(null);
@@ -790,20 +1017,17 @@ const HowItWorks = ({ scrollToSection }) => {
       {
         icon: brand2,
         title: "Post a Campaign",
-        description:
-          "Create detailed briefs and define your collaboration goals",
+        description: "Create detailed briefs and define your collaboration goals",
       },
       {
         icon: brand3,
         title: "Discover & Shortlist",
-        description:
-          "Browse verified influencers and connect with your ideal match",
+        description: "Browse verified influencers and connect with your ideal match",
       },
       {
         icon: brand4,
         title: "Launch & Measure",
-        description:
-          "Execute, track performance, and pay securely on completion",
+        description: "Execute, track performance, and pay securely on completion",
       },
     ],
     agencies: [
@@ -825,8 +1049,7 @@ const HowItWorks = ({ scrollToSection }) => {
       {
         icon: agency4,
         title: "Execute & Report",
-        description:
-          "Collaborate, manage deliverables, and report campaign outcomes",
+        description: "Collaborate, manage deliverables, and report campaign outcomes",
       },
     ],
   };
@@ -847,125 +1070,199 @@ const HowItWorks = ({ scrollToSection }) => {
     <section
       ref={sectionRef}
       id="how-it-works"
-      className="mx-auto mt-20 flex w-full max-w-[1100px] flex-col items-center px-4 py-16"
+      className="mx-auto w-full max-w-[1100px] px-4 py-16"
     >
-      {/* Heading */}
-      <h2 className="text-center font-bold text-2xl md:text-4xl bg-gradient-to-r from-[#153885] to-[#007AFF] text-transparent bg-clip-text my-3">
+
+
+        {/* Centered Rocket Section */}
+      <div className="flex justify-center">
+        <div className={`inline-flex items-center gap-2 rounded-xl bg-blue-50 py-2 px-4 border border-blue-600 transition-all duration-700 mb-4 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+          <img src={rocket} alt="rocket" className="w-4 h-4" />
+          <span className="text-blue-600 text-sm font-medium">How it works</span>
+        </div>
+      </div>
+
+            <h2 className="text-center text-2xl md:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-[#153885] to-[#007AFF] text-transparent bg-clip-text">
         Transforming Influencer Marketing
       </h2>
 
-      {/* How it works tag */}
-      <div
-        className={`inline-flex items-center gap-2 rounded-xl bg-blue-50 py-1.5 px-3 border border-blue-600 transition-all duration-700 mb-2 ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <img
-          src={rocket}
-          alt="marketing"
-          className="w-4 h-4 md:w-5 md:h-5 mt-1 object-contain"
-        />
-        <span className="text-blue-600 text-sm font-medium">How it works</span>
-      </div>
-
-      {/* Subtitle */}
-      <p className="mb-12 max-w-[750px] text-center text-[1.1rem] leading-7 text-gray-600">
-        HyprLinc connects creators, Brand and Marketing agencies in a
-        revolutionary new way enabling seamless collaborations and campaign
-        tracking on multiple channels.
+      <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto text-sm md:text-base">
+        HyprLinc connects creators, Brand and Marketing agencies in a revolutionary new way enabling seamless collaborations and campaign tracking on multiple channels.
       </p>
 
-      {/* Tab Buttons */}
-      <div className="mb-10 flex gap-2 sm:gap-4 justify-center bg-gray-200 rounded-3xl p-2 transition-all duration-700 shadow-inner">
+      {/* Tab Buttons - Mobile Optimized */}
+      <div className="mb-8 flex gap-1 sm:gap-2 justify-center bg-gray-200 rounded-3xl p-1 sm:p-2 transition-all duration-700 shadow-inner max-w-md mx-auto">
         {Object.entries(tabConfig).map(([key, label]) => (
           <button
             key={key}
             onClick={() => setActiveTab(key)}
-            className={`px-4 py-2 rounded-full font-medium text-sm sm:text-base transition-all duration-300 ${
-              activeTab === key
-                ? `bg-gradient-to-r ${tabColors[key]} text-white shadow`
-                : " text-gray-600 hover:bg-gray-200"
-            }`}
+            className={`flex-1 px-3 py-2 rounded-full font-medium text-xs sm:text-sm transition-all duration-300 ${activeTab === key
+              ? `bg-gradient-to-r ${tabColors[key]} text-white shadow`
+              : "text-gray-600 hover:bg-gray-300"
+              }`}
           >
             {label}
           </button>
         ))}
       </div>
 
-      {/* Steps with dotted line */}
-      <div className="relative w-full flex justify-between items-start mt-4">
-        {currentSteps.map((step, index) => (
-          <div
-            key={index}
-            className="flex flex-col items-center text-center w-1/4 px-2 relative z-10"
-          >
+      {/* Steps with responsive design */}
+      <div className="relative w-full">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 relative z-10">
+          {currentSteps.map((step, index) => (
             <div
-              className={`relative mb-4 h-14 w-14 sm:h-16 sm:w-16 flex items-center justify-center rounded-full bg-blue-100`}
+              key={index}
+              className="flex flex-col items-center text-center p-3"
             >
-              <img
-                src={step.icon}
-                alt={step.title}
-                className="w-8 h-8 object-contain"
-              />
-            </div>
-            <h3 className="mb-1 text-[0.7rem] md:text-base font-semibold text-gray-800">
-              {step.title}
-            </h3>
-            <p className="text-[0.6rem]  md:text-sm text-gray-600">
-              {step.description}
-            </p>
-          </div>
-        ))}
-
-        {/* Animated Dotted Line */}
-        <div className="absolute top-7 w-full h-[4px] md:h-2">
-          <div className="relative w-full h-full flex justify-between items-center px-8">
-            {Array.from({ length: currentSteps.length - 1 }).map((_, i) => {
-              const segmentWidth = 100 / (currentSteps.length - 1);
-              return (
-                <div
-                  key={i}
-                  className="absolute h-[4px] md:h-2 flex items-center"
-                  style={{
-                    left: `${i * segmentWidth}%`,
-                    width: `${segmentWidth}%`,
-                  }}
-                >
-                  {Array.from({ length: 20 }).map((_, dotIndex) => (
-                    <div
-                      key={dotIndex}
-                      className={`h-[4px] w-[4px] md:w-2 md:h-2 rounded-full absolute`}
-                      style={{
-                        backgroundColor:
-                          activeTab === "creators"
-                            ? "#007AFF"
-                            : activeTab === "brands"
-                            ? "#8C7CD8"
-                            : "#2AB35D",
-                        left: `${dotIndex * 5}%`,
-                        animation: `pulse 2s infinite ${
-                          i * 0.5 + dotIndex * 0.05
-                        }s`,
-                      }}
-                    />
-                  ))}
+              <div className={`relative mb-3 h-12 w-12 md:h-16 md:w-16 flex items-center justify-center rounded-full bg-blue-100 shadow-lg`}>
+                <img
+                  src={step.icon}
+                  alt={step.title}
+                  className="w-6 h-6 md:w-8 md:h-8 object-contain"
+                />
+                <div className="absolute -top-2 -right-2 h-6 w-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">
+                  {index + 1}
                 </div>
-              );
-            })}
-          </div>
+              </div>
+              <h3 className="text-sm md:text-base font-semibold text-gray-800 mb-1">
+                {step.title}
+              </h3>
+              <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Connecting Line - Hidden on mobile, shown on desktop */}
+        <div className="hidden md:block absolute top-8 left-0 right-0 h-0.5 bg-gray-300 z-0">
+          <div className="absolute top-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-green-500 w-full animate-pulse"></div>
         </div>
       </div>
 
       {/* CTA Button */}
-      <button
-        onClick={() => scrollToSection("hyprlinc50")}
-        className={`mt-12 px-6 py-3 rounded-full bg-gradient-to-r ${currentColor} text-white font-semibold hover:opacity-90 transition-all`}
-      >
-        Signup
-      </button>
+      <div className="text-center mt-8">
+        <button
+          onClick={() => scrollToSection("hyprlinc50")}
+          className={`px-8 py-3 rounded-full bg-gradient-to-r ${currentColor} text-white font-semibold hover:shadow-lg transition-all transform hover:-translate-y-1`}
+        >
+          Get Started
+        </button>
+      </div>
     </section>
   );
 };
+
+
+// const FrequentlyAskedQuestions = () => {
+//   const [activeIndex, setActiveIndex] = useState(null);
+
+//   const toggleFAQ = (index) => {
+//     setActiveIndex(activeIndex === index ? null : index);
+//   };
+
+  // const faqs = [
+  //   {
+  //     question: "What is HyprLinc?",
+  //     answer:
+  //       "HyprLinc is a smart influencer marketing platform designed to help brands, creators, and agencies discover, connect, and collaborate seamlessly. We use AI to make influencer discovery and campaign execution faster, simpler, and more effective.",
+  //   },
+  //   {
+  //     question: "Is HyprLinc free to use?",
+  //     answer:
+  //       "Yes, creating an account and using core platform features is completely free. We charge a minimal transaction fee only when a paid campaign is executed through the platform.",
+  //   },
+  //   {
+  //     question: "How can influencers join HyprLinc?",
+  //     answer:
+  //       "Influencers can sign up using their Instagram or YouTube accounts, select their niche, and complete a simple onboarding process. Once verified, they can browse and apply for campaigns from top brands.",
+  //   },
+  //   {
+  //     question: "How do brands discover influencers?",
+  //     answer:
+  //       "Brands can post a campaign brief and use detailed filters to discover the most relevant creators based on category, region, audience profile, and performance — all within a few clicks.",
+  //   },
+  //   {
+  //     question: "Is influencer data reliable on HyprLinc?",
+  //     answer:
+  //       "Yes, all performance metrics shown on profiles are either connected directly through the creator's account or verified through internal checks, ensuring authenticity.",
+  //   },
+  //   {
+  //     question: "How are campaign payments handled?",
+  //     answer:
+  //       "To ensure security for both parties, campaign payments are held safely until deliverables are marked completed and approved by the brand.",
+  //   },
+  //   {
+  //     question:
+  //       "What happens if there’s a dispute between a brand and an influencer?",
+  //     answer:
+  //       "HyprLinc offers a simple resolution system. If any conflict arises, both parties can raise a concern, and our support team will assist based on the campaign agreement and activity history.",
+  //   },
+  //   {
+  //     question: "Can agencies use Hyprlinc?",
+  //     answer:
+  //       "Yes! Agencies can register and manage multiple creators and campaigns from a single dashboard. They can also be discovered by brands looking for expert execution partners.",
+  //   },
+  //   {
+  //     question: "Can I post unpaid or barter campaigns?",
+  //     answer:
+  //       "Yes, brands can post both paid and barter-based collaborations. The campaign type is clearly visible to influencers before they apply.",
+  //   },
+  //   {
+  //     question: "Is HyprLinc available only in India?",
+  //     answer:
+  //       "HyprLinc is currently focused on the Indian market but is designed to scale globally. We’re already onboarding creators and brands for cross-border collaborations.",
+  //   },
+  // ];
+
+//   return (
+//     <section className="text-white py-20 px-4 sm:px-8 lg:px-16">
+//       <div className="max-w-4xl mx-auto space-y-2">
+//         <h1 className="text-3xl text-gray-800 font-semibold flex items-center justify-center mb-6">
+//           Frequently Asked Questions
+//         </h1>
+
+//         {faqs.map((faq, index) => (
+//           <div key={index} className="space-y-2 group">
+//             {" "}
+//             {/* Added group class */}
+//             <div
+//               className="flex justify-between items-center cursor-pointer p-2 rounded"
+//               onClick={() => toggleFAQ(index)}
+//             >
+//               <h3 className="text-lg text-gray-800 font-medium">
+//                 {faq.question}
+//               </h3>
+//               <span className="text-gray-800">
+//                 {activeIndex === index ? (
+//                   <FaAngleUp className="w-5 h-5" />
+//                 ) : (
+//                   <FaAngleDown className="w-5 h-5" />
+//                 )}
+//               </span>
+//             </div>
+//             {activeIndex === index && (
+//               <div className="mt-2 px-2">
+//                 <p className="text-gray-700">{faq.answer}</p>
+//               </div>
+//             )}
+//             <hr className="border-gray-300 my-4" />{" "}
+//             {/* Lightened the border color */}
+//           </div>
+//         ))}
+
+//         <div className=" flex items-center justify-center gap-2 py-7">
+//           <p className="text-gray-700">My question is not here.</p>
+//           <button className="flex gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-[#007AFF] to-[#153885] text-white font-semibold hover:bg-blue-700 transition-all">
+//             CONNECT US
+//             <BsArrowUpRight className="w-6 h-6" />
+//           </button>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
 
 const FrequentlyAskedQuestions = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -1029,46 +1326,46 @@ const FrequentlyAskedQuestions = () => {
   ];
 
   return (
-    <section className="text-white py-20 px-4 sm:px-8 lg:px-16">
-      <div className="max-w-4xl mx-auto space-y-2">
-        <h1 className="text-3xl text-gray-800 font-semibold flex items-center justify-center mb-6">
+    <section className="py-16 px-4 bg-gray-50">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8">
           Frequently Asked Questions
-        </h1>
+        </h2>
 
-        {faqs.map((faq, index) => (
-          <div key={index} className="space-y-2 group">
-            {" "}
-            {/* Added group class */}
-            <div
-              className="flex justify-between items-center cursor-pointer p-2 rounded"
-              onClick={() => toggleFAQ(index)}
-            >
-              <h3 className="text-lg text-gray-800 font-medium">
-                {faq.question}
-              </h3>
-              <span className="text-gray-800">
-                {activeIndex === index ? (
-                  <FaAngleUp className="w-5 h-5" />
-                ) : (
-                  <FaAngleDown className="w-5 h-5" />
-                )}
-              </span>
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+              <button
+                className="flex justify-between items-center w-full p-4 md:p-6 text-left hover:bg-gray-50 transition-colors"
+                onClick={() => toggleFAQ(index)}
+              >
+                <h3 className="text-sm md:text-base font-semibold text-gray-800 pr-4">
+                  {faq.question}
+                </h3>
+                <span className="text-gray-600 flex-shrink-0">
+                  {activeIndex === index ? (
+                    <FaAngleUp className="w-5 h-5" />
+                  ) : (
+                    <FaAngleDown className="w-5 h-5" />
+                  )}
+                </span>
+              </button>
+              {activeIndex === index && (
+                <div className="px-4 md:px-6 pb-4 md:pb-6">
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              )}
             </div>
-            {activeIndex === index && (
-              <div className="mt-2 px-2">
-                <p className="text-gray-700">{faq.answer}</p>
-              </div>
-            )}
-            <hr className="border-gray-300 my-4" />{" "}
-            {/* Lightened the border color */}
-          </div>
-        ))}
+          ))}
+        </div>
 
-        <div className=" flex items-center justify-center gap-2 py-7">
-          <p className="text-gray-700">My question is not here.</p>
-          <button className="flex gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-[#007AFF] to-[#153885] text-white font-semibold hover:bg-blue-700 transition-all">
-            CONNECT US
-            <BsArrowUpRight className="w-6 h-6" />
+        <div className="text-center mt-8">
+          <p className="text-gray-600 mb-4">My question is not here.</p>
+          <button className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-[#007AFF] to-[#153885] text-white font-semibold hover:shadow-lg transition-all">
+            CONTACT US
+            <BsArrowUpRight className="w-4 h-4" />
           </button>
         </div>
       </div>
