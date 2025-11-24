@@ -158,7 +158,7 @@ function App() {
           </nav>
         </div>
 
-        <div className="flex items-center gap-2 md:gap-6">
+        <div className="hidden md:flex items-center gap-2 md:gap-6">
           {/* Sign In Button */}
           <button
             onClick={() =>
@@ -212,6 +212,27 @@ function App() {
           >
             How It Works
           </span>
+          <div className=" flex gap-2 p-4 justify-end">
+           <button
+            onClick={() =>
+              (window.location.href =
+                "https://dashboard.hyprlinc.com/creatorsRegister")
+            }
+            className="text-sm"
+          >
+            Sign Up
+          </button>
+          {/* Sign Up Button */}
+          <button
+            onClick={() =>
+              (window.location.href =
+                "https://dashboard.hyprlinc.com/creatorsLogin")
+            }
+            className="font-semibold mr-2 md:mr-6 flex cursor-pointer items-center gap-2.5 rounded-lg border-none bg-gradient-to-br from-[#007AFF] to-[#153885] py-1.5 px-3 md:px-6 text-base text-white shadow-[0_2px_8px_rgba(24,119,242,0.08)] transition-all duration-500 ease-in-out hover:from-[#007AFF] hover:to-[#004999]"
+          >
+            Login
+          </button>
+          </div>
         </div>
       )}
 
@@ -350,75 +371,6 @@ function App() {
           </div>
         </div>
       </section>
-
-      {/* Platform Performance Section */}
-      {/* <section
-        id="problem-solution"
-        className="mx-auto mb-16 flex w-full max-w-[1100px] flex-col items-center px-4"
-      >
-        <div className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4 border border-blue-500">
-          <span className="flex gap-2 text-sm font-medium text-blue-600">
-            <AiOutlineBarChart className="w-5 h-5" />
-            Platform Performance
-          </span>
-        </div>
-        <h2 className="text-center font-montserrat font-bold text-2xl sm:text-2xl md:text-4xl my-2 bg-gradient-to-r from-[#007AFF] to-[#153885] text-transparent bg-clip-text">
-          Transforming Influencer Marketing
-        </h2>
-        <div className="mb-10 max-w-[600px] text-center text-[1.1rem] text-gray-600">
-          Our AI-powered platform delivers measurable results for creators,
-          brand and marketing agencies.
-        </div>
-        <div className="grid w-full grid-cols-1 gap-7 sm:grid-cols-2 md:grid-cols-4">
-          <div className="flex flex-col items-center rounded-xl shadow-lg bg-white p-8 transition-transform duration-200 hover:-translate-y-1">
-            <AnimatedNumber endValue={10} suffix="X" />
-            <div className="text-center text-xs text-gray-600">
-              Faster Campaign Planning & execution
-            </div>
-          </div>
-          <div className="flex flex-col items-center rounded-[224px] bg-[#EAFAF0] p-8 transition-transform duration-200 hover:-translate-y-1">
-            <div className="mb-3">
-              <img
-                src={p2}
-                alt="Performance 2"
-                className="h-10 w-10 object-contain "
-              />
-            </div>
-            <AnimatedNumber endValue={3} suffix="X" />
-            <div className="text-center text-xs text-gray-600">
-              Higher engagement rate for Campaigns run on Hyprlinc
-            </div>
-          </div>
-          <div className="flex flex-col items-center rounded-[224px] bg-[#EAFAF0] p-8 transition-transform duration-200 hover:-translate-y-1">
-            <div className="mb-3">
-              <img
-                src={p3}
-                alt="Performance 3"
-                className="h-10 w-10 object-contain"
-              />
-            </div>
-            <AnimatedNumber endValue={80} suffix="%" />
-            <div className="text-center text-xs text-gray-600">
-              Higher Connection rate due to data backed matchmaking & audience
-              profiling
-            </div>
-          </div>
-          <div className="flex flex-col items-center rounded-[224px] bg-[#EAFAF0] p-8 transition-transform duration-200 hover:-translate-y-1">
-            <div className="mb-3">
-              <img
-                src={p4}
-                alt="Performance 4"
-                className="h-10 w-10 object-contain"
-              />
-            </div>
-            <AnimatedNumber endValue={100} suffix="%" />
-            <div className="text-center text-xs text-gray-700 font-medium">
-              Secure Payments with All transactions are protected until
-              campaigns milestones are met.
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* Platform Performance Section */}
       <section
