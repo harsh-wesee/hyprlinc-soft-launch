@@ -12,6 +12,7 @@ import UserSpecificJoin from "./components/UserSpecificJoin";
 import IndustryChallenge from "./components/IndustryChallenge";
 import Features from "./components/Features";
 import EndConnection from "./components/EndConnection";
+// this is the small testing commit
 
 function App() {
   const [activeRole, setActiveRole] = useState("creator");
