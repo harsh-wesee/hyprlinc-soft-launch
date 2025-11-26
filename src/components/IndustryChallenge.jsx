@@ -105,6 +105,7 @@ const IndustryChallenge = () => {
           whileInView="visible"
           viewport={{ once: false, margin: "-100px" }}
           className="mx-auto mt-20 mb-16 flex w-full max-w-[1100px] flex-col items-center px-4"
+          id="problem-solution"
         >
           <motion.div variants={itemVariants} className="inline-flex items-center rounded-full bg-blue-50 py-1 px-4 border border-blue-600">
             <span className="text-sm font-medium text-blue-600">
