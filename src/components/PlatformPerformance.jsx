@@ -41,15 +41,14 @@ const PlatformPerformanceStats = () => {
   };
 
   const stats = [
-    { value: 10, suffix: "X", text: "Faster Campaign Planning & execution" },
-    { value: 3, suffix: "X", text: "Higher engagement rate for Campaigns run on Hyprlinc" },
-    { value: 80, suffix: "%", text: "Higher Connection rate due to data backed matchmaking & audience profiling" },
-    { value: 100, suffix: "%", text: "Secure Payments with All transactions are protected until campaigns milestones are met." }
+    { value: 10, suffix: "X", text: "Average influencer engagement increase" },
+    { value: 3, suffix: "X", text: "Return on marketing investment" },
+    { value: 80, suffix: "%", text: "Faster campaign deployment" },
+    { value: 100, suffix: "%", text: "Trust our platform" }
   ];
 
   return (
     <section
-      id="problem-solution"
       className="mx-auto mb-16 flex w-full max-w-[1100px] flex-col items-center px-4"
     >
       <motion.div
@@ -105,7 +104,7 @@ const PlatformPerformanceStats = () => {
             className="flex flex-col items-center rounded-xl shadow-lg bg-white p-8 transition-transform duration-200"
           >
             <AnimatedNumber endValue={stat.value} suffix={stat.suffix} />
-            <div className="text-center text-xs text-gray-600">
+            <div className="font-inter font-normal text-center text-[13px] md:text-[14px] leading-[20px] md:leading-[22px] text-black mt-1">
               {stat.text}
             </div>
           </motion.div>
