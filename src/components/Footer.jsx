@@ -1,5 +1,5 @@
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa6";
-
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-[#007BFF] to-[#003B95] text-white px-6 py-12">
@@ -7,15 +7,18 @@ const Footer = () => {
         {/* Top Links */}
         <div className="flex flex-col md:flex-row justify-between items-center border-b border-white/20 pb-6">
           <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm text-white/80">
-            <a href="#" className="hover:text-white">
-              Terms of Service
-            </a>
-            <a href="#" className="hover:text-white">
+            <Link to="/terms" className="hover:text-white">
+              Terms & Conditions
+            </Link>
+            <Link to="/privacy" className="hover:text-white">
               Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white">
-              Cancellation Refund Policy
-            </a>
+            </Link>
+            <Link to="/cancellation-policy" className="hover:text-white">
+              Cancellation & Refund Policy
+            </Link>
+            <Link to="/shipping-policy" className="hover:text-white">
+              Shipping & Delivery Policy
+            </Link>
           </div>
           <div className="flex items-center gap-4 mt-4 md:mt-0">
             <span className="text-white/80 text-sm">Follow us</span>
