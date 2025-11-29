@@ -1,6 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../logo.png';
+import logo from '../images/logo.png';
 
 const TermsOfService = () => {
   return (
@@ -248,7 +247,7 @@ const TermsOfService = () => {
                   href="mailto:legal@hyprlinc.com" 
                   className="text-blue-600 hover:text-blue-700 font-medium underline"
                 >
-                  legal@hyprlinc.com
+                  business@hyprlinc.com
                 </a>
               </p>
             </section>
