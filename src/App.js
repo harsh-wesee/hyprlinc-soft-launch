@@ -16,6 +16,7 @@ import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CancellationRefundPolicy from "./pages/CancellationRefundPolicy";
 import ShippingAndDeliveryPolicy from "./pages/ShippingAndDeliveryPolicy";
+import DataDeletionInstructions from "./pages/DataDeletionInstructions";
 import { Route, Routes } from "react-router-dom";
 
 // Home component containing the main landing page
@@ -109,6 +110,7 @@ function App() {
       <Route path="/privacy" element={<PrivacyPolicy />} />
       <Route path="/cancellation-policy" element={<CancellationRefundPolicy />} />
       <Route path="/shipping-policy" element={<ShippingAndDeliveryPolicy />} />
+      <Route path="/data-deletion-instructions" element={<DataDeletionInstructions />} />
     </Routes>
   );
 }
