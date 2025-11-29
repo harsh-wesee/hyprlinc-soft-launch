@@ -89,7 +89,7 @@ const Hero = () => {
                   (window.location.href =
                     "https://dashboard.hyprlinc.com/creatorsLogin")
                 }
-                className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#153885] py-2 md:py-3 px-3 md:px-5 text-[0.9rem] font-semibold text-white shadow-[0_2px_8px_rgba(37,99,235,0.08)] whitespace-nowrap w-full md:w-auto justify-center"
+                className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-gradient-to-r from-[#007AFF] to-[#153885] py-2 md:py-3 px-3 md:px-5 text-[0.9rem] font-semibold text-white shadow-lg whitespace-nowrap w-full md:w-auto justify-center"
               >
                 Find Brands
               </motion.button>
@@ -100,7 +100,7 @@ const Hero = () => {
                   (window.location.href =
                     "https://dashboard.hyprlinc.com/brandsLogin")
                 }
-                className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-white text-slate-900 py-2 md:py-3 px-3 md:px-5 text-[0.9rem] font-semibold shadow-[0_2px_8px_rgba(37,99,235,0.08)] whitespace-nowrap w-full md:w-auto justify-center"
+                className="flex cursor-pointer items-center gap-2 rounded-lg border-none bg-white text-slate-900 py-2 md:py-3 px-3 md:px-5 text-[0.9rem] font-semibold whitespace-nowrap w-full md:w-auto justify-center shadow-lg"
               >
                 Find Creators
               </motion.button>

@@ -67,7 +67,7 @@ const UserSpecificJoin = () => {
                             whileHover="hover"
                             transition={{
                                 duration: 0.6,
-                                delay: index * 0.2, // Stagger delay for each card
+                                delay: index * 0.2,
                                 ease: "easeOut"
                             }}
                             className="w-full max-w-xs h-56 rounded-xl bg-white border border-gray-100 hover:border-[#007AFF] shadow-xl py-8 flex flex-col items-center justify-center text-center"
@@ -82,14 +82,14 @@ const UserSpecificJoin = () => {
                                 <h2 className="text-lg font-semibold text-gray-800 mb-2">
                                     {role.title}
                                 </h2>
-                                <p className="text-gray-600 mb-6 text-xs">
+                                <p className="font-inter font-normal text-[13px] md:text-[14px] leading-[20px] md:leading-[22px] text-gray-700 mb-2">
                                     {role.description}
                                 </p>
                                 <motion.button
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     onClick={() => (window.location.href = role.link)}
-                                    className="bg-gradient-to-r from-[#153885] to-[#007AFF] text-white rounded-2xl py-1 hover:bg-gray-600 transition text-sm w-32"
+                                    className="bg-gradient-to-r from-[#153885] to-[#007AFF] font-inter text-white rounded-2xl py-2 hover:bg-gray-600 transition text-sm w-32"
                                 >
                                     Get Started
                                 </motion.button>
